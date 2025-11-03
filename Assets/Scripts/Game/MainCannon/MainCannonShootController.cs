@@ -1,3 +1,4 @@
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -15,11 +16,14 @@ namespace Game.MainCannon
         [SerializeField] private GameObject projectilePrefab;
         [SerializeField] private Transform firePoint;
         [SerializeField] private float bulletSpeed = 10f;
+        [SerializeField] private float rotateAnimationDuration = 0.1f;
+        [SerializeField] private float angleTolerance = 1f;
 
         [Header("Click detection zone")]
         [SerializeField] private Collider2D clickAreaCollider;
         [SerializeField] private bool useWorldArea = true;
 
+        private Tween _rotationTween;
         private Camera mainCamera;
 
         private void OnEnable()
@@ -47,12 +51,31 @@ namespace Game.MainCannon
             mouseWorldPos.z = barrelTransform.position.z;
 
             Vector3 direction = (mouseWorldPos - barrelTransform.position).normalized;
-            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-            barrelTransform.rotation = Quaternion.Euler(0, 0, angle - 90f); 
+            float targetAngle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90f;
+            // current Barrel rotation angle
+            float currentAngle = barrelTransform.eulerAngles.z;
+            
+            float angleDelta = Mathf.DeltaAngle(currentAngle, targetAngle);
 
-            Fire(direction);
+            if (Mathf.Abs(angleDelta) < angleTolerance)
+            {
+                // Fire instantly if angle difference is too small
+                Fire(direction);
+            }
+            else
+            {
+                // If ingle is too big shoot after angle change
+                _rotationTween?.Kill();
+                _rotationTween = barrelTransform
+                    .DORotate(new Vector3(0, 0, targetAngle), rotateAnimationDuration)
+                    .SetEase(Ease.OutQuad)
+                    .OnComplete(() => Fire(direction));
+            }
         }
-
+        private void OnDestroy()
+        {
+            _rotationTween?.Kill();
+        }
         private void Fire(Vector3 direction)
         {
             GameObject projectile = Instantiate(projectilePrefab, firePoint.position, Quaternion.identity);

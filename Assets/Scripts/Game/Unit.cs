@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace Game
@@ -8,6 +9,14 @@ namespace Game
     public class Unit: MonoBehaviour,IStatsDisplay
     {
         [SerializeField] private StatsData _stats;
+
+        private void Awake()
+        {
+            foreach(var upgrade in _stats.upgrades)
+            {
+                upgrade.baseObject = gameObject;
+            }
+        }
 
         public StatsData GetStats()
         {

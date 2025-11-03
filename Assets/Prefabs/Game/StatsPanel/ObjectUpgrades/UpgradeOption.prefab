@@ -433,7 +433,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2041811501215689672}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 8833982730149377402}
+        m_TargetAssemblyTypeName: Game.UpgradeUI, Assembly-CSharp
+        m_MethodName: ApplyUpgrade
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &8833982730149377402
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -451,6 +463,7 @@ MonoBehaviour:
   upgradeCost: {fileID: 52794015546517526}
   upgradeCurrencyImage: {fileID: 3129702438607184155}
   upgradeComboValue: {fileID: 3041291782882522733}
+  baseObjectReference: {fileID: 0}
 --- !u!1 &2172246853148455825
 GameObject:
   m_ObjectHideFlags: 0

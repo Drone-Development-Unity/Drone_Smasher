@@ -316,7 +316,10 @@ MonoBehaviour:
     - upgradeImage: {fileID: 0}
       upgradeName: DamageIncrease
       upgradeCost: 100
-      upgradeValueImage: {fileID: 0}
+      upgradeCurrencyImage: {fileID: 0}
+      upgradeAmount: 2
+      targetPropertyName: Damage
+      baseObject: {fileID: 0}
       upgradeComboValue: 0
 --- !u!114 &6863729421712627718
 MonoBehaviour:
@@ -351,6 +354,8 @@ MonoBehaviour:
   projectilePrefab: {fileID: 1912224143844839675, guid: 77aaa6272bf792e41b87595e520eaedb, type: 3}
   firePoint: {fileID: 3347365796296425806}
   bulletSpeed: 10
+  rotateAnimationDuration: 0.2
+  angleTolerance: 10
   clickAreaCollider: {fileID: 0}
   useWorldArea: 1
 --- !u!1 &8752593938428485285

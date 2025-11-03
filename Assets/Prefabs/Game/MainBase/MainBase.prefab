@@ -300,11 +300,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6852982171782271209, guid: 582afa4546c036048b064b3f54dd5342, type: 3}
       propertyPath: _stats.upgrades.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6852982171782271209, guid: 582afa4546c036048b064b3f54dd5342, type: 3}
       propertyPath: _stats.properties.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6852982171782271209, guid: 582afa4546c036048b064b3f54dd5342, type: 3}
       propertyPath: _stats.upgrades.Array.data[0].upgradeCost
@@ -323,12 +323,36 @@ PrefabInstance:
       value: CritRateIncrease
       objectReference: {fileID: 0}
     - target: {fileID: 6852982171782271209, guid: 582afa4546c036048b064b3f54dd5342, type: 3}
+      propertyPath: _stats.upgrades.Array.data[2].upgradeCost
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 6852982171782271209, guid: 582afa4546c036048b064b3f54dd5342, type: 3}
+      propertyPath: _stats.upgrades.Array.data[2].upgradeName
+      value: CriticalDamageIncrease
+      objectReference: {fileID: 0}
+    - target: {fileID: 6852982171782271209, guid: 582afa4546c036048b064b3f54dd5342, type: 3}
+      propertyPath: _stats.upgrades.Array.data[0].upgradeAmount
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6852982171782271209, guid: 582afa4546c036048b064b3f54dd5342, type: 3}
+      propertyPath: _stats.upgrades.Array.data[1].upgradeAmount
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6852982171782271209, guid: 582afa4546c036048b064b3f54dd5342, type: 3}
+      propertyPath: _stats.upgrades.Array.data[2].upgradeAmount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6852982171782271209, guid: 582afa4546c036048b064b3f54dd5342, type: 3}
       propertyPath: _stats.properties.Array.data[0].propertyName
       value: Damage
       objectReference: {fileID: 0}
     - target: {fileID: 6852982171782271209, guid: 582afa4546c036048b064b3f54dd5342, type: 3}
       propertyPath: _stats.properties.Array.data[1].propertyName
       value: DamageCritChance
+      objectReference: {fileID: 0}
+    - target: {fileID: 6852982171782271209, guid: 582afa4546c036048b064b3f54dd5342, type: 3}
+      propertyPath: _stats.properties.Array.data[2].propertyName
+      value: CriticalDamage
       objectReference: {fileID: 0}
     - target: {fileID: 6852982171782271209, guid: 582afa4546c036048b064b3f54dd5342, type: 3}
       propertyPath: _stats.properties.Array.data[0].propertyValue
@@ -339,8 +363,24 @@ PrefabInstance:
       value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 6852982171782271209, guid: 582afa4546c036048b064b3f54dd5342, type: 3}
+      propertyPath: _stats.properties.Array.data[2].propertyValue
+      value: 110
+      objectReference: {fileID: 0}
+    - target: {fileID: 6852982171782271209, guid: 582afa4546c036048b064b3f54dd5342, type: 3}
       propertyPath: _stats.upgrades.Array.data[1].upgradeComboValue
-      value: 5
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6852982171782271209, guid: 582afa4546c036048b064b3f54dd5342, type: 3}
+      propertyPath: _stats.upgrades.Array.data[0].targetPropertyName
+      value: Damage
+      objectReference: {fileID: 0}
+    - target: {fileID: 6852982171782271209, guid: 582afa4546c036048b064b3f54dd5342, type: 3}
+      propertyPath: _stats.upgrades.Array.data[1].targetPropertyName
+      value: DamageCritChance
+      objectReference: {fileID: 0}
+    - target: {fileID: 6852982171782271209, guid: 582afa4546c036048b064b3f54dd5342, type: 3}
+      propertyPath: _stats.upgrades.Array.data[2].targetPropertyName
+      value: CriticalDamage
       objectReference: {fileID: 0}
     - target: {fileID: 8915158961393283344, guid: 582afa4546c036048b064b3f54dd5342, type: 3}
       propertyPath: m_Name
@@ -776,14 +816,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3347365796296425806, guid: 18cfdfbfb1847fe48b9cea3fd0cb8f21, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.123
+      objectReference: {fileID: 0}
+    - target: {fileID: 3598609430110932937, guid: 18cfdfbfb1847fe48b9cea3fd0cb8f21, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.0391641
+      objectReference: {fileID: 0}
     - target: {fileID: 5469301326965707951, guid: 18cfdfbfb1847fe48b9cea3fd0cb8f21, type: 3}
       propertyPath: m_SpriteSortPoint
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7916370277268740347, guid: 18cfdfbfb1847fe48b9cea3fd0cb8f21, type: 3}
+      propertyPath: m_Name
+      value: BarrelSprite
       objectReference: {fileID: 0}
     - target: {fileID: 8082724351253564911, guid: 18cfdfbfb1847fe48b9cea3fd0cb8f21, type: 3}
       propertyPath: clickAreaCollider
       value: 
       objectReference: {fileID: 6100445607904948442}
+    - target: {fileID: 8279708793248255432, guid: 18cfdfbfb1847fe48b9cea3fd0cb8f21, type: 3}
+      propertyPath: m_Name
+      value: BaseSprite
+      objectReference: {fileID: 0}
     - target: {fileID: 8452311577124108120, guid: 18cfdfbfb1847fe48b9cea3fd0cb8f21, type: 3}
       propertyPath: m_Name
       value: MainBaseCannon
