@@ -667,6 +667,14 @@ PrefabInstance:
       value: PlayBtn
       objectReference: {fileID: 0}
     - target: {fileID: 7949298258240322186, guid: d106d21a1fbc6ba4c87a246406ddcef6, type: 3}
+      propertyPath: m_Transition
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7949298258240322186, guid: d106d21a1fbc6ba4c87a246406ddcef6, type: 3}
+      propertyPath: m_SpriteState.m_PressedSprite
+      value: 
+      objectReference: {fileID: 6099712196268127593, guid: 0351403b3e99d5a4c93059e623b0f2d0, type: 3}
+    - target: {fileID: 7949298258240322186, guid: d106d21a1fbc6ba4c87a246406ddcef6, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 1
       objectReference: {fileID: 0}
@@ -689,6 +697,10 @@ PrefabInstance:
     - target: {fileID: 7949298258240322186, guid: d106d21a1fbc6ba4c87a246406ddcef6, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: UnityEngine.GameObject, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 7949298258240322186, guid: d106d21a1fbc6ba4c87a246406ddcef6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_BoolArgument
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7949298258240322186, guid: d106d21a1fbc6ba4c87a246406ddcef6, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -965,6 +977,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: SetttingsBtn
       objectReference: {fileID: 0}
+    - target: {fileID: 7949298258240322186, guid: d106d21a1fbc6ba4c87a246406ddcef6, type: 3}
+      propertyPath: m_Transition
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7949298258240322186, guid: d106d21a1fbc6ba4c87a246406ddcef6, type: 3}
+      propertyPath: m_SpriteState.m_PressedSprite
+      value: 
+      objectReference: {fileID: -1540686929820093859, guid: d6cab59b225b3e541978156e0c4e1df0, type: 3}
     - target: {fileID: 7949298258240322186, guid: d106d21a1fbc6ba4c87a246406ddcef6, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 2
@@ -1925,6 +1945,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: QuitBtn
       objectReference: {fileID: 0}
+    - target: {fileID: 7949298258240322186, guid: d106d21a1fbc6ba4c87a246406ddcef6, type: 3}
+      propertyPath: m_Transition
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7949298258240322186, guid: d106d21a1fbc6ba4c87a246406ddcef6, type: 3}
+      propertyPath: m_SpriteState.m_PressedSprite
+      value: 
+      objectReference: {fileID: -4404370042666650331, guid: b88a5cee4dee0c344936b456fccfe7ab, type: 3}
     - target: {fileID: 7949298258240322186, guid: d106d21a1fbc6ba4c87a246406ddcef6, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 1
@@ -2913,6 +2941,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: CreditsBtn
       objectReference: {fileID: 0}
+    - target: {fileID: 3201922888772165813, guid: e2446d71e3d3b064da28676ae9815888, type: 3}
+      propertyPath: m_Transition
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3201922888772165813, guid: e2446d71e3d3b064da28676ae9815888, type: 3}
+      propertyPath: m_SpriteState.m_PressedSprite
+      value: 
+      objectReference: {fileID: 5915642553767310882, guid: 5f09e54ae3198e041af1cf0839ffce90, type: 3}
     - target: {fileID: 3845767801237161123, guid: e2446d71e3d3b064da28676ae9815888, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
