@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Assets.Scripts.Wave;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,9 +14,11 @@ namespace Assets.Scripts.Enemies
         [SerializeField] protected int maxHealth;
         protected int currentHealth;
 
+        private NextWaveManager nextWaveManager;
         private void Start()
         {
             currentHealth = maxHealth;
+            nextWaveManager = NextWaveManager.Instance;
         }
         public virtual void TakeDamage(int damage)
         {
@@ -29,6 +32,7 @@ namespace Assets.Scripts.Enemies
         public virtual void Die()
         {
             Debug.Log($"{gameObject.name} died.");
+            nextWaveManager.EnemyKilled();
             Destroy(gameObject);
         }
     }

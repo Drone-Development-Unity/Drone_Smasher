@@ -99,3 +99,5 @@ InitTestScene*.unity*
 /[Aa]ssets/[Ii]nit[Tt]est[Ss]cene*.unity*
 
 Assets/TextMesh Pro
+/Assets/Plugins
+Assets/Plugins.meta

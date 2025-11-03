@@ -11,7 +11,7 @@ namespace Assets.Scripts.Enemies
 {
     public class BaseEnemyShoot : MonoBehaviour, IArrivable
     {
-        protected bool waitingToShoot = false;
+        protected bool waitingToShoot = true;
         protected float shootTimer = 0f;
         protected GameObject bulletsCointainer;
 
