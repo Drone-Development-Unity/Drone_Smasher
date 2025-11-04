@@ -21,7 +21,6 @@ namespace Game.MainCannon
 
         [Header("Click detection zone")]
         [SerializeField] private Collider2D clickAreaCollider;
-        [SerializeField] private bool useWorldArea = true;
 
         private Tween _rotationTween;
         private Camera mainCamera;

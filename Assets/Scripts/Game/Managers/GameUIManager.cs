@@ -10,14 +10,24 @@ namespace Game.Managers
     {
         public static GameUIManager Instance;
         
-        [Header("StatsPanel Elements")]
-        public TextMeshProUGUI objectName;
-        public TextMeshProUGUI descriptionText;
-        public Transform propertiesContainer;
-        public Transform upgradesContainer;
-        public GameObject propertyPrefab;
-        public GameObject upgradePrefab;
+        [Header("Necessary prefabs")]
 
+        [SerializeField] private GameObject propertyPrefab; //ObjectPropertiesScrollView object
+        [SerializeField] private GameObject upgradePrefab;//ObjectUpgradesScrollView object
+        [SerializeField] private GameObject StatsPanelObject;
+        
+        private TextMeshProUGUI objectName;
+        private TextMeshProUGUI descriptionText;
+        private Transform propertiesContainer;
+        private Transform upgradesContainer;
+        private void Start()
+        {
+            StatsPanelReferences refs = StatsPanelObject.GetComponent<StatsPanelReferences>();
+            objectName = refs.objectName;
+            descriptionText = refs.descriptionText;
+            propertiesContainer = refs.propertiesContainer;
+            upgradesContainer = refs.upgradesContainer;
+        }
         private void Awake()
         {
             Instance = this;
