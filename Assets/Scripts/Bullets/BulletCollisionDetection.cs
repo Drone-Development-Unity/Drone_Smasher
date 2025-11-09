@@ -13,6 +13,7 @@ namespace Assets.Scripts.Bullets
         private Vector3 bottomLeft;
         private Vector3 topRight;
         private Vector2 pos;
+        private Vector2 direction;
         private float leftXClamp, rightXClamp, downYClamp, upYClamp;
         private float clampSize = 0.5f;
 
@@ -22,11 +23,14 @@ namespace Assets.Scripts.Bullets
         private string shooterTag;
         private int damage;
 
-        public void Initialize(GameObject shooter, int damage)
+        private BulletAnimationController animController;
+
+        public void Initialize(GameObject shooter, int damage, Vector2 direction)
         {
             this.shooter = shooter;
             this.shooterTag = shooter.tag;
             this.damage = damage;
+            this.direction = direction;
         }
 
         void Start()
@@ -40,6 +44,8 @@ namespace Assets.Scripts.Bullets
             rightXClamp = topRight.x + clampSize;
             downYClamp = bottomLeft.y - clampSize;
             upYClamp = topRight.y + clampSize;
+
+            animController = GetComponent<BulletAnimationController>();
         }
 
         void FixedUpdate()
@@ -63,6 +69,7 @@ namespace Assets.Scripts.Bullets
                 if (vulnerableTarget != null)
                 {
                     vulnerableTarget.TakeDamage(damage);
+                    animController.PlaySparksEffect(transform.position, direction);
                 }
             }
         }

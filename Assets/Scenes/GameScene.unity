@@ -656,10 +656,6 @@ MonoBehaviour:
   propertyPrefab: {fileID: 4503564436660723206, guid: 41a5f4a0219de7b428fae0c04770b9fa, type: 3}
   upgradePrefab: {fileID: 823242277503946242, guid: 75205ab6be8f41541bead4efa8f826b4, type: 3}
   StatsPanelObject: {fileID: 107340814}
-  objectName: {fileID: 0}
-  descriptionText: {fileID: 0}
-  propertiesContainer: {fileID: 0}
-  upgradesContainer: {fileID: 0}
 --- !u!4 &818163139
 Transform:
   m_ObjectHideFlags: 0
@@ -776,6 +772,10 @@ PrefabInstance:
     - target: {fileID: 1793644459414174198, guid: cc741eff649938a459de1b66ef1f9432, type: 3}
       propertyPath: m_Name
       value: MainBase
+      objectReference: {fileID: 0}
+    - target: {fileID: 3333256254552128869, guid: cc741eff649938a459de1b66ef1f9432, type: 3}
+      propertyPath: m_TagString
+      value: PlayerBase
       objectReference: {fileID: 0}
     - target: {fileID: 5274909639380460734, guid: cc741eff649938a459de1b66ef1f9432, type: 3}
       propertyPath: m_LocalPosition.x

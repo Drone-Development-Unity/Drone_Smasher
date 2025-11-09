@@ -62,17 +62,17 @@ namespace Assets.Scripts.Enemies.BulletShooters
 
         }
 
-
-
         public void SpawnBullet(Transform firePoint)
         {
             GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
 
+            Vector2 bulletDirection = firePoint.up;
+
             bullet.transform.parent = bulletsCointainer.transform;
-            bullet.GetComponent<BulletCollisionDetection>().Initialize(this.gameObject, damage);
+            bullet.GetComponent<BulletCollisionDetection>().Initialize(this.gameObject, damage, bulletDirection);
 
             Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
-            rb.linearVelocity = firePoint.up * bulletSpeed;
+            rb.linearVelocity = bulletDirection * bulletSpeed;
         }
 
         IEnumerator SpawnBulletsInBurtsCoroutine()

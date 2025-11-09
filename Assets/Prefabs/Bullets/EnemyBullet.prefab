@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7727939194731409131}
   - component: {fileID: 4174648953344568538}
   - component: {fileID: 5632047372276881099}
+  - component: {fileID: 3275369862944786545}
   m_Layer: 0
   m_Name: EnemyBullet
   m_TagString: Untagged
@@ -168,3 +169,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 941f315457ec85b44a4982b8140617d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Assets.Scripts.Bullets.BulletCollisionDetection
+--- !u!114 &3275369862944786545
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5036351370537434270}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 149a61bf59363be40a134d4ab0648fc8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Assets.Scripts.Bullets.BulletAnimationController
+  sparksParticleSystem: {fileID: 8996758778029759422, guid: 8c146d17aee90c64b996ef87a3732d74, type: 3}

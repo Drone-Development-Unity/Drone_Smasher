@@ -1,3 +1,4 @@
+using Assets.Scripts.Bullets;
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -78,6 +79,9 @@ namespace Game.MainCannon
         private void Fire(Vector3 direction)
         {
             GameObject projectile = Instantiate(projectilePrefab, firePoint.position, Quaternion.identity);
+            
+            projectile.GetComponent<BulletCollisionDetection>().Initialize(this.gameObject, 5, direction);
+
             Rigidbody2D rb = projectile.GetComponent<Rigidbody2D>();
             if (rb != null)
             {

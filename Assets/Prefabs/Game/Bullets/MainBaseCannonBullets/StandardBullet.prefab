@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 8507278932857090287}
   - component: {fileID: 1590639419464175296}
   - component: {fileID: 5983937570484891138}
+  - component: {fileID: 5795993087398873251}
+  - component: {fileID: -326311856678959843}
   m_Layer: 0
   m_Name: StandardBullet
   m_TagString: Untagged
@@ -149,7 +151,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -165,3 +167,28 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &5795993087398873251
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1912224143844839675}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 941f315457ec85b44a4982b8140617d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Assets.Scripts.Bullets.BulletCollisionDetection
+--- !u!114 &-326311856678959843
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1912224143844839675}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 149a61bf59363be40a134d4ab0648fc8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Assets.Scripts.Bullets.BulletAnimationController
+  sparksParticleSystem: {fileID: 8996758778029759422, guid: 8c146d17aee90c64b996ef87a3732d74, type: 3}

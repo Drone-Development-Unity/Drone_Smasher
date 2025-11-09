@@ -45,9 +45,10 @@ GameObject:
   - component: {fileID: 7432615265627867442}
   - component: {fileID: 6144607296477817958}
   - component: {fileID: 709756904874589174}
+  - component: {fileID: 2309048006778922342}
   m_Layer: 0
   m_Name: EnemyVisual
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -235,6 +236,19 @@ MonoBehaviour:
   bulletPrefab: {fileID: 5036351370537434270, guid: 1bf844ffbc735434e89387987921dbb5, type: 3}
   bulletSpeed: 3
   firePoint: {fileID: 7178887251504955074}
+--- !u!114 &2309048006778922342
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1667822457404806868}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a0eb4f0c628aff4995b38c606f9af5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Assets.Scripts.Enemies.EnemyAnimationController
+  flashMaterial: {fileID: 2100000, guid: 7a95be5b9fddd334e9dd2fd410d00e41, type: 2}
 --- !u!1 &2150796800528179175
 GameObject:
   m_ObjectHideFlags: 0

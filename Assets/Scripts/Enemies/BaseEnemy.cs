@@ -14,15 +14,35 @@ namespace Assets.Scripts.Enemies
         [SerializeField] protected int maxHealth;
         protected int currentHealth;
 
+        private bool _isAlive = true;
+        public bool IsAlive
+        {
+            get => _isAlive;
+            set => _isAlive = value;
+        }
+
         private NextWaveManager nextWaveManager;
+
+        private EnemyAnimationController animController;
+        private SpriteRenderer spriteRenderer;
+
         private void Start()
         {
             currentHealth = maxHealth;
             nextWaveManager = NextWaveManager.Instance;
+
+            animController = GetComponent<EnemyAnimationController>();
+            spriteRenderer = GetComponent<SpriteRenderer>();
         }
         public virtual void TakeDamage(int damage)
         {
+            Debug.Log($"{gameObject.name} took {damage} damage.");
+
             currentHealth -= damage;
+
+            if (animController != null && spriteRenderer != null)
+                animController.OnHitAnim(spriteRenderer, IsAlive);
+
             if (currentHealth <= 0)
             {
                 Die();
@@ -31,6 +51,8 @@ namespace Assets.Scripts.Enemies
 
         public virtual void Die()
         {
+            IsAlive = false;
+
             Debug.Log($"{gameObject.name} died.");
             nextWaveManager.EnemyKilled();
             Destroy(gameObject);
