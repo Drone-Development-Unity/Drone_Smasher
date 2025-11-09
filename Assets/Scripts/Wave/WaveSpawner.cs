@@ -1,7 +1,10 @@
+using Assets.Scripts.Enemies;
 using Assets.Scripts.Interfaces;
 using Assets.Scripts.Wave;
 using DG.Tweening;
+using NUnit.Framework;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class WaveSpawner : MonoBehaviour
@@ -30,10 +33,14 @@ public class WaveSpawner : MonoBehaviour
     private int enemiesPerWave;
     private int enemiesToSpawn;
     [SerializeField] private int enemiesPerPacket;
+    [SerializeField] private float maxNumberOfEnemies = 10;
     private int waveNumber = 0;
 
+    // Enemy positions
+    private Dictionary<int, Vector2> enemyEndPositions = new Dictionary<int, Vector2>();
+    [SerializeField] private float minDistanceBetweenEnemies = 0.5f;
     int BudgetCurve() {
-        return waveNumber * 10;
+        return waveNumber * 20;
     }
 
     GameObject GetRandomEnemiesPrefab()
@@ -46,7 +53,18 @@ public class WaveSpawner : MonoBehaviour
     {
         float xPos = Random.Range(xSpawnStart, xSpawnEnd);
         float yPos = Random.Range(ySpawnStart, ySpawnEnd);
-        return new Vector2(xPos, yPos);
+
+        Vector2 potentialPosition = new Vector2(xPos, yPos);
+
+        // Check if the position is already taken
+        foreach (Vector2 pos in enemyEndPositions.Values)
+        {
+            if (Vector2.Distance(pos, potentialPosition) < minDistanceBetweenEnemies) // in some tolerance
+            {
+                return GetSpawnPoint();
+            }
+        }
+        return potentialPosition;
     }
 
     // Create Singleton
@@ -78,6 +96,9 @@ public class WaveSpawner : MonoBehaviour
     IEnumerator SpawnWaveWithDelay()
     {
         yield return new WaitForSeconds(nextWaveDelay);
+
+        enemyEndPositions = new Dictionary<int, Vector2>();
+
         waveNumber++;
         enemiesPerWave = BudgetCurve();
         enemiesToSpawn = enemiesPerWave;
@@ -90,14 +111,26 @@ public class WaveSpawner : MonoBehaviour
             {
                 if (enemiesToSpawn <= 0) break;
 
+                yield return new WaitUntil(() => nextWaveManager.GetAliveEnemiesCount() < maxNumberOfEnemies);
+
+
                 // spawn enemy
                 GameObject enemyPrefab = GetRandomEnemiesPrefab();
                 Vector2 spawnPos = GetSpawnPoint();
 
                 GameObject enemy = Instantiate(enemyPrefab, spawnPos, Quaternion.Euler(0f, 0f, 180f));
                 enemy.transform.parent = enemiesContainer.transform;
-                // register enemy to NextWaveManager
+
+                // register enemy to NextWaveManager 
                 nextWaveManager.RegisterEnemies(1);
+                // register enemy end position
+                BaseEnemy baseEnemy = enemy.GetComponentInChildren<BaseEnemy>();
+                if(baseEnemy != null)
+                {
+                    //Debug.Log($"Registering enemy {baseEnemy.GetID()} at position {spawnPos}.");
+                    enemyEndPositions.Add(baseEnemy.GetID(), spawnPos);
+                }
+
 
                 UpDownAnim(enemy, spawnPos);
                 enemiesToSpawn--;
@@ -121,5 +154,14 @@ public class WaveSpawner : MonoBehaviour
                     arrivable.OnArrive();
                 }
             });
+    }
+
+    public void UnregisterEnemy(int enemyId)
+    {
+        if(enemyEndPositions.ContainsKey(enemyId))
+        {
+            //Debug.Log($"Unregistering enemy {enemyId} from WaveSpawner.");
+            enemyEndPositions.Remove(enemyId);
+        }
     }
 }

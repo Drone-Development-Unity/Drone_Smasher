@@ -1762,6 +1762,7 @@ MonoBehaviour:
   nextWaveDelay: 3
   spawnAnimationDuration: 1
   enemiesPerPacket: 2
+  minDistanceBetweenEnemies: 0.5
 --- !u!114 &1861894774
 MonoBehaviour:
   m_ObjectHideFlags: 0

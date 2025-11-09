@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Assets.Scripts.Enemies;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -30,9 +31,11 @@ namespace Assets.Scripts.Wave
             waveSpawner = WaveSpawner.Instance;
         }
 
-        public void EnemyKilled()
+        public void EnemyKilled(BaseEnemy enemy)
         {
+            waveSpawner.UnregisterEnemy(enemy.GetID());
             aliveEnemies--;
+
             if (aliveEnemies <= 0)
             {
                 waveSpawner.SpawnWave();
@@ -42,6 +45,11 @@ namespace Assets.Scripts.Wave
         public void RegisterEnemies(int count)
         {
             aliveEnemies += count;
+        }
+
+        public int GetAliveEnemiesCount()
+        {
+            return aliveEnemies;
         }
     }
 }

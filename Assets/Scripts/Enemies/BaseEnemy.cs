@@ -21,6 +21,8 @@ namespace Assets.Scripts.Enemies
             set => _isAlive = value;
         }
 
+        protected int id = Guid.NewGuid().GetHashCode();
+
         private NextWaveManager nextWaveManager;
 
         private EnemyAnimationController animController;
@@ -36,7 +38,7 @@ namespace Assets.Scripts.Enemies
         }
         public virtual void TakeDamage(int damage)
         {
-            Debug.Log($"{gameObject.name} took {damage} damage.");
+            //Debug.Log($"{gameObject.name} took {damage} damage.");
 
             currentHealth -= damage;
 
@@ -53,9 +55,14 @@ namespace Assets.Scripts.Enemies
         {
             IsAlive = false;
 
-            Debug.Log($"{gameObject.name} died.");
-            nextWaveManager.EnemyKilled();
+            //Debug.Log($"{gameObject.name} died.");
+            nextWaveManager.EnemyKilled(this);
             Destroy(gameObject);
+        }
+
+        public int GetID()
+        {
+            return id;
         }
     }
 }
