@@ -3,8 +3,10 @@ using Assets.Scripts.Interfaces;
 using Assets.Scripts.Wave;
 using DG.Tweening;
 using NUnit.Framework;
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class WaveSpawner : MonoBehaviour
@@ -12,6 +14,7 @@ public class WaveSpawner : MonoBehaviour
     // Singleton instance
     [HideInInspector] public static WaveSpawner Instance { get; private set; }
     private NextWaveManager nextWaveManager;
+    private WaveTimer waveTimer;
 
     [Header("Enemies Prefabs")]
     [SerializeField] private GameObject[] enemyPrefabs;
@@ -39,20 +42,24 @@ public class WaveSpawner : MonoBehaviour
     // Enemy positions
     private Dictionary<int, Vector2> enemyEndPositions = new Dictionary<int, Vector2>();
     [SerializeField] private float minDistanceBetweenEnemies = 0.5f;
+
+    [Header("UI Elements")]
+    [SerializeField] private TextMeshProUGUI waveNumberText;
     int BudgetCurve() {
         return waveNumber * 20;
     }
 
+
     GameObject GetRandomEnemiesPrefab()
     {
-        int index = Random.Range(0, enemyPrefabs.Length);
+        int index = UnityEngine.Random.Range(0, enemyPrefabs.Length);
         return enemyPrefabs[index];
     }
 
     Vector2 GetSpawnPoint()
     {
-        float xPos = Random.Range(xSpawnStart, xSpawnEnd);
-        float yPos = Random.Range(ySpawnStart, ySpawnEnd);
+        float xPos = UnityEngine.Random.Range(xSpawnStart, xSpawnEnd);
+        float yPos = UnityEngine.Random.Range(ySpawnStart, ySpawnEnd);
 
         Vector2 potentialPosition = new Vector2(xPos, yPos);
 
@@ -83,6 +90,7 @@ public class WaveSpawner : MonoBehaviour
         SpawnWave();
         enemiesContainer = GameObject.Find("EnemiesContainer");
         nextWaveManager = NextWaveManager.Instance;
+        waveTimer = WaveTimer.Instance;
         enemiesToSpawn = 0;
     }
 
@@ -103,16 +111,28 @@ public class WaveSpawner : MonoBehaviour
         enemiesPerWave = BudgetCurve();
         enemiesToSpawn = enemiesPerWave;
 
+        waveTimer.StartTimer(enemiesToSpawn + 1); // each wave lasts for enemiesToSpawn seconds
+
+        waveNumberText.text = $"Level: {waveNumber}";
+
         // spawn enemies in packets
         int packets = Mathf.CeilToInt((float)enemiesPerWave / enemiesPerPacket);
         for (int i = 0; i < packets; i++)
         {
             for (int j = 0; j < enemiesPerPacket; j++)
             {
+                // limit of enemies to spawn
                 if (enemiesToSpawn <= 0) break;
 
+                // wait if max number of enemies is reached
                 yield return new WaitUntil(() => nextWaveManager.GetAliveEnemiesCount() < maxNumberOfEnemies);
 
+                // check if wave time ended
+                if (waveTimer.IsWaveTimeOver)
+                {
+                    enemiesToSpawn = 0;
+                    break;
+                }
 
                 // spawn enemy
                 GameObject enemyPrefab = GetRandomEnemiesPrefab();
