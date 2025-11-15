@@ -1,58 +1,39 @@
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 namespace Game.Managers
 {
     /// <summary>
-    /// Manager that search for objects to react with mouse
-    /// Checks if objects implements IInteractable interface
+    /// Add more mouse reaction options to HighlightObject
     /// </summary>
-    public class InteractionManager:MonoBehaviour
+    public class InteractionManager : MonoBehaviour
     {
-        public static InteractionManager Instance;
-        private IInteractable _lastHovered;
-        private IInteractable _clickedObject;
+        public static InteractionManager Instance { get; private set; }
+
         private void Awake()
         {
+            if (Instance != null && Instance != this)
+            {
+                Destroy(gameObject);
+                return;
+            }
+
             Instance = this;
         }
-        void Update()
+
+        private HighlightObject _currentlyClickedObject;
+
+        /// <summary>
+        /// Called by HighlightObject when clicked
+        /// </summary>
+        public void RegisterClick(HighlightObject newClicked)
         {
-            if (Camera.main == null || Mouse.current == null) return;
-
-            Vector2 mousePos = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
-            Collider2D hit = Physics2D.OverlapPoint(mousePos);
-
-            IInteractable current = hit?.GetComponent<IInteractable>();
-
-            // Hover logic
-            if (current != _lastHovered)
+            if (_currentlyClickedObject != null && _currentlyClickedObject != newClicked)
             {
-                _lastHovered?.OnHoverExit();
-                current?.OnHoverEnter();
-                _lastHovered = current;
+                _currentlyClickedObject.OnClickExit();
             }
 
-
-            // Click
-            if (Mouse.current.leftButton.wasPressedThisFrame)
-            {
-                if (current != null)
-                {
-                    if (_clickedObject != null && _clickedObject != current)
-                    {
-                        _clickedObject.OnClickExit(); // Uncheck previous object
-                    }
-
-                    current.OnClick(); // Check new
-                    _clickedObject = current;
-                }
-                else
-                {
-                    _clickedObject?.OnClickExit(); // Uncheck when clicked on nothing
-                    _clickedObject = null;
-                }
-            }
+            //Change clicked object
+            _currentlyClickedObject = newClicked;
         }
     }
 }
