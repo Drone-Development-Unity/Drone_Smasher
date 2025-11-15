@@ -14,7 +14,7 @@ namespace Assets.Scripts.Enemies
         [SerializeField] private Material flashMaterial;
 
         private float flashDuration = 0.1f;
-
+        private Tween tweenAnim; //Tween object (for handling destroy)
         private void Start()
         {
             mainMaterial = GetComponent<SpriteRenderer>().material;
@@ -24,7 +24,7 @@ namespace Assets.Scripts.Enemies
         {
             if (sprite == null) return;
 
-            sprite.DOFade(0.1f, flashDuration)
+            tweenAnim= sprite.DOFade(0.1f, flashDuration)
                 .SetEase(Ease.InOutSine)
                 .SetLink(gameObject)
                 .OnStart(() =>
@@ -50,6 +50,14 @@ namespace Assets.Scripts.Enemies
                             }
                         });
                 });
+        }
+
+        void OnDestroy()
+        {
+            if (tweenAnim != null && tweenAnim.IsActive())
+            {
+                tweenAnim.Kill();
+            }
         }
     }
 }
