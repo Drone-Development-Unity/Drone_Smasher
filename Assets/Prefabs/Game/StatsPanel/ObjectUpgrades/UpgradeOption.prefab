@@ -464,6 +464,12 @@ MonoBehaviour:
   upgradeCurrencyImage: {fileID: 3129702438607184155}
   upgradeComboValue: {fileID: 3041291782882522733}
   baseObjectReference: {fileID: 0}
+  upgradeCurrency:
+    currencyId: 0
+    currencyName: 
+    icon: {fileID: 0}
+    amount: 0
+  currId: 0
 --- !u!1 &2172246853148455825
 GameObject:
   m_ObjectHideFlags: 0

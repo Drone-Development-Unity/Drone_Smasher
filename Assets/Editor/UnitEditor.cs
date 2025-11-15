@@ -45,26 +45,30 @@ namespace Editor
                     Rect imageRect = new Rect(rect.x, rect.y, fullWidth, lineHeight);
                     Rect nameRect = new Rect(rect.x, rect.y + lineHeight + padding, fullWidth, lineHeight);
                     Rect costRect = new Rect(rect.x, rect.y + 2 * (lineHeight + padding), fullWidth, lineHeight);
-                    Rect currencyImageRect = new Rect(rect.x, rect.y + 3 * (lineHeight + padding), fullWidth, lineHeight);
-                    Rect amountRect = new Rect(rect.x, rect.y + 4 * (lineHeight + padding), fullWidth, lineHeight);
-                    Rect targetRect = new Rect(rect.x, rect.y + 5 * (lineHeight + padding), fullWidth, lineHeight);
+                    Rect amountRect = new Rect(rect.x, rect.y + 3 * (lineHeight + padding), fullWidth, lineHeight);
+                    Rect targetRect = new Rect(rect.x, rect.y + 4 * (lineHeight + padding), fullWidth, lineHeight);
+                    Rect currencyIdRect = new Rect(rect.x, rect.y + 5 * (lineHeight + padding), fullWidth, lineHeight);
 
-                    upgrade.upgradeImage = (Image)EditorGUI.ObjectField(imageRect, "Upgrade Image", upgrade.upgradeImage, typeof(Image), false);
+                    upgrade.upgradeImage = (Sprite)EditorGUI.ObjectField(imageRect, "Upgrade Image", upgrade.upgradeImage, typeof(Sprite), false);
                     upgrade.upgradeName = EditorGUI.TextField(nameRect, "Upgrade Name", upgrade.upgradeName);
                     upgrade.upgradeCost = EditorGUI.DoubleField(costRect, "Upgrade Cost", upgrade.upgradeCost);
-                    upgrade.upgradeCurrencyImage = (Image)EditorGUI.ObjectField(currencyImageRect, "Currency Image", upgrade.upgradeCurrencyImage, typeof(Image), false);
                     upgrade.upgradeAmount = EditorGUI.DoubleField(amountRect, "Upgrade Amount", upgrade.upgradeAmount);
+                    upgrade.currencyId = EditorGUI.IntField(currencyIdRect, "Currency ID", upgrade.currencyId);
 
                     string[] propertyNames = stats.properties.ConvertAll(p => p.propertyName).ToArray();
                     int selected = Mathf.Max(0, System.Array.IndexOf(propertyNames, upgrade.targetPropertyName));
                     selected = EditorGUI.Popup(targetRect, "Target Property", selected, propertyNames);
                     upgrade.targetPropertyName = propertyNames.Length > 0 ? propertyNames[selected] : "";
+                    
+                    //Draw line after each UI element
+                    Rect separatorRect = new Rect(rect.x, rect.y + 6 * (lineHeight + padding)+2f, fullWidth, 1f);
+                    EditorGUI.DrawRect(separatorRect, new Color(0.7f, 0.7f, 0.7f)); 
                 };
 
                 upgradeList.elementHeightCallback = index =>
                 {
                     // 6 fields
-                    return 6 * (EditorGUIUtility.singleLineHeight + 2f);
+                    return 6 * (EditorGUIUtility.singleLineHeight + 2f)+5f;//5f - spacing
                 };
 
             }
