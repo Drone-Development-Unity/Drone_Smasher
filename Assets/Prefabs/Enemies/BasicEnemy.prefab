@@ -213,6 +213,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Assets.Scripts.Enemies.BaseEnemy
   maxHealth: 50
+  wreckPrefab: {fileID: 2776446182460810034, guid: 69edb087b7ec3874bbfe60d1f36b35ba, type: 3}
 --- !u!114 &709756904874589174
 MonoBehaviour:
   m_ObjectHideFlags: 0
