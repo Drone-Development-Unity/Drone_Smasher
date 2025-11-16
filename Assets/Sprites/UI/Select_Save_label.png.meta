@@ -1,10 +1,13 @@
 fileFormatVersion: 2
-guid: cefdd16707da225429a50eb7576c4bd4
+guid: 9aabb4edcde13ec45b5495a795725a3d
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2606725288741942014
-    second: Circle_1_0
+      213: -4508247178938296896
+    second: Select_Save_label_0
+  - first:
+      213: -6808556010666834715
+    second: Select_Save_label_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,7 +49,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -100,13 +103,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Circle_1_0
+      name: Select_Save_label_0
       rect:
         serializedVersion: 2
-        x: 2
-        y: 2
-        width: 196
-        height: 196
+        x: 74
+        y: 49
+        width: 752
+        height: 157
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +118,30 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ef2bd7ec6d2fc2420800000000000000
-      internalID: 2606725288741942014
+      spriteID: 0c5d9b3931d7f61c0800000000000000
+      internalID: -4508247178938296896
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Select_Save_label_1
+      rect:
+        serializedVersion: 2
+        x: 904
+        y: 49
+        width: 527
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5e44adea1662381a0800000000000000
+      internalID: -6808556010666834715
       vertices: []
       indices: 
       edges: []
@@ -125,7 +150,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +160,8 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Circle_1_0: 2606725288741942014
+      Select_Save_label_0: -4508247178938296896
+      Select_Save_label_1: -6808556010666834715
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
