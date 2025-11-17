@@ -1,7 +1,8 @@
-using UnityEngine;
 using Game;
+using UnityEngine;
+using UnityEngine.EventSystems;
 
-public class Wreck : MonoBehaviour, IInteractable
+public class Wreck : MonoBehaviour, IPointerEnterHandler
 {
     private bool _collected = false;
     private SpriteRenderer _renderer;
@@ -28,20 +29,14 @@ public class Wreck : MonoBehaviour, IInteractable
         }
     }
 
-    // --- IInteractable ---
-    public void OnHoverEnter()
+    // --- HOVER ----
+    public void OnPointerEnter(PointerEventData eventData)
     {
         if (!_collected)
         {
             Collect();
         }
     }
-
-    public void OnHoverExit() { }
-
-    public void OnClick() { }
-
-    public void OnClickExit() { }
 
     private void Collect()
     {
