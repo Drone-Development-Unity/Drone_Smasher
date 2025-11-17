@@ -43,6 +43,7 @@ public class WaveSpawner : MonoBehaviour
     private Dictionary<int, Vector2> enemyEndPositions = new Dictionary<int, Vector2>();
     [SerializeField] private float minDistanceBetweenEnemies = 0.5f;
 
+    private Tween animationTween;
     [Header("UI Elements")]
     [SerializeField] private TextMeshProUGUI waveNumberText;
     int BudgetCurve() {
@@ -163,7 +164,7 @@ public class WaveSpawner : MonoBehaviour
     {
         float targetY = startPos.y + yToTravel;
 
-        enemyInstance.transform.DOMoveY(targetY, spawnAnimationDuration)
+        animationTween = enemyInstance.transform.DOMoveY(targetY, spawnAnimationDuration)
             .SetEase(Ease.OutQuad)
             .OnComplete(() =>
             {
@@ -182,6 +183,13 @@ public class WaveSpawner : MonoBehaviour
         {
             //Debug.Log($"Unregistering enemy {enemyId} from WaveSpawner.");
             enemyEndPositions.Remove(enemyId);
+        }
+    }
+    void OnDestroy()
+    {
+        if (animationTween != null && animationTween.IsActive())
+        {
+            animationTween.Kill();
         }
     }
 }

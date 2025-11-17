@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -27,15 +28,16 @@ namespace Game
     public class UpgradeData
     {
         //Editable in editor
-        public Image upgradeImage;
+        public Sprite upgradeImage;
         public string upgradeName;
         public double upgradeCost;
-        public Image upgradeCurrencyImage;
+        public Sprite upgradeCurrencyImage;
         public double upgradeAmount; //amount of value that upgrade increases
         public string targetPropertyName; //name of connected property
+        public int currencyId;
         //Non editable
+        [NonSerialized] CurrencyData upgradeCurrency;
         public GameObject baseObject;
         public int upgradeComboValue; //upgraded amount
-
     }
 }

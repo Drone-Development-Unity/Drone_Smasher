@@ -11,7 +11,6 @@ namespace Game.Managers
         public static GameUIManager Instance;
         
         [Header("Necessary prefabs")]
-
         [SerializeField] private GameObject propertyPrefab; //ObjectPropertiesScrollView object
         [SerializeField] private GameObject upgradePrefab;//ObjectUpgradesScrollView object
         [SerializeField] private GameObject StatsPanelObject;

@@ -70,6 +70,7 @@ namespace Assets.Scripts.Bullets
                 {
                     vulnerableTarget.TakeDamage(damage);
                     animController.PlaySparksEffect(transform.position, direction);
+                    Destroy(gameObject);
                 }
             }
         }

@@ -1,5 +1,6 @@
 using Game.Managers;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 namespace Game
 {
@@ -8,9 +9,9 @@ namespace Game
     /// </summary>
     public class UpgradableObject: HighlightObject
     {
-        public override void OnClick()
+        public override void OnPointerClick(PointerEventData eventData)
         {
-            base.OnClick();
+            base.OnPointerClick(eventData);
             var stats = GetComponent<IStatsDisplay>().GetStats();
             if (stats != null)
             {
