@@ -1014,41 +1014,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 380505009946414040, guid: cc741eff649938a459de1b66ef1f9432, type: 3}
-      propertyPath: m_SortingOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1745326615077490965, guid: cc741eff649938a459de1b66ef1f9432, type: 3}
-      propertyPath: m_SortingOrder
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1793644459414174198, guid: cc741eff649938a459de1b66ef1f9432, type: 3}
       propertyPath: m_Name
       value: MainBase
       objectReference: {fileID: 0}
-    - target: {fileID: 1802175915233503560, guid: cc741eff649938a459de1b66ef1f9432, type: 3}
-      propertyPath: m_SortingOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3055184409280668062, guid: cc741eff649938a459de1b66ef1f9432, type: 3}
-      propertyPath: m_SortingOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3865147065096411444, guid: cc741eff649938a459de1b66ef1f9432, type: 3}
-      propertyPath: m_SortingOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4194925161179753811, guid: cc741eff649938a459de1b66ef1f9432, type: 3}
-      propertyPath: m_SortingOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4420729411875460810, guid: cc741eff649938a459de1b66ef1f9432, type: 3}
-      propertyPath: m_SortingOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4982086528917247984, guid: cc741eff649938a459de1b66ef1f9432, type: 3}
-      propertyPath: m_SortingOrder
-      value: 0
+    - target: {fileID: 3108931279024064466, guid: cc741eff649938a459de1b66ef1f9432, type: 3}
+      propertyPath: clickArea
+      value: 
+      objectReference: {fileID: 1831842891}
+    - target: {fileID: 3108931279024064466, guid: cc741eff649938a459de1b66ef1f9432, type: 3}
+      propertyPath: enemyContainer
+      value: 
+      objectReference: {fileID: 707869755}
+    - target: {fileID: 3108931279024064466, guid: cc741eff649938a459de1b66ef1f9432, type: 3}
+      propertyPath: clickAreaCollider
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 5274909639380460734, guid: cc741eff649938a459de1b66ef1f9432, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1091,28 +1071,32 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6443754893614790229, guid: cc741eff649938a459de1b66ef1f9432, type: 3}
-      propertyPath: _stats.upgrades.Array.size
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 6443754893614790229, guid: cc741eff649938a459de1b66ef1f9432, type: 3}
-      propertyPath: _stats.upgrades.Array.data[0].currencyId
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6443754893614790229, guid: cc741eff649938a459de1b66ef1f9432, type: 3}
-      propertyPath: _stats.upgrades.Array.data[1].currencyId
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6443754893614790229, guid: cc741eff649938a459de1b66ef1f9432, type: 3}
-      propertyPath: _stats.upgrades.Array.data[1].upgradeCost
+      propertyPath: _stats.properties.Array.data[1].propertyType
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6443754893614790229, guid: cc741eff649938a459de1b66ef1f9432, type: 3}
-      propertyPath: _stats.upgrades.Array.data[3].targetPropertyName
-      value: Damage
+      propertyPath: _stats.properties.Array.data[2].propertyType
+      value: 3
       objectReference: {fileID: 0}
-    - target: {fileID: 9180437020004262909, guid: cc741eff649938a459de1b66ef1f9432, type: 3}
-      propertyPath: m_SortingOrder
+    - target: {fileID: 6443754893614790229, guid: cc741eff649938a459de1b66ef1f9432, type: 3}
+      propertyPath: _stats.upgrades.Array.data[1].targetPropertyName
+      value: CritChancePct
+      objectReference: {fileID: 0}
+    - target: {fileID: 6443754893614790229, guid: cc741eff649938a459de1b66ef1f9432, type: 3}
+      propertyPath: _stats.upgrades.Array.data[2].targetPropertyName
+      value: CritDmgPct
+      objectReference: {fileID: 0}
+    - target: {fileID: 6750685417182716151, guid: cc741eff649938a459de1b66ef1f9432, type: 3}
+      propertyPath: m_Layer
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8601495196737382638, guid: cc741eff649938a459de1b66ef1f9432, type: 3}
+      propertyPath: _stats.properties.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8601495196737382638, guid: cc741eff649938a459de1b66ef1f9432, type: 3}
+      propertyPath: _stats.properties.Array.data[1].propertyType
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2076,12 +2060,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.EventSystems.Physics2DRaycaster
   m_EventMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 51
   m_MaxRayIntersections: 0
 --- !u!224 &1803159411 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 946908627887895030, guid: 0ec5365c18357334ba80ce3c95f9a8cd, type: 3}
   m_PrefabInstance: {fileID: 449597933}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1831842891 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6750685417182716151, guid: cc741eff649938a459de1b66ef1f9432, type: 3}
+  m_PrefabInstance: {fileID: 903962101}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1861894771
 GameObject:

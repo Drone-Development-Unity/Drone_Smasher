@@ -14,7 +14,7 @@ namespace Game
         
         public void SetProperty(PropertyData data)
         {
-            propertyName.text = data.propertyName;
+            propertyName.text = data.propertyType.ToString();
             propertyValue.text = data.propertyValue.ToString();
         }
     }

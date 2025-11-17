@@ -1,8 +1,7 @@
 using System;
 using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.UI;
-
+using Game.StatsPanel;
+using UnityEngine; 
 namespace Game
 {
     /// <summary>
@@ -20,7 +19,7 @@ namespace Game
     [System.Serializable]
     public class PropertyData
     {
-        public string propertyName;
+        public StatType propertyType;
         public double propertyValue;
     }
 

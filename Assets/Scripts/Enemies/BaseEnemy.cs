@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace Assets.Scripts.Enemies
 {
@@ -12,6 +13,9 @@ namespace Assets.Scripts.Enemies
     {
         [Header("Health stuff")]
         [SerializeField] protected int maxHealth;
+        
+        [Header("References")]
+        [SerializeField] protected GameObject enemyParent;
         protected int currentHealth;
 
         private bool _isAlive = true;
@@ -29,7 +33,6 @@ namespace Assets.Scripts.Enemies
         private SpriteRenderer spriteRenderer;
 
         public GameObject wreckPrefab;
-
         private void Start()
         {
             currentHealth = maxHealth;
@@ -37,6 +40,12 @@ namespace Assets.Scripts.Enemies
 
             animController = GetComponent<EnemyAnimationController>();
             spriteRenderer = GetComponent<SpriteRenderer>();
+            
+            //default enemyParent if null
+            if (enemyParent == null)
+            {
+                enemyParent = gameObject;
+            }
         }
         public virtual void TakeDamage(int damage)
         {
@@ -75,9 +84,9 @@ namespace Assets.Scripts.Enemies
                     //wreckRenderer.color = Color.gray; // np. domyślny kolor wraku
                 }
             }
-            Destroy(gameObject);
+            Destroy(enemyParent);
         }
-
+      
         public int GetID()
         {
             return id;
