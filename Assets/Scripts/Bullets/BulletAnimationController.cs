@@ -20,7 +20,7 @@ namespace Assets.Scripts.Bullets
 
             ParticleSystem sparks = GameObject.Instantiate(sparksParticleSystem, position , particleDirection);
             sparks.Play();
-            GameObject.Destroy(sparks.gameObject, sparks.main.duration + sparks.main.startLifetime.constantMax);
+            GameObject.Destroy(sparks.gameObject, 1f);
         }
     }
 }
