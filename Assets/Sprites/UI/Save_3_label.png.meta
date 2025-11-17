@@ -1,10 +1,13 @@
 fileFormatVersion: 2
-guid: 73dd89116b1b2124089976c5effacd4a
+guid: f72faf5fc5cde94469c8193969c67c0e
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5312243734178013497
-    second: Button_Quit_0
+      213: -7359980021172229445
+    second: Save_3_label_0
+  - first:
+      213: -2628139967658039189
+    second: Save_3_label_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,7 +49,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -100,13 +103,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Button_Quit_0
+      name: Save_3_label_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 300
-        height: 60
+        x: 379
+        y: 49
+        width: 527
+        height: 157
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +118,30 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 931a9ffd781e8b940800000000000000
-      internalID: 5312243734178013497
+      spriteID: bbaae046a291cd990800000000000000
+      internalID: -7359980021172229445
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Save_3_label_1
+      rect:
+        serializedVersion: 2
+        x: 979
+        y: 49
+        width: 137
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b686cb7bf98f68bd0800000000000000
+      internalID: -2628139967658039189
       vertices: []
       indices: 
       edges: []
@@ -125,7 +150,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +160,8 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Button_Quit_0: 5312243734178013497
+      Save_3_label_0: -7359980021172229445
+      Save_3_label_1: -2628139967658039189
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
