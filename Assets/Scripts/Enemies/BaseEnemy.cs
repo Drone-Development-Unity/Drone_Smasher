@@ -12,6 +12,7 @@ namespace Assets.Scripts.Enemies
     {
         [Header("Health stuff")]
         [SerializeField] protected int maxHealth;
+        [SerializeField] protected EnemyHealthBar healthBar;
         protected int currentHealth;
 
         private bool _isAlive = true;
@@ -37,12 +38,16 @@ namespace Assets.Scripts.Enemies
 
             animController = GetComponent<EnemyAnimationController>();
             spriteRenderer = GetComponent<SpriteRenderer>();
+
+            healthBar.SetMaxAmount(maxHealth);
         }
         public virtual void TakeDamage(int damage)
         {
             //Debug.Log($"{gameObject.name} took {damage} damage.");
 
             currentHealth -= damage;
+
+            healthBar.SetAmount(currentHealth);
 
             if (animController != null && spriteRenderer != null)
                 animController.OnHitAnim(spriteRenderer, IsAlive);

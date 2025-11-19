@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Assets.Scripts.Game.UIElements;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,6 +20,8 @@ namespace Assets.Scripts.Wave
 
         [Header("UI Elements")]
         [SerializeField] private TextMeshProUGUI uiTimer;
+        [SerializeField] private GameObject timerBarObj;
+        private UIBar timerBar;
 
         private void Awake()
         {
@@ -33,6 +36,7 @@ namespace Assets.Scripts.Wave
         private void Start()
         {
             waveSpawner = WaveSpawner.Instance;
+            timerBar = timerBarObj.GetComponent<UIBar>();
         }
 
         private void Update()
@@ -44,8 +48,7 @@ namespace Assets.Scripts.Wave
             // end of timer
             if (timeLeft <= 0f)
             {
-                timeLeft = 0f;
-                isTimerActive = false;
+                OnEndTimer();
             }
 
             UpdateUITimer(timeLeft);
@@ -56,7 +59,15 @@ namespace Assets.Scripts.Wave
             timeLeft = durationInSeconds;
             isTimerActive = true;
 
+            timerBar.SetMaxAmount(durationInSeconds);
+            timerBar.SetAmount(durationInSeconds);
+
             UpdateUITimer(timeLeft);
+        }
+        private void OnEndTimer()
+        {
+            timeLeft = 0f;
+            isTimerActive = false;
         }
 
         public bool IsWaveTimeOver => !isTimerActive || timeLeft <= 0f;
@@ -66,6 +77,8 @@ namespace Assets.Scripts.Wave
             int minutes = Mathf.FloorToInt(timeLeft / 60f);
             int seconds = Mathf.FloorToInt(timeLeft % 60f);
             uiTimer.text = $"{minutes:D2}:{seconds:D2}";
+
+            timerBar.SetAmount(timeLeft);
         }
 
     }
