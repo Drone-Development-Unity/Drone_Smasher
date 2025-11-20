@@ -1,4 +1,5 @@
 using Assets.Scripts.Bullets;
+using Assets.Scripts.Game.UIElements;
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -19,6 +20,12 @@ namespace Game.MainCannon
         [SerializeField] private float bulletSpeed = 10f;
         [SerializeField] private float rotateAnimationDuration = 0.1f;
         [SerializeField] private float angleTolerance = 1f;
+
+        [Header("Colldown")]
+        [SerializeField] private UIBar cooldownBar;
+        [SerializeField] private float cooldownDelay = 0.2f;
+        private float cooldownTimer = 0f;
+        private bool isCooldownOn = false;
 
         [Header("Click detection zone")]
         [SerializeField] private Collider2D clickAreaCollider;
@@ -41,10 +48,33 @@ namespace Game.MainCannon
         private void Start()
         {
             mainCamera = Camera.main;
+
+            cooldownBar.SetMaxAmount(cooldownDelay);
+            cooldownBar.SetAmount(cooldownDelay);
+        }
+
+        private void Update()
+        {
+            if (isCooldownOn)
+            {
+                cooldownTimer += Time.deltaTime;
+
+                cooldownBar.SetAmount(cooldownTimer);
+
+                if (cooldownTimer >= cooldownDelay)
+                {
+                    isCooldownOn=false;
+                    cooldownTimer = 0f;
+
+                    cooldownBar.SetAmount(cooldownDelay);
+                }
+            }
         }
 
         private void OnFire(InputAction.CallbackContext context)
         {
+
+
             if (!IsClickWithinArea()) return;
 
             Vector3 mouseWorldPos = mainCamera.ScreenToWorldPoint(Mouse.current.position.ReadValue());
@@ -56,6 +86,10 @@ namespace Game.MainCannon
             float currentAngle = barrelTransform.eulerAngles.z;
             
             float angleDelta = Mathf.DeltaAngle(currentAngle, targetAngle);
+
+            // cooldown
+            if (isCooldownOn) return;
+            isCooldownOn = true;
 
             if (Mathf.Abs(angleDelta) < angleTolerance)
             {
