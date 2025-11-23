@@ -1,9 +1,8 @@
 using Game;
+using Game.StatsPanel;
 using UnityEditor;
 using UnityEditorInternal;
 using UnityEngine;
-using UnityEngine.UI;
-
 namespace Editor
 {
     [CustomEditor(typeof(Unit))]
@@ -27,7 +26,7 @@ namespace Editor
                 {
                     var prop = stats.properties[index];
                     float half = rect.width / 2;
-                    prop.propertyName = EditorGUI.TextField(new Rect(rect.x, rect.y, half - 5, EditorGUIUtility.singleLineHeight), prop.propertyName);
+                    prop.propertyType = (StatType)EditorGUI.EnumPopup(new Rect(rect.x, rect.y, half - 5, EditorGUIUtility.singleLineHeight), prop.propertyType);
                     prop.propertyValue = EditorGUI.DoubleField(new Rect(rect.x + half + 5, rect.y, half - 5, EditorGUIUtility.singleLineHeight), prop.propertyValue);
                 };
 
@@ -55,7 +54,7 @@ namespace Editor
                     upgrade.upgradeAmount = EditorGUI.DoubleField(amountRect, "Upgrade Amount", upgrade.upgradeAmount);
                     upgrade.currencyId = EditorGUI.IntField(currencyIdRect, "Currency ID", upgrade.currencyId);
 
-                    string[] propertyNames = stats.properties.ConvertAll(p => p.propertyName).ToArray();
+                    string[] propertyNames = stats.properties.ConvertAll(p => p.propertyType.ToString()).ToArray();
                     int selected = Mathf.Max(0, System.Array.IndexOf(propertyNames, upgrade.targetPropertyName));
                     selected = EditorGUI.Popup(targetRect, "Target Property", selected, propertyNames);
                     upgrade.targetPropertyName = propertyNames.Length > 0 ? propertyNames[selected] : "";

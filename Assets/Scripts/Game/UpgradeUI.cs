@@ -40,7 +40,7 @@ namespace Game
             Unit unitScript = baseObjectReference.GetComponent<Unit>();
             StatsData stats = unitScript.GetStats();
             var upgrade = stats.upgrades.Find(u => u.upgradeName == upgradeName.text);
-            var property = stats.properties.Find(p => p.propertyName == upgrade.targetPropertyName);
+            var property = stats.properties.Find(p => p.propertyType.ToString() == upgrade.targetPropertyName);
             //change of currency amount
             if (CurrencyManager.Instance.SpendCurrency(upgradeCurrency.currencyId, upgrade.upgradeCost) &&
                 property != null)
