@@ -1,5 +1,6 @@
 using System.Linq;
 using Assets.Scripts.Bullets;
+using Assets.Scripts.Game.UIElements;
 using DG.Tweening;
 using Game.StatsPanel;
 using UnityEngine;
@@ -19,6 +20,14 @@ namespace Game.MainCannon
         [SerializeField] private float rotateAnimationDuration = 0.1f;
         [SerializeField] private float angleTolerance = 1f;
 
+        [Header("Colldown")]
+        [SerializeField] private UIBar cooldownBar;
+        [SerializeField] private float cooldownDelay = 0.2f;
+        private float cooldownTimer = 0f;
+        private bool isCooldownOn = false;
+
+        [Header("Click detection zone")]
+        [SerializeField] private Collider2D clickAreaCollider;
 		[SerializeField] private AudioSource shootSound;
 
 
@@ -50,6 +59,27 @@ namespace Game.MainCannon
         private void Start()
         {
             mainCamera = Camera.main;
+
+            cooldownBar.SetMaxAmount(cooldownDelay);
+            cooldownBar.SetAmount(cooldownDelay);
+        }
+
+        private void Update()
+        {
+            if (isCooldownOn)
+            {
+                cooldownTimer += Time.deltaTime;
+
+                cooldownBar.SetAmount(cooldownTimer);
+
+                if (cooldownTimer >= cooldownDelay)
+                {
+                    isCooldownOn=false;
+                    cooldownTimer = 0f;
+
+                    cooldownBar.SetAmount(cooldownDelay);
+                }
+            }
         }
         private Vector3 GetMouseWorldPosition()
         {
@@ -61,6 +91,8 @@ namespace Game.MainCannon
         }
         private void MousePositionFire(InputAction.CallbackContext context)
         {
+
+
             if (!IsClickWithinArea()) return;
             if (isRotating) return;
             //auto track
@@ -74,6 +106,10 @@ namespace Game.MainCannon
             float targetAngle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90f;
             float currentAngle = barrelTransform.eulerAngles.z; // current Barrel rotation angle
             float angleDelta = Mathf.DeltaAngle(currentAngle, targetAngle);
+
+            // cooldown
+            if (isCooldownOn) return;
+            isCooldownOn = true;
 
             if (Mathf.Abs(angleDelta) < angleTolerance)
             {

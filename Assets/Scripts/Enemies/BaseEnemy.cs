@@ -13,6 +13,7 @@ namespace Assets.Scripts.Enemies
     {
         [Header("Health stuff")]
         [SerializeField] protected int maxHealth;
+        [SerializeField] protected EnemyHealthBar healthBar;
         
         [Header("References")]
         [SerializeField] protected GameObject enemyParent;
@@ -40,6 +41,8 @@ namespace Assets.Scripts.Enemies
 
             animController = GetComponent<EnemyAnimationController>();
             spriteRenderer = GetComponent<SpriteRenderer>();
+
+            healthBar.SetMaxAmount(maxHealth);
             
             //default enemyParent if null
             if (enemyParent == null)
@@ -52,6 +55,8 @@ namespace Assets.Scripts.Enemies
             //Debug.Log($"{gameObject.name} took {damage} damage.");
 
             currentHealth -= damage;
+
+            healthBar.SetAmount(currentHealth);
 
             if (animController != null && spriteRenderer != null)
                 animController.OnHitAnim(spriteRenderer, IsAlive);
