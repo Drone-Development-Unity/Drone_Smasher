@@ -19,7 +19,10 @@ namespace Game.MainCannon
         [SerializeField] private float rotateAnimationDuration = 0.1f;
         [SerializeField] private float angleTolerance = 1f;
 
-        [Header("Click detection zone")] [SerializeField]
+		[SerializeField] private AudioSource shootSound;
+
+
+		[Header("Click detection zone")] [SerializeField]
         private GameObject clickArea;
 
         [Header("Enemies")] [SerializeField] private GameObject enemyContainer;
@@ -90,7 +93,14 @@ namespace Game.MainCannon
         //Spawns bullet at correct direction
         private void Fire(Vector3 direction)
         {
-            direction.z = 0;
+            if (shootSound != null)
+            {
+                shootSound.Play();
+				Debug.Log("PLAY SOUND!");
+
+			}
+
+			direction.z = 0;
             direction = direction.normalized;
             GameObject projectile = Instantiate(projectilePrefab, firePoint.position, Quaternion.identity);
             projectile.GetComponent<BulletCollisionDetection>().Initialize(gameObject, GetDamageProperty(), direction);
