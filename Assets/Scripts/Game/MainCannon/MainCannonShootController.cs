@@ -107,10 +107,6 @@ namespace Game.MainCannon
             float currentAngle = barrelTransform.eulerAngles.z; // current Barrel rotation angle
             float angleDelta = Mathf.DeltaAngle(currentAngle, targetAngle);
 
-            // cooldown
-            if (isCooldownOn) return;
-            isCooldownOn = true;
-
             if (Mathf.Abs(angleDelta) < angleTolerance)
             {
                 // Fire instantly if angle difference is too small
@@ -129,6 +125,10 @@ namespace Game.MainCannon
         //Spawns bullet at correct direction
         private void Fire(Vector3 direction)
         {
+            // cooldown
+            if (isCooldownOn) return;
+            isCooldownOn = true;
+
             if (shootSound != null)
             {
                 shootSound.Play();
