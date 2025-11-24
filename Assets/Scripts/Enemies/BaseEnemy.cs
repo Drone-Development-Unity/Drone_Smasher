@@ -1,4 +1,5 @@
-﻿using Assets.Scripts.Wave;
+﻿using Assets.Scripts.Enemies.Controllers;
+using Assets.Scripts.Wave;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -31,15 +32,17 @@ namespace Assets.Scripts.Enemies
         private NextWaveManager nextWaveManager;
 
         private EnemyAnimationController animController;
+        private WreckSpawnerController wreckSpawner;
         private SpriteRenderer spriteRenderer;
 
-        public GameObject wreckPrefab;
         private void Start()
         {
             currentHealth = maxHealth;
             nextWaveManager = NextWaveManager.Instance;
 
             animController = GetComponent<EnemyAnimationController>();
+            wreckSpawner = GetComponent<WreckSpawnerController>();
+
             spriteRenderer = GetComponent<SpriteRenderer>();
 
             healthBar.SetMaxAmount(maxHealth);
@@ -74,21 +77,14 @@ namespace Assets.Scripts.Enemies
             //Debug.Log($"{gameObject.name} died.");
             nextWaveManager.EnemyKilled(this);
 
-            if (wreckPrefab != null)
-            {
-                GameObject wreckObj = Instantiate(wreckPrefab, transform.position, Quaternion.identity);
-                wreckObj.transform.SetParent(WreckManager.Instance.wrecksContainer.transform, false);
-                WreckManager.Instance.RegisterWreck(wreckObj.GetComponent<Wreck>());
+            // explosion animation
+            if (animController != null)
+                animController.RunExplosionParticles(transform.position);
 
-                // kopiowanie sprite’a przeciwnika
-                SpriteRenderer enemyRenderer = GetComponent<SpriteRenderer>();
-                SpriteRenderer wreckRenderer = wreckObj.GetComponent<SpriteRenderer>();
-                if (enemyRenderer != null && wreckRenderer != null)
-                {
-                    wreckRenderer.sprite = enemyRenderer.sprite;
-                    //wreckRenderer.color = Color.gray; // np. domyślny kolor wraku
-                }
-            }
+            // wreck spawn
+            if (wreckSpawner != null)
+                wreckSpawner.SpawnWreck(transform.position, Quaternion.identity, spriteRenderer);
+
             Destroy(enemyParent);
         }
       

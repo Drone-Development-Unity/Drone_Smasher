@@ -46,6 +46,7 @@ GameObject:
   - component: {fileID: 6144607296477817958}
   - component: {fileID: 709756904874589174}
   - component: {fileID: 2309048006778922342}
+  - component: {fileID: 2332912183432663821}
   m_Layer: 0
   m_Name: EnemyVisual
   m_TagString: Enemy
@@ -216,7 +217,6 @@ MonoBehaviour:
   maxHealth: 50
   healthBar: {fileID: 6770903699556607982}
   enemyParent: {fileID: 2150796800528179175}
-  wreckPrefab: {fileID: 2776446182460810034, guid: 69edb087b7ec3874bbfe60d1f36b35ba, type: 3}
 --- !u!114 &709756904874589174
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -253,6 +253,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Assets.Scripts.Enemies.EnemyAnimationController
   flashMaterial: {fileID: 2100000, guid: 7a95be5b9fddd334e9dd2fd410d00e41, type: 2}
+  explosionParticles: {fileID: 1456487377627464390, guid: cd28bab1cd71bf44bb9270a9670d6a39, type: 3}
+  fragParticles: {fileID: 3047316482893054669, guid: aeb0b8d16a5279d459bef8447257feb8, type: 3}
+  particleScale: 0.25
+--- !u!114 &2332912183432663821
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1667822457404806868}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31ae9f0e35675d5489378d0662ae7ad8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Assets.Scripts.Enemies.Controllers.WreckSpawnerController
+  wreckPrefab: {fileID: 2776446182460810034, guid: 69edb087b7ec3874bbfe60d1f36b35ba, type: 3}
 --- !u!1 &2150796800528179175
 GameObject:
   m_ObjectHideFlags: 0

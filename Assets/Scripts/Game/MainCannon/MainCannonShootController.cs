@@ -132,8 +132,6 @@ namespace Game.MainCannon
             if (shootSound != null)
             {
                 shootSound.Play();
-				Debug.Log("PLAY SOUND!");
-
 			}
 
 			direction.z = 0;
