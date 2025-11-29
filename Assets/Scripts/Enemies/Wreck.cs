@@ -1,15 +1,21 @@
+using Assets.Scripts.Interfaces.Enemy;
 using Game;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class Wreck : MonoBehaviour, IPointerEnterHandler
+public class Wreck : MonoBehaviour, IPointerEnterHandler, ITraceableWreck
 {
     private bool _collected = false;
     private SpriteRenderer _renderer;
     private WreckManager _manager;
-    private float boundary = -10f;
+    private float boundary = -40f;
+
+    public float FallSpeed => fallSpeed;
 
     [SerializeField] private float fallSpeed = 2f;
+
+    private bool _isTracked = false;
+    public bool IsTracked { get => _isTracked; set => _isTracked = value; }
 
     private void Awake()
     {
@@ -41,7 +47,7 @@ public class Wreck : MonoBehaviour, IPointerEnterHandler
     private void Collect()
     {
         _collected = true;
-        Debug.Log("Wrak zebrany!");
+        //Debug.Log("Wrak zebrany!");
         _renderer.color = Color.black;
         // tutaj możesz dodać logikę: punkty, zasoby itd.
     }

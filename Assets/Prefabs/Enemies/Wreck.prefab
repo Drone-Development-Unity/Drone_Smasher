@@ -154,4 +154,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51ee7efd1561bce4f8190f59f27e3a93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NewMonoBehaviourScript
-  fallSpeed: 2
+  fallSpeed: 1
