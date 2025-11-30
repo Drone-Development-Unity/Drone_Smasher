@@ -50,7 +50,7 @@ public class CurrencyManager : MonoBehaviour
         {
             if (currency.currencyId == currencyId)
             {
-                currency.amount += value;                
+                currency.amount += Math.Round(value);                
                 OnCurrencyChanged?.Invoke(currency.currencyId, currency.amount);
             }
         }

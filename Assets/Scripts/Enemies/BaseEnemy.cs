@@ -84,7 +84,6 @@ namespace Assets.Scripts.Enemies
             // wreck spawn
             if (wreckSpawner != null)
                 wreckSpawner.SpawnWreck(transform.position, Quaternion.identity, spriteRenderer);
-
             Destroy(enemyParent);
         }
       

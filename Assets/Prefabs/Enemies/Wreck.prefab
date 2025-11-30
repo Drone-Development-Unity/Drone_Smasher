@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1823364457040452920}
   - component: {fileID: 4424894621834346206}
   - component: {fileID: 1216509790173607884}
+  - component: {fileID: 3565931969983088106}
   m_Layer: 5
   m_Name: Wreck
   m_TagString: Untagged
@@ -155,3 +156,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NewMonoBehaviourScript
   fallSpeed: 1
+--- !u!114 &3565931969983088106
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2776446182460810034}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 508bdd7688a6e6546a4fc445eaf525b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DropCurrency
+  dropCurrencies:
+  - currencyId: 0
+    dropRate: 0.6
+    minAmount: 50
+    maxAmount: 200
+  - currencyId: 1
+    dropRate: 0.01
+    minAmount: 1
+    maxAmount: 10
