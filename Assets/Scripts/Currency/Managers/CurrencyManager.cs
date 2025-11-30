@@ -8,7 +8,7 @@ using UnityEngine;
 public class CurrencyManager : MonoBehaviour
 {
     public static CurrencyManager Instance { get; private set; }
-    public event Action<int, double> OnCurrencyChanged;
+    public event Action<int, double, double> OnCurrencyChanged;
 
     [Header("Necessary prefabs")]
     [SerializeField] private GameObject currencyListElement; //NecessariesPanel/CurrenciesPanelScrollView object
@@ -50,8 +50,9 @@ public class CurrencyManager : MonoBehaviour
         {
             if (currency.currencyId == currencyId)
             {
+                double currencyPrev = currency.amount;
                 currency.amount += Math.Round(value);                
-                OnCurrencyChanged?.Invoke(currency.currencyId, currency.amount);
+                OnCurrencyChanged?.Invoke(currency.currencyId, currencyPrev, currency.amount);
             }
         }
     }
@@ -64,8 +65,9 @@ public class CurrencyManager : MonoBehaviour
             {
                 if (currency.amount >= value)
                 {
+                    double  currencyPrev = currency.amount;
                     currency.amount -= value;
-                    OnCurrencyChanged?.Invoke(currency.currencyId, currency.amount);
+                    OnCurrencyChanged?.Invoke(currency.currencyId, currencyPrev, currency.amount);
                     return true;
                 }
                 return false;
