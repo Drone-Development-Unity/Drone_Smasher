@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 6be5ca2446dcbe74195d423cc0c09963
+guid: 567cade95d1a45f4da5b07e0b444c916
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 532282208441007744
-    second: images (1)_0
+      213: 7270217288833025708
+    second: 189701408-pixel-art-gem-stone_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -51,7 +51,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 210
+  spritePixelsToUnits: 450
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -100,23 +100,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: images (1)_0
+      name: 189701408-pixel-art-gem-stone_0
       rect:
         serializedVersion: 2
-        x: 76
-        y: 20
-        width: 66
-        height: 178
+        x: 68
+        y: 67
+        width: 313
+        height: 313
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 08ef26239db036700800000000000000
-      internalID: 532282208441007744
+      spriteID: ca6cbccda1005e460800000000000000
+      internalID: 7270217288833025708
       vertices: []
       indices: 
       edges: []
@@ -125,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 3d39de8ab8be3fc4a96720dc62849529
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      images (1)_0: 532282208441007744
+      189701408-pixel-art-gem-stone_0: 7270217288833025708
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

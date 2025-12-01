@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 6be5ca2446dcbe74195d423cc0c09963
+guid: 00a9fc010c60f3e41bb8ebb20419ed56
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 532282208441007744
-    second: images (1)_0
+      213: 6642312183945504582
+    second: 75-750894_download-minecraft-diamond-no-background (1)_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -51,7 +51,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 210
+  spritePixelsToUnits: 840
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -100,23 +100,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: images (1)_0
+      name: 75-750894_download-minecraft-diamond-no-background (1)_0
       rect:
         serializedVersion: 2
-        x: 76
-        y: 20
-        width: 66
-        height: 178
+        x: 206
+        y: 27
+        width: 429
+        height: 436
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 08ef26239db036700800000000000000
-      internalID: 532282208441007744
+      spriteID: 64722532dbb3e2c50800000000000000
+      internalID: 6642312183945504582
       vertices: []
       indices: 
       edges: []
@@ -125,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: b1c4fd6627470f84bb9a81844ea2a5d8
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      images (1)_0: 532282208441007744
+      75-750894_download-minecraft-diamond-no-background (1)_0: 6642312183945504582
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
