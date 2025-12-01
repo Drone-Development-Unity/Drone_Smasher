@@ -145,7 +145,11 @@ namespace Assets.Scripts.Allies.Gatherer
                         GoBackToBase();
                         return;
                     }
-
+                    //collect wreck resources
+                    var drop = currentWreck.GetComponent<DropCurrency>();
+                    if(drop != null) drop.TryGetCurrency();
+                    
+                    
                     currentWreck.IsTracked = false;
                     // or replace with other texture
                     Destroy(currentWreck.gameObject);
