@@ -227,6 +227,22 @@ PrefabInstance:
       propertyPath: m_hasFontAssetChanged
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6860573514693444247, guid: 0ec5365c18357334ba80ce3c95f9a8cd, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6860573514693444247, guid: 0ec5365c18357334ba80ce3c95f9a8cd, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1780514331}
+    - target: {fileID: 6860573514693444247, guid: 0ec5365c18357334ba80ce3c95f9a8cd, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ToggleCameraGatherersPosition
+      objectReference: {fileID: 0}
+    - target: {fileID: 6860573514693444247, guid: 0ec5365c18357334ba80ce3c95f9a8cd, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: CameraSwitcher, Assembly-CSharp
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -411,8 +427,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 524.63745, y: -540}
-  m_SizeDelta: {x: 1049.274, y: 1080}
+  m_AnchoredPosition: {x: 502.94, y: -540}
+  m_SizeDelta: {x: 1005.9, y: 1080}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &127725654 stripped
 RectTransform:
@@ -729,6 +745,22 @@ PrefabInstance:
     - target: {fileID: 4661561383847819335, guid: 0ec5365c18357334ba80ce3c95f9a8cd, type: 3}
       propertyPath: m_hasFontAssetChanged
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6860573514693444247, guid: 0ec5365c18357334ba80ce3c95f9a8cd, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6860573514693444247, guid: 0ec5365c18357334ba80ce3c95f9a8cd, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1780514331}
+    - target: {fileID: 6860573514693444247, guid: 0ec5365c18357334ba80ce3c95f9a8cd, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ToggleCameraBasePosition
+      objectReference: {fileID: 0}
+    - target: {fileID: 6860573514693444247, guid: 0ec5365c18357334ba80ce3c95f9a8cd, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: CameraSwitcher, Assembly-CSharp
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
