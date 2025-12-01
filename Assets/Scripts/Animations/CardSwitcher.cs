@@ -30,7 +30,7 @@ public class CardSwitcher : MonoBehaviour
 
         Sequence seq = DOTween.Sequence();
 
-        seq.Append(fadePanel.DOFade(1f, 0.15f).SetEase(Ease.Linear)) // FADE OUT
+        seq.Append(fadePanel.DOFade(1f, 0.12f).SetEase(Ease.Linear)) // FADE OUT
            .AppendCallback(() =>
            {
                // Dopiero tu zmieniamy kartê — gdy alpha = 1
@@ -38,7 +38,7 @@ public class CardSwitcher : MonoBehaviour
                cards[newCardIndex].SetActive(true);
                activeCardIndex = newCardIndex;
            })
-           .Append(fadePanel.DOFade(0f, 0.15f).SetEase(Ease.Linear)) // FADE IN
+           .Append(fadePanel.DOFade(0f, 0.12f).SetEase(Ease.Linear)) // FADE IN
            .OnComplete(() =>
            {
                isSwitching = false;
