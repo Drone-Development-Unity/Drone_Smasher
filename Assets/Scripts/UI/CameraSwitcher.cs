@@ -1,51 +1,53 @@
 using UnityEngine;
-
 using System.Collections;
+using DG.Tweening;
 
 public class CameraSwitcher : MonoBehaviour
 {
-    [Header("Cele Kamery")]
-    public Transform gameplayPosition; 
+    [Header("Cele Kamery")] public Transform gameplayPosition;
     public Transform gatherersPosition;
 
-    [Header("Ustawienia")]
-    public float transitionSpeed = 2.0f; // Jak szybko kamera ma się przesuwać
+    [Header("Ustawienia")] public float transitionSpeed = 2.0f; // Jak szybko kamera ma się przesuwać
 
-    private bool isAtGatherers = false; // Czy jesteśmy na dole?
+    private bool isAtGatherers = false; //gatherers scene flag - may be in use later
 
+    //Tween references
+    private Tween moveTween;
     // Tę funkcję podepniesz pod przycisk
-    public void ToggleCameraPosition()
+    public void ToggleCameraBasePosition()
     {
-        isAtGatherers = !isAtGatherers; // Zmień stan na przeciwny
-
         if (isAtGatherers)
         {
-            StopAllCoroutines(); // Zatrzymaj poprzedni ruch jeśli jakiś trwa
-            StartCoroutine(MoveCamera(gatherersPosition));
-        }
-        else
-        {
-            StopAllCoroutines();
-            StartCoroutine(MoveCamera(gameplayPosition));
+            isAtGatherers = false;
+            MoveCamera(gameplayPosition);
         }
     }
 
-    // Korutyna odpowiedzialna za płynny ruch
-    IEnumerator MoveCamera(Transform target)
+    public void ToggleCameraGatherersPosition()
     {
-        // Dopóki kamera nie jest "prawie" na miejscu
-        while (Vector3.Distance(transform.position, target.position) > 0.01f)
+        if (!isAtGatherers)
         {
-            // Płynne przesuwanie pozycji
-            transform.position = Vector3.Lerp(transform.position, target.position, Time.deltaTime * transitionSpeed);
-            
-            // Opcjonalnie: Płynne obracanie (jeśli kamera ma też patrzeć w dół)
-            transform.rotation = Quaternion.Lerp(transform.rotation, target.rotation, Time.deltaTime * transitionSpeed);
-
-            yield return null; // Czekaj do następnej klatki
+            isAtGatherers = true;
+            MoveCamera(gatherersPosition);
         }
+    }
 
-        // Na koniec upewnij się, że pozycja jest idealna
-        transform.position = target.position;
+
+    //Dotween animation
+    public void MoveCamera(Transform target)
+    {
+        moveTween?.Kill();
+        // Animacja pozycji
+        moveTween = transform.DOMove(target.position, transitionSpeed)
+            .SetEase(Ease.InOutQuad);
+
+        /*// Opcjonalnie: animacja rotacji
+        transform.DORotateQuaternion(target.rotation, transitionSpeed)
+            .SetEase(Ease.InOutSine);*/
+    }
+
+    private void OnDestroy()
+    {
+        moveTween?.Kill();
     }
 }
