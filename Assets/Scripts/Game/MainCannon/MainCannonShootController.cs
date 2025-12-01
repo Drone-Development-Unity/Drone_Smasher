@@ -110,7 +110,7 @@ namespace Game.MainCannon
             if (Mathf.Abs(angleDelta) < angleTolerance)
             {
                 // Fire instantly if angle difference is too small
-                Fire(direction);
+                Fire(direction, targetAngle);
             }
             else
             {
@@ -123,7 +123,7 @@ namespace Game.MainCannon
             _rotationTween?.Kill();
         }
         //Spawns bullet at correct direction
-        private void Fire(Vector3 direction)
+        private void Fire(Vector3 direction, float angle)
         {
             // cooldown
             if (isCooldownOn) return;
@@ -136,7 +136,7 @@ namespace Game.MainCannon
 
 			direction.z = 0;
             direction = direction.normalized;
-            GameObject projectile = Instantiate(projectilePrefab, firePoint.position, Quaternion.identity);
+            GameObject projectile = Instantiate(projectilePrefab, firePoint.position, Quaternion.Euler(0,0,angle));
             projectile.GetComponent<BulletCollisionDetection>().Initialize(gameObject, GetDamageProperty(), direction);
             Rigidbody2D rb = projectile.GetComponent<Rigidbody2D>();
             if (rb != null)
@@ -192,7 +192,7 @@ namespace Game.MainCannon
             float currentAngle = barrelTransform.eulerAngles.z;
             float angleDelta = Mathf.DeltaAngle(currentAngle, targetAngle);
             if (Mathf.Abs(angleDelta) < angleTolerance)
-                Fire(direction);
+                Fire(direction, targetAngle);
             else
                 RotateAndFire(direction, targetAngle);
         }
@@ -230,7 +230,7 @@ namespace Game.MainCannon
                 .SetEase(Ease.OutQuad)
                 .OnComplete(() =>
                 {
-                    Fire(direction);
+                    Fire(direction, targetAngle);
                     isRotating = false; 
                 });
         }
