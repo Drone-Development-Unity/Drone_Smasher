@@ -8,7 +8,8 @@ public class Wreck : MonoBehaviour, IPointerEnterHandler, ITraceableWreck
     private bool _collected = false;
     private SpriteRenderer _renderer;
     private WreckManager _wreckManager;
-    private float boundary = -40f;
+
+    private float boundary = -13f;
 
     public float FallSpeed => fallSpeed;
 

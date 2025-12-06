@@ -10,6 +10,9 @@ public class WreckManager : MonoBehaviour
     
     private List<Wreck> wrecks = new List<Wreck>();
 
+    // gatherer activation threshold
+    [SerializeField] private Transform GatherersActivationThresholdPosition;
+
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -23,7 +26,9 @@ public class WreckManager : MonoBehaviour
     public Wreck ReserveClosest(Vector3 dronePos)
     {
         var freeWrecks = wrecks
-            .Where(w => !w.IsTracked)
+            .Where(w => 
+                !w.IsTracked &&
+                w.transform.position.y < GatherersActivationThresholdPosition.position.y)
             .ToList();
         if (!freeWrecks.Any()) return null;
 

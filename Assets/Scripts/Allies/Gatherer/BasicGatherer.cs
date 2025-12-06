@@ -5,10 +5,13 @@ namespace Assets.Scripts.Allies.Gatherer
 {
     public class BasicGatherer : MonoBehaviour
     {
+        // configurable fields
         [SerializeField] private float speed = 2.5f;
         [SerializeField] private float collectionTime = 2.0f;
         [SerializeField] private float flyOverHeightOffset = 0.5f;
+        private Vector2 basePosition;
 
+        // states
         private enum State
         {
             FindingWrecks,
@@ -19,24 +22,37 @@ namespace Assets.Scripts.Allies.Gatherer
 
         private State currentState = State.FindingWrecks;
         private bool stateEntered = false;
-
-        private Vector2 basePosition = new Vector2(-4.1f, -6.6f);
-
-        private Wreck currentWreck;
-        private Tween currentTween;
         private bool isHovering = false;
 
+        // references
+        private Wreck currentWreck;
+        private Tween currentTween;
+        [SerializeField] private Transform visual;
+
+        // wreck manager
         private WreckManager _wreckManager;
 
         private void Start()
         {
             _wreckManager = WreckManager.Instance;
+            basePosition = transform.position;
         }
 
         private void Update()
         {
+            // shake visual
+            float amplitude = (
+                currentState == State.CollectingPartsFromWreck || currentState == State.FindingWrecks
+                )  ? 0.08f : 0.04f;
+            float noiseX = (Mathf.PerlinNoise(Time.time * 3f, 0f) - 0.5f) * amplitude;
+            float noiseY = (Mathf.PerlinNoise(0f, Time.time * 2f) - 0.5f) * (amplitude * 0.8f);
+
+            visual.localPosition = new Vector3(noiseX, noiseY, 0f);
+
+            // state machine update
             StateMachineUpdate();
 
+            // hovering logic
             if (isHovering && currentWreck != null)
             {
                 Vector3 offset = Vector3.up * flyOverHeightOffset;
