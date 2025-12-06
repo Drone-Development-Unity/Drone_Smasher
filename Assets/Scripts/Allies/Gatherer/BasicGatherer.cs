@@ -1,9 +1,4 @@
 ﻿using DG.Tweening;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using UnityEngine;
 
 namespace Assets.Scripts.Allies.Gatherer
@@ -13,6 +8,7 @@ namespace Assets.Scripts.Allies.Gatherer
         [SerializeField] private float speed = 2.5f;
         [SerializeField] private float collectionTime = 2.0f;
         [SerializeField] private float flyOverHeightOffset = 0.5f;
+
         private enum State
         {
             FindingWrecks,
@@ -20,166 +16,163 @@ namespace Assets.Scripts.Allies.Gatherer
             CollectingPartsFromWreck,
             ReturningToBase
         }
+
         private State currentState = State.FindingWrecks;
+        private bool stateEntered = false;
+
         private Vector2 basePosition = new Vector2(-4.1f, -6.6f);
 
         private Wreck currentWreck;
         private Tween currentTween;
-
-        // hover control
         private bool isHovering = false;
 
+        private WreckManager _wreckManager;
+
+        private void Start()
+        {
+            _wreckManager = WreckManager.Instance;
+        }
 
         private void Update()
         {
-            UpdateStateMachine();
+            StateMachineUpdate();
 
-            // auto update hover position
             if (isHovering && currentWreck != null)
             {
-                Vector3 offset = Vector3.up * flyOverHeightOffset * Time.deltaTime;
-                Vector3 hoverPos = currentWreck.transform.position + offset;
-
-                transform.position = hoverPos;
+                Vector3 offset = Vector3.up * flyOverHeightOffset;
+                transform.position = currentWreck.transform.position + offset;
             }
         }
 
-        private void UpdateStateMachine()
-        {
 
-            switch (currentState)
+        // set or update state machine
+        private void StateMachineUpdate()
+        {
+            if (!stateEntered)
             {
-                case State.FindingWrecks:
-                    FindWrecks();
-                    break;
+                EnterState(currentState);
+                stateEntered = true;
+            }
 
-                case State.FlyingTowardWreck:
-                    FlyTowardWreck();
-                    break;
+            UpdateState(currentState);
+        }
 
-                case State.CollectingPartsFromWreck:
-                    CollectPartsFromWreck();
-                    break;
-
-                case State.ReturningToBase:
-                    ReturnToBase();
-                    break;
+        // enter state
+        private void EnterState(State state)
+        {
+            switch (state)
+            {
+                case State.FindingWrecks: break;
+                case State.FlyingTowardWreck: Enter_FlyingTowardWreck(); break;
+                case State.CollectingPartsFromWreck: Enter_CollectingPartsFromWreck(); break;
+                case State.ReturningToBase: Enter_ReturningToBase(); break;
             }
         }
 
-        // find wrecks in the scene that are not tracked
-        private void FindWrecks()
+        // update state - only FindingWreks
+        private void UpdateState(State state)
         {
-            var wrecks = FindObjectsByType<Wreck>(FindObjectsSortMode.None)
-                .Where(w => !w.IsTracked)
-                .ToList();
+            switch (state)
+            {
+                case State.FindingWrecks: Update_FindingWrecks(); break;
+                case State.FlyingTowardWreck: break;
+                case State.CollectingPartsFromWreck: break;
+                case State.ReturningToBase: break;
+            }
+        }
 
-            if (wrecks.Count == 0) return;
+        private void ChangeState(State newState)
+        {
+            currentState = newState;
+            stateEntered = false;
+        }
 
+        // ------------------------
+        // FINDING WRECKS
+        private void Update_FindingWrecks()
+        {
+            if (currentWreck != null) return;
 
-            // choose the closest wreck
-            currentWreck = wrecks
-                .OrderBy(w => Vector2.Distance(transform.position, w.transform.position))
-                .FirstOrDefault();
+            currentWreck = _wreckManager.ReserveClosest(transform.position);
 
             if (currentWreck != null)
-            {
-                currentWreck.IsTracked = true;
-                currentState = State.FlyingTowardWreck;
-            }
+                ChangeState(State.FlyingTowardWreck);
         }
 
-        // set target position to the wreck's position
-        private void FlyTowardWreck()
+        // ------------------------
+        // FLY TOWARD WRECK
+        private void Enter_FlyingTowardWreck()
         {
             if (currentWreck == null)
             {
-                GoBackToBase();
+                ChangeState(State.ReturningToBase);
                 return;
             }
 
-            // position prediction
-            Vector3 predictedPos = GathererHelpers.PredictFuturePosition(currentWreck, transform, speed);
+            Vector3 predictedPosition = GathererHelpers.PredictFuturePosition(
+                currentWreck, transform, speed
+            );
 
-            GathererHelpers.StartMovementTween(predictedPos, currentTween, transform, speed, () =>
+            currentTween = GathererHelpers.StartMovementTween(predictedPosition, currentTween, transform, speed, () =>
             {
-                if (currentWreck == null)
-                {
-                    GoBackToBase();
-                    return;
-                }
-
-                currentState = State.CollectingPartsFromWreck;
+                ChangeState(State.CollectingPartsFromWreck);
             });
         }
 
-        // fly over wreck for some time
-        private void CollectPartsFromWreck()
+        // ------------------------
+        // COLLECT
+        private void Enter_CollectingPartsFromWreck()
         {
             if (currentWreck == null)
             {
-                GoBackToBase();
+                ChangeState(State.ReturningToBase);
                 return;
             }
 
-            // celecting position above the wreck
-            Vector3 flyOverPos = currentWreck.transform.position + Vector3.up * flyOverHeightOffset;
+            Vector3 predictedPosition = GathererHelpers.PredictFuturePosition(
+                currentWreck, transform, speed
+            );
 
-            currentTween?.Kill();
+            Vector3 target = predictedPosition + Vector3.up * flyOverHeightOffset;
 
-            GathererHelpers.StartMovementTween(flyOverPos, currentTween, transform, speed, () =>
+            // fly over wreck and hover
+            currentTween = GathererHelpers.StartMovementTween(target, currentTween, transform, speed, () =>
             {
-                if (currentWreck == null)
-                {
-                    GoBackToBase();
-                    return;
-                }
                 isHovering = true;
 
-                // delayed call after collectionTime
-                currentTween = DOVirtual.DelayedCall(collectionTime, () =>
+                // wait collection time
+                DOVirtual.DelayedCall(collectionTime, () =>
                 {
+                    // finish collection logic
                     isHovering = false;
+
                     if (currentWreck == null)
                     {
-                        GoBackToBase();
+                        ChangeState(State.ReturningToBase);
                         return;
                     }
-                    //collect wreck resources
+
                     var drop = currentWreck.GetComponent<DropCurrency>();
-                    if(drop != null) drop.TryGetCurrency();
-                    
-                    
+                    if (drop != null) drop.TryGetCurrency();
+
                     currentWreck.IsTracked = false;
-                    // or replace with other texture
-                    Destroy(currentWreck.gameObject);
+                    _wreckManager.RemoveWreck(currentWreck);
+                    currentWreck = null;
 
-                    GoBackToBase();
+                    ChangeState(State.ReturningToBase);
 
-                }, false);
+                });
             });
-
-            
         }
 
-        // go back to base
-        private void ReturnToBase()
+        // ------------------------
+        // RETURN TO BASE
+        private void Enter_ReturningToBase()
         {
-            GathererHelpers.StartMovementTween(basePosition, currentTween, transform, speed, () =>
+            currentTween = GathererHelpers.StartMovementTween(basePosition, currentTween, transform, speed, () =>
             {
-                currentState = State.FindingWrecks;
+                ChangeState(State.FindingWrecks);
             });
         }
-
-        private void GoBackToBase()
-        {
-            isHovering = false;
-
-            currentWreck = null;
-
-            currentState = State.ReturningToBase;
-
-        }
-
     }
 }

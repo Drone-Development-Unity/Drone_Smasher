@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class WreckManager : MonoBehaviour
@@ -17,6 +18,21 @@ public class WreckManager : MonoBehaviour
             return;
         }
         Instance = this;
+    }
+
+    public Wreck ReserveClosest(Vector3 dronePos)
+    {
+        var freeWrecks = wrecks
+            .Where(w => !w.IsTracked)
+            .ToList();
+        if (!freeWrecks.Any()) return null;
+
+        var closestWreck = freeWrecks.OrderBy(w =>
+            Vector3.Distance(dronePos, w.transform.position)).First();
+
+        closestWreck.IsTracked = true;
+
+        return closestWreck;
     }
 
     public void RegisterWreck(Wreck wreck)

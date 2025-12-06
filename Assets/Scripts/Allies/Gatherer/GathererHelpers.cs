@@ -10,19 +10,17 @@ namespace Assets.Scripts.Allies.Gatherer
 {
     static public class GathererHelpers
     {
-        static public void StartMovementTween(
+        static public Tween StartMovementTween(
             Vector3 target, Tween currentTween, Transform gathererPosition, float speed, 
             TweenCallback onComplete
         )
         {
-
             currentTween?.Kill();
-            currentTween = null;
 
             float distance = Vector2.Distance(gathererPosition.position, target);
             float duration = distance / speed;
 
-            currentTween = gathererPosition
+            return gathererPosition
                 .DOMove(target, duration)
                 .SetEase(Ease.Linear)
                 .OnComplete(onComplete);
@@ -35,7 +33,7 @@ namespace Assets.Scripts.Allies.Gatherer
             float distance = Vector2.Distance(gathererPosition.position, wreck.transform.position);
             float timeToReach = distance / speed;
 
-            float fallSpeed = wreck.FallSpeed; // musisz udostępnić fallSpeed jako public/protected
+            float fallSpeed = wreck.FallSpeed;
 
             Vector3 predicted = wreck.transform.position;
             predicted.y -= fallSpeed * timeToReach;

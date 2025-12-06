@@ -7,7 +7,7 @@ public class Wreck : MonoBehaviour, IPointerEnterHandler, ITraceableWreck
 {
     private bool _collected = false;
     private SpriteRenderer _renderer;
-    private WreckManager _manager;
+    private WreckManager _wreckManager;
     private float boundary = -40f;
 
     public float FallSpeed => fallSpeed;
@@ -15,12 +15,12 @@ public class Wreck : MonoBehaviour, IPointerEnterHandler, ITraceableWreck
     [SerializeField] private float fallSpeed = 2f;
 
     private bool _isTracked = false;
-    public bool IsTracked { get => _isTracked; set => _isTracked = value; }
+    [HideInInspector] public bool IsTracked { get => _isTracked; set => _isTracked = value; }
 
     private void Awake()
     {
         _renderer = GetComponent<SpriteRenderer>();
-        _manager = WreckManager.Instance;
+        _wreckManager = WreckManager.Instance;
     }
 
     private void Update()
@@ -31,7 +31,7 @@ public class Wreck : MonoBehaviour, IPointerEnterHandler, ITraceableWreck
         // jeśli wrak spadnie za daleko – zgłoś do menedżera
         if (transform.position.y < boundary)
         {
-            _manager.RemoveWreck(this);
+            _wreckManager.RemoveWreck(this);
         }
     }
 
