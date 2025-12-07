@@ -1,4 +1,5 @@
 ﻿using DG.Tweening;
+using System.Collections;
 using UnityEngine;
 
 namespace Assets.Scripts.Allies.Gatherer
@@ -88,12 +89,9 @@ namespace Assets.Scripts.Allies.Gatherer
         // update state - only FindingWreks
         private void UpdateState(State state)
         {
-            switch (state)
+            if(state == State.FindingWrecks)
             {
-                case State.FindingWrecks: Update_FindingWrecks(); break;
-                case State.FlyingTowardWreck: break;
-                case State.CollectingPartsFromWreck: break;
-                case State.ReturningToBase: break;
+                Update_FindingWrecks();
             }
         }
 
@@ -101,6 +99,12 @@ namespace Assets.Scripts.Allies.Gatherer
         {
             currentState = newState;
             stateEntered = false;
+
+            // wreck lost check
+            if (newState == State.FlyingTowardWreck || newState == State.CollectingPartsFromWreck)
+            {
+                StartCoroutine(CheckWreckLost());
+            }
         }
 
         // ------------------------
@@ -189,6 +193,28 @@ namespace Assets.Scripts.Allies.Gatherer
             {
                 ChangeState(State.FindingWrecks);
             });
+        }
+
+        // ------------------------
+        // WRECK LOST 
+        private IEnumerator CheckWreckLost()
+        {
+            while (
+                currentState == State.FlyingTowardWreck ||
+                currentState == State.CollectingPartsFromWreck
+                )
+            {
+                if (currentWreck == null)
+                {
+                    // cancel tween
+                    currentTween?.Kill();
+                    currentTween = null;
+
+                    ChangeState(State.ReturningToBase);
+                    yield break;
+                }
+                yield return new WaitForSeconds(0.1f);
+            }
         }
     }
 }

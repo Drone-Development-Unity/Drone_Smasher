@@ -21,11 +21,14 @@ public class WaveSpawner : MonoBehaviour
     private GameObject enemiesContainer;
 
     [Header("Spawn Settings")]
-    private float xSpawnStart = -8.5f;
-    private float xSpawnEnd = 0.5f;
+    [SerializeField] private Transform spawnStartTransform;
+    [SerializeField] private Transform spawnEndTransform;
 
-    private float ySpawnStart = 8f;
-    private float ySpawnEnd = 6f;
+    private float xSpawnStart;
+    private float xSpawnEnd;
+
+    private float ySpawnStart;
+    private float ySpawnEnd;
 
     private float yToTravel = -4f;
 
@@ -93,6 +96,12 @@ public class WaveSpawner : MonoBehaviour
         nextWaveManager = NextWaveManager.Instance;
         waveTimer = WaveTimer.Instance;
         enemiesToSpawn = 0;
+
+        // spawn area boundaries
+        xSpawnStart = spawnStartTransform.position.x;
+        xSpawnEnd = spawnEndTransform.position.x;
+        ySpawnStart = spawnStartTransform.position.y;
+        ySpawnEnd = spawnEndTransform.position.y;
     }
 
     public void SpawnWave()
