@@ -15,7 +15,8 @@ namespace Assets.Scripts.Wave
         [HideInInspector] public static NextWaveManager Instance { get; private set; }
 
         private int aliveEnemies = 0;
-        private WaveSpawner waveSpawner;
+        private WaveSpawner _waveSpawner;
+        private SelectWaveManager _selectWaveManager;
 
         // Create Singleton
         private void Awake()
@@ -29,17 +30,18 @@ namespace Assets.Scripts.Wave
         }
         private void Start()
         {
-            waveSpawner = WaveSpawner.Instance;
+            _waveSpawner = WaveSpawner.Instance;
+            _selectWaveManager = SelectWaveManager.Instance;
         }
 
         public void EnemyKilled(BaseEnemy enemy)
         {
-            waveSpawner.UnregisterEnemy(enemy.GetID());
+            _waveSpawner.UnregisterEnemy(enemy.GetID());
             aliveEnemies--;
 
             if (aliveEnemies <= 0)
             {
-                waveSpawner.SpawnWave();
+                _selectWaveManager.ShowUI();
             }
         }
 

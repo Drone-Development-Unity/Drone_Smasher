@@ -33,10 +33,22 @@ namespace Assets.Scripts.Allies.Gatherer
         // wreck manager
         private WreckManager _wreckManager;
 
+        //id
+        private int id;
+
+        // movement
+        private float noiseOffsetX;
+        private float noiseOffsetY;
+
+
         private void Start()
         {
             _wreckManager = WreckManager.Instance;
             basePosition = transform.position;
+            id = GetInstanceID();
+
+            noiseOffsetX = id * 13.37f;
+            noiseOffsetY = id * 42.21f;
         }
 
         private void Update()
@@ -45,8 +57,8 @@ namespace Assets.Scripts.Allies.Gatherer
             float amplitude = (
                 currentState == State.CollectingPartsFromWreck || currentState == State.FindingWrecks
                 )  ? 0.08f : 0.04f;
-            float noiseX = (Mathf.PerlinNoise(Time.time * 3f, 0f) - 0.5f) * amplitude;
-            float noiseY = (Mathf.PerlinNoise(0f, Time.time * 2f) - 0.5f) * (amplitude * 0.8f);
+            float noiseX = (Mathf.PerlinNoise(Time.time * 3f + noiseOffsetX, noiseOffsetY) - 0.5f) * amplitude;
+            float noiseY = (Mathf.PerlinNoise(noiseOffsetX, Time.time * 2f + noiseOffsetY) - 0.5f) * (amplitude * 0.8f);
 
             visual.localPosition = new Vector3(noiseX, noiseY, 0f);
 
@@ -59,6 +71,11 @@ namespace Assets.Scripts.Allies.Gatherer
                 Vector3 offset = Vector3.up * flyOverHeightOffset;
                 transform.position = currentWreck.transform.position + offset;
             }
+        }
+
+        public int GetID()
+        {
+            return id;
         }
 
 

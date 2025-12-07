@@ -33,24 +33,23 @@ public class WaveSpawner : MonoBehaviour
     private float yToTravel = -4f;
 
     [SerializeField] private float timeBetweenSpawnsPerPacket = 1f;
-    [SerializeField] private float nextWaveDelay = 3f;
     [SerializeField] private float spawnAnimationDuration = 1f;
 
     private int enemiesPerWave;
     private int enemiesToSpawn;
     [SerializeField] private int enemiesPerPacket;
     [SerializeField] private float maxNumberOfEnemies = 10;
-    private int waveNumber = 0;
+    private int avaliableWaveNumber = 1;
+    public int GetAvaliableWaveNumber() { return avaliableWaveNumber; }
 
     // Enemy positions
     private Dictionary<int, Vector2> enemyEndPositions = new Dictionary<int, Vector2>();
     [SerializeField] private float minDistanceBetweenEnemies = 0.5f;
 
     private Tween animationTween;
-    [Header("UI Elements")]
-    [SerializeField] private TextMeshProUGUI waveNumberText;
-    int BudgetCurve() {
-        return waveNumber * 20;
+
+    int BudgetCurve(int wave) {
+        return wave * 10;
     }
 
 
@@ -91,7 +90,7 @@ public class WaveSpawner : MonoBehaviour
 
     private void Start()
     {
-        SpawnWave();
+        //SpawnWave();
         enemiesContainer = GameObject.Find("EnemiesContainer");
         nextWaveManager = NextWaveManager.Instance;
         waveTimer = WaveTimer.Instance;
@@ -104,26 +103,27 @@ public class WaveSpawner : MonoBehaviour
         ySpawnEnd = spawnEndTransform.position.y;
     }
 
-    public void SpawnWave()
+    public void SpawnWave(int waveNumber)
     {
         if(enemiesToSpawn > 0) return;
 
-        StartCoroutine(SpawnWaveWithDelay());
+        StartCoroutine(SpawnWaveWithDelay(waveNumber));
     }
 
-    IEnumerator SpawnWaveWithDelay()
+    IEnumerator SpawnWaveWithDelay(int waveNumber)
     {
-        yield return new WaitForSeconds(nextWaveDelay);
-
         enemyEndPositions = new Dictionary<int, Vector2>();
 
-        waveNumber++;
-        enemiesPerWave = BudgetCurve();
+        if(waveNumber == avaliableWaveNumber)
+        {
+            avaliableWaveNumber++;
+        }
+
+        enemiesPerWave = BudgetCurve(waveNumber);
         enemiesToSpawn = enemiesPerWave;
 
         waveTimer.StartTimer(enemiesToSpawn + 1); // each wave lasts for enemiesToSpawn seconds
-
-        waveNumberText.text = $"Level: {waveNumber}";
+        //Debug.Log($"Spawning Wave {waveNumber} with {enemiesPerWave} enemies.");
 
         // spawn enemies in packets
         int packets = Mathf.CeilToInt((float)enemiesPerWave / enemiesPerPacket);
