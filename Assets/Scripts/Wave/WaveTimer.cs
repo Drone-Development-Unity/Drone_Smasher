@@ -81,6 +81,13 @@ namespace Assets.Scripts.Wave
             timerBar.SetAmount(timeLeft);
         }
 
+        public void ResetTimer()
+        {
+            isTimerActive = false;
+            timeLeft = 0f;
+            UpdateUITimer(0f);
+            timerBar.SetAmount(0f);
+        }
     }
 
 }

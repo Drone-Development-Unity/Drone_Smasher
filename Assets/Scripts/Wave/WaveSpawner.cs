@@ -13,8 +13,8 @@ public class WaveSpawner : MonoBehaviour
 {
     // Singleton instance
     [HideInInspector] public static WaveSpawner Instance { get; private set; }
-    private NextWaveManager nextWaveManager;
-    private WaveTimer waveTimer;
+    private NextWaveManager _nextWaveManager;
+    private WaveTimer _waveTimer;
 
     [Header("Enemies Prefabs")]
     [SerializeField] private GameObject[] enemyPrefabs;
@@ -37,6 +37,8 @@ public class WaveSpawner : MonoBehaviour
 
     private int enemiesPerWave;
     private int enemiesToSpawn;
+    public int GetEnemiesToSpawn() { return enemiesToSpawn; }
+
     [SerializeField] private int enemiesPerPacket;
     [SerializeField] private float maxNumberOfEnemies = 10;
     private int avaliableWaveNumber = 1;
@@ -92,8 +94,8 @@ public class WaveSpawner : MonoBehaviour
     {
         //SpawnWave();
         enemiesContainer = GameObject.Find("EnemiesContainer");
-        nextWaveManager = NextWaveManager.Instance;
-        waveTimer = WaveTimer.Instance;
+        _nextWaveManager = NextWaveManager.Instance;
+        _waveTimer = WaveTimer.Instance;
         enemiesToSpawn = 0;
 
         // spawn area boundaries
@@ -122,8 +124,11 @@ public class WaveSpawner : MonoBehaviour
         enemiesPerWave = BudgetCurve(waveNumber);
         enemiesToSpawn = enemiesPerWave;
 
-        waveTimer.StartTimer(enemiesToSpawn + 1); // each wave lasts for enemiesToSpawn seconds
+        // let know menagers about new wave
+        _waveTimer.StartTimer(enemiesToSpawn + 1); // each wave lasts for enemiesToSpawn seconds
+        _nextWaveManager.OnNewWave();
         //Debug.Log($"Spawning Wave {waveNumber} with {enemiesPerWave} enemies.");
+
 
         // spawn enemies in packets
         int packets = Mathf.CeilToInt((float)enemiesPerWave / enemiesPerPacket);
@@ -135,10 +140,10 @@ public class WaveSpawner : MonoBehaviour
                 if (enemiesToSpawn <= 0) break;
 
                 // wait if max number of enemies is reached
-                yield return new WaitUntil(() => nextWaveManager.GetAliveEnemiesCount() < maxNumberOfEnemies);
+                yield return new WaitUntil(() => _nextWaveManager.GetAliveEnemiesCount() < maxNumberOfEnemies);
 
                 // check if wave time ended
-                if (waveTimer.IsWaveTimeOver)
+                if (_waveTimer.IsWaveTimeOver)
                 {
                     enemiesToSpawn = 0;
                     break;
@@ -152,7 +157,7 @@ public class WaveSpawner : MonoBehaviour
                 enemy.transform.parent = enemiesContainer.transform;
 
                 // register enemy to NextWaveManager 
-                nextWaveManager.RegisterEnemies(1);
+                _nextWaveManager.RegisterEnemies(1);
                 // register enemy end position
                 BaseEnemy baseEnemy = enemy.GetComponentInChildren<BaseEnemy>();
                 if(baseEnemy != null)
