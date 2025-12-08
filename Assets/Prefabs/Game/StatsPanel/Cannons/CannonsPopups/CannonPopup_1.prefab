@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 189627272154988626, guid: 216e1e07dcb301f48a7e4d0bfb9f8f23, type: 3}
       propertyPath: m_text
-      value: "Dzia\u0142o strzelaj\u0105ce zwyk\u0142ymi pociskami"
+      value: Cannon that shoots standard bullets
       objectReference: {fileID: 0}
     - target: {fileID: 1470548030655405218, guid: 216e1e07dcb301f48a7e4d0bfb9f8f23, type: 3}
       propertyPath: m_Name

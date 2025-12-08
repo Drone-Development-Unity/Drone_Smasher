@@ -1996,7 +1996,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 9038289913913488478}
   m_HandleRect: {fileID: 8635558319892173957}
   m_Direction: 2
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -2020,7 +2020,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1103841284586558750
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2235,7 +2235,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 451454428899751120, guid: 6f4714596160c164a98da153fcd1bcd7, type: 3}
       propertyPath: m_Name
-      value: Cannon1Option
+      value: CannonOption_1
       objectReference: {fileID: 0}
     - target: {fileID: 3426527346881235719, guid: 6f4714596160c164a98da153fcd1bcd7, type: 3}
       propertyPath: m_Pivot.x
@@ -2345,7 +2345,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 451454428899751120, guid: 6f4714596160c164a98da153fcd1bcd7, type: 3}
       propertyPath: m_Name
-      value: Cannon2Option
+      value: CannonOption_2
       objectReference: {fileID: 0}
     - target: {fileID: 3426527346881235719, guid: 6f4714596160c164a98da153fcd1bcd7, type: 3}
       propertyPath: m_Pivot.x
@@ -2463,7 +2463,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 451454428899751120, guid: 6f4714596160c164a98da153fcd1bcd7, type: 3}
       propertyPath: m_Name
-      value: Cannon3Option
+      value: CannonOption_3
       objectReference: {fileID: 0}
     - target: {fileID: 3426527346881235719, guid: 6f4714596160c164a98da153fcd1bcd7, type: 3}
       propertyPath: m_Pivot.x
