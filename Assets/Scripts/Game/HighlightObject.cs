@@ -8,7 +8,7 @@ namespace Game
     /// <summary>
     /// Determine basic mouse reactions
     /// </summary>
-    public abstract class HighlightObject : MonoBehaviour, IPointerClickHandler,IPointerExitHandler, IPointerEnterHandler
+    public class HighlightObject : MonoBehaviour, IPointerClickHandler,IPointerExitHandler, IPointerEnterHandler
     {
         public float hoverScaleMultiplier = 1.1f;
         public float clickScaleMultiplier = 0.9f;
@@ -26,7 +26,7 @@ namespace Game
 
             if (_spriteRenderers == null || _spriteRenderers.Length == 0)
             {
-                Debug.LogWarning("No SpriteRenderers detected!");
+                //Debug.LogWarning("No SpriteRenderers detected!");
                 return;
             }
             //First sprite determine color
