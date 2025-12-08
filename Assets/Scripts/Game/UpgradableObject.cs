@@ -16,6 +16,7 @@ namespace Game
             if (stats != null)
             {
                 GameUIManager.Instance.ShowObjectProperties(stats);
+                GameUIManager.Instance.TryHideShopMenu();//hide shop ui
             }
         }
     }

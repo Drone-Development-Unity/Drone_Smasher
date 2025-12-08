@@ -24,7 +24,7 @@ namespace Game.StatsPanel.CannonsContent
             base.OnPointerClick(eventData);
             BuyCannon();
             var baseCannon = cannonPlaceholder.GetComponent<PurchasableObject>();
-            if (baseCannon != null) baseCannon.HidePlaceholderUI();
+            if (baseCannon != null) baseCannon.CannonPurchased();
             //else Debug.Log("Placeholder UI - null");
         }
     }

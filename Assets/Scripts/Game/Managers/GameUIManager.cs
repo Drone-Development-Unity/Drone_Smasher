@@ -15,7 +15,10 @@ namespace Game.Managers
         [SerializeField] private GameObject propertyPrefab; //ObjectPropertiesScrollView object
         [SerializeField] private GameObject upgradePrefab;//ObjectUpgradesScrollView object
         [SerializeField] private GameObject StatsPanelObject;
+        
+        [Header("ShopWindow prefabs")]
         [SerializeField] private GameObject CannonShopObject; //used to trigger cannonshop window when place for cannon clicked
+        [SerializeField] private GameObject upgradesWindow; //used to hide upgradesWindow if shop is being triggered
         private TextMeshProUGUI objectName;
         private TextMeshProUGUI descriptionText;
         private Transform propertiesContainer;
@@ -74,6 +77,15 @@ namespace Game.Managers
                     cannonScript.cannonPlaceholder = cannonPlaceholder;
                 }
             }
+        }
+
+        public void TryHideShopMenu()
+        {
+            if(CannonShopObject.activeSelf)CannonShopObject.SetActive(false);
+        }
+        public void TryHideUpgradesMenu()
+        {
+            if(upgradesWindow.activeSelf)upgradesWindow.SetActive(false);
         }
     }
 }

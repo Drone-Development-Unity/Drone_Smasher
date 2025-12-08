@@ -168,7 +168,7 @@ GameObject:
   - component: {fileID: 6538988560400738407}
   - component: {fileID: 2761200392084714556}
   m_Layer: 0
-  m_Name: base_cannon_placeholder
+  m_Name: Cannon2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

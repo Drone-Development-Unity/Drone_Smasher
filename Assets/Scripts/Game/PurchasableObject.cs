@@ -13,6 +13,7 @@ namespace Game
         private GameUIManager uiManager;
         public Transform placeholder; //purchased object will be child of this placeholder
         public GameObject placeholderUI;//used to hide placeholder ui when purchased new cannon
+        public bool isPurchased = false;
         private new void Start()
         {
             base.Start();
@@ -20,14 +21,23 @@ namespace Game
         }
         public override void OnPointerClick(PointerEventData eventData)
         {
-            base.OnPointerClick(eventData);
-            if(uiManager != null)uiManager.ShowCannonShopWindow(placeholder, gameObject);
+            //if is not purchased - trigger shop menu
+            if (!isPurchased)
+            {
+                base.OnPointerClick(eventData);
+                if (uiManager != null)
+                {
+                    uiManager.ShowCannonShopWindow(placeholder, gameObject);
+                    uiManager.TryHideUpgradesMenu();
+                }
+            }
         }
 
-        public void HidePlaceholderUI()
+        public void CannonPurchased()
         {
             placeholderUI.SetActive(false);
             //Debug.Log("Hide Placeholder UI");
+            isPurchased = true;
         }
         
     }
