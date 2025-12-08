@@ -18,7 +18,7 @@ namespace Game
         private Vector3 _originalScale;
         private Tween _currentTween;
         private SpriteRenderer[] _spriteRenderers;
-        private void Start()
+        protected void Start()
         {
             _originalScale = transform.localScale;
             _spriteRenderers = GetComponentsInChildren<SpriteRenderer>(true);

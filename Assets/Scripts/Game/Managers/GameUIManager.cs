@@ -1,3 +1,4 @@
+using Game.StatsPanel.CannonsContent;
 using TMPro;
 using UnityEngine;
 
@@ -14,7 +15,7 @@ namespace Game.Managers
         [SerializeField] private GameObject propertyPrefab; //ObjectPropertiesScrollView object
         [SerializeField] private GameObject upgradePrefab;//ObjectUpgradesScrollView object
         [SerializeField] private GameObject StatsPanelObject;
-        
+        [SerializeField] private GameObject CannonShopObject; //used to trigger cannonshop window when place for cannon clicked
         private TextMeshProUGUI objectName;
         private TextMeshProUGUI descriptionText;
         private Transform propertiesContainer;
@@ -56,6 +57,22 @@ namespace Game.Managers
                 var go = Instantiate(upgradePrefab, upgradesContainer);
                 var upgradeUI = go.GetComponent<UpgradeUI>();
                 upgradeUI.SetUpgrade(upgrade);
+            }
+        }
+
+        public void ShowCannonShopWindow(Transform spawnedCannon, GameObject cannonPlaceholder)
+        {
+            CannonShopObject.SetActive(true);
+            //Iterate for every cannon from shop and add transform of clicked object to them
+            foreach (Transform child in CannonShopObject.transform)
+            {
+                //check if script 'CannonPurchaser' exists in child
+                var cannonScript = child.GetComponent<CannonPurchaser>();
+                if (cannonScript != null)
+                {
+                    cannonScript.spawnedCannon = spawnedCannon;
+                    cannonScript.cannonPlaceholder = cannonPlaceholder;
+                }
             }
         }
     }

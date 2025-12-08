@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3426527346881235719}
   - component: {fileID: 7955322093717957770}
-  - component: {fileID: 200783473599518554}
+  - component: {fileID: 946385735097061045}
   m_Layer: 5
   m_Name: CannonOption
   m_TagString: Untagged
@@ -54,7 +54,7 @@ MonoBehaviour:
   popupWindow: {fileID: 0}
   canvas: {fileID: 0}
   popUpOffset: {x: -340, y: 280}
---- !u!114 &200783473599518554
+--- !u!114 &946385735097061045
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -63,13 +63,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 451454428899751120}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 020de69e506de5949ba663257eb16c5e, type: 3}
+  m_Script: {fileID: 11500000, guid: d357697ff01749bdbc742c4a08792496, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Game.HighlightObject
+  m_EditorClassIdentifier: Assembly-CSharp::Game.StatsPanel.CannonsContent.CannonPurchaser
   hoverScaleMultiplier: 1.1
   clickScaleMultiplier: 0.9
   animationDuration: 0.2
   clickedColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  cannon_placeholder: {fileID: 0}
+  cannonPrefab: {fileID: 0}
 --- !u!1 &3838594401374581001
 GameObject:
   m_ObjectHideFlags: 0
