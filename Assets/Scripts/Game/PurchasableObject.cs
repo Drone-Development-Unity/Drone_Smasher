@@ -12,12 +12,12 @@ namespace Game
     {
         private GameUIManager uiManager;
         public Transform placeholder; //purchased object will be child of this placeholder
-        public GameObject placeholderUI;//used to hide placeholder ui when purchased new cannon
         public bool isPurchased = false;
         private new void Start()
         {
             base.Start();
             uiManager = GameUIManager.Instance;
+            if(isPurchased)CannonPurchased(); //deactivate script if cannon is purchased
         }
         public override void OnPointerClick(PointerEventData eventData)
         {
@@ -35,9 +35,11 @@ namespace Game
 
         public void CannonPurchased()
         {
-            placeholderUI.SetActive(false);
+            gameObject.SetActive(false);
             //Debug.Log("Hide Placeholder UI");
             isPurchased = true;
+            //deactivate script when purchased cannon
+            enabled = false;
         }
         
     }

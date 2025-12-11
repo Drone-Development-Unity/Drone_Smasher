@@ -6,15 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="1ff7c114-e870-46b0-a8f6-66a84c925837" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Drone_Smasher/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Drone_Smasher/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Game/MainBase/MainBase.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Game/MainBase/MainBase.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Game/MainBase/base_cannon_placeholder.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Game/MainBase/base_cannon_placeholder.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Game/StatsPanel/ObjectUpgrades/UpgradeOption.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Game/StatsPanel/ObjectUpgrades/UpgradeOption.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Game/StatsPanel/StatsPanel.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Game/StatsPanel/StatsPanel.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/HighlightObject.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/HighlightObject.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Interfaces/IInteractable.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Interfaces/IInteractable.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Managers/InteractionManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Managers/InteractionManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/UpgradableObject.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/UpgradableObject.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Game/MainBase/Cannon2.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Game/MainBase/Cannon2.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Game/MainBase/base_cannon_placeholder 1.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Game/MainBase/base_cannon_placeholder 1.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/GameScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/GameScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/PurchasableObject.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/PurchasableObject.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,8 +56,20 @@
   }
 }</component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
+    <configuration name="Standalone Player" type="RunUnityExe" factoryName="Unity Executable">
+      <option name="EXE_PATH" value="D:/Programy/Unity Builds/Dron Smasher\drone-smasher-2d.exe" />
+      <option name="PROGRAM_PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="D:\Programy\Unity Builds\Dron Smasher" />
+      <option name="PASS_PARENT_ENVS" value="1" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <option name="ENV_FILE_PATHS" value="" />
+      <option name="REDIRECT_INPUT_PATH" value="" />
+      <option name="PTY_MODE" value="Auto" />
+      <option name="MIXED_MODE_DEBUG" value="0" />
+      <method v="2" />
+    </configuration>
     <configuration name="Start Unity" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\6000.2.9f1\Editor\Unity.exe" />
+      <option name="EXE_PATH" value="D:\Programy\Unity\6000.2.9f1\Editor\Unity.exe" />
       <option name="PROGRAM_PARAMETERS" value="-projectPath &quot;E:\.Programowanie\Studia\5 Semestr\PZ\Unity\Drone_Smasher&quot; -debugCodeOptimization" />
       <option name="WORKING_DIRECTORY" value="E:\.Programowanie\Studia\5 Semestr\PZ\Unity\Drone_Smasher" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -74,7 +81,7 @@
       <method v="2" />
     </configuration>
     <configuration name="Unit Tests (batch mode)" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\6000.2.9f1\Editor\Unity.exe" />
+      <option name="EXE_PATH" value="D:\Programy\Unity\6000.2.9f1\Editor\Unity.exe" />
       <option name="PROGRAM_PARAMETERS" value="-runTests -batchmode -projectPath &quot;E:\.Programowanie\Studia\5 Semestr\PZ\Unity\Drone_Smasher&quot; -testResults Logs/results.xml -logFile Logs/Editor.log -testPlatform EditMode -debugCodeOptimization" />
       <option name="WORKING_DIRECTORY" value="E:\.Programowanie\Studia\5 Semestr\PZ\Unity\Drone_Smasher" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -130,6 +137,7 @@
       <workItem from="1763206945717" duration="9034000" />
       <workItem from="1764503400745" duration="3341000" />
       <workItem from="1764592863213" duration="3000" />
+      <workItem from="1765410010513" duration="2374000" />
     </task>
     <servers />
   </component>
