@@ -6,10 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="1ff7c114-e870-46b0-a8f6-66a84c925837" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Drone_Smasher/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Drone_Smasher/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Game/MainBase/Cannon2.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Game/MainBase/Cannon2.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Game/MainBase/base_cannon_placeholder 1.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Game/MainBase/base_cannon_placeholder 1.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/GameScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/GameScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Managers/GameUIManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Managers/GameUIManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/PurchasableObject.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/PurchasableObject.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/StatsPanel/CannonsContent/CannonPurchaser.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/StatsPanel/CannonsContent/CannonPurchaser.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/StatsPanel/CannonsContent/PopupHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/StatsPanel/CannonsContent/PopupHandler.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -137,7 +137,7 @@
       <workItem from="1763206945717" duration="9034000" />
       <workItem from="1764503400745" duration="3341000" />
       <workItem from="1764592863213" duration="3000" />
-      <workItem from="1765410010513" duration="2374000" />
+      <workItem from="1765410010513" duration="3356000" />
     </task>
     <servers />
   </component>

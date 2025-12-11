@@ -40,6 +40,7 @@ namespace Game
             isPurchased = true;
             //deactivate script when purchased cannon
             enabled = false;
+            uiManager.TryHideShopMenu(); //hide shop menu after purchase
         }
         
     }

@@ -21,11 +21,17 @@ namespace Game.StatsPanel.CannonsContent
 
         public override void OnPointerClick(PointerEventData eventData)
         {
+            //TODO add check if player have enough resources to buy and animations
             base.OnPointerClick(eventData);
-            BuyCannon();
+            //hide popup
+            var popup = GetComponent<PopupHandler>();
+            if (popup != null) popup.HidePopup();
+            
+            BuyCannon(); //spawn cannon
+            
             var baseCannon = cannonPlaceholder.GetComponent<PurchasableObject>();
             if (baseCannon != null) baseCannon.CannonPurchased();
-            //else Debug.Log("Placeholder UI - null");
+            
         }
     }
 }

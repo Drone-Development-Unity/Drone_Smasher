@@ -57,6 +57,9 @@ public class PopupHandler : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
 
         popupWindow.localPosition = targetPos;
     }
-
+    public void HidePopup()
+    {
+        popupWindow.gameObject.SetActive(false);
+    }
 
 }
