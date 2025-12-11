@@ -249,12 +249,53 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Game.Unit
   _stats:
-    objectName: 
-    description: 
+    objectName: "Dzia\u0142o skrzyd\u0142owe"
+    description: "Pot\u0119\u017Cne dzia\u0142o, niszczy wszystko w zasi\u0119gu
+      wzroku"
     properties:
     - propertyType: 0
       propertyValue: 10
-    upgrades: []
+    - propertyType: 2
+      propertyValue: 0.1
+    - propertyType: 3
+      propertyValue: 110
+    upgrades:
+    - upgradeImage: {fileID: 0}
+      upgradeName: DamageIncrease
+      upgradeCost: 100
+      upgradeCurrencyImage: {fileID: 0}
+      upgradeAmount: 10
+      targetPropertyName: Damage
+      currencyId: 0
+      baseObject: {fileID: 0}
+      upgradeComboValue: 0
+    - upgradeImage: {fileID: 0}
+      upgradeName: CritRateIncrease
+      upgradeCost: 2
+      upgradeCurrencyImage: {fileID: 0}
+      upgradeAmount: 0.1
+      targetPropertyName: CritChancePct
+      currencyId: 1
+      baseObject: {fileID: 0}
+      upgradeComboValue: 0
+    - upgradeImage: {fileID: 0}
+      upgradeName: CriticalDamageIncrease
+      upgradeCost: 500
+      upgradeCurrencyImage: {fileID: 0}
+      upgradeAmount: 1
+      targetPropertyName: CritDmgPct
+      currencyId: 0
+      baseObject: {fileID: 0}
+      upgradeComboValue: 0
+    - upgradeImage: {fileID: 0}
+      upgradeName: 
+      upgradeCost: 0
+      upgradeCurrencyImage: {fileID: 0}
+      upgradeAmount: 0
+      targetPropertyName: Damage
+      currencyId: 0
+      baseObject: {fileID: 0}
+      upgradeComboValue: 0
 --- !u!114 &6538988560400738407
 MonoBehaviour:
   m_ObjectHideFlags: 0
