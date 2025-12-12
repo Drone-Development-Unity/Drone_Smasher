@@ -249,9 +249,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Game.Unit
   _stats:
-    objectName: "Dzia\u0142o skrzyd\u0142owe"
-    description: "Pot\u0119\u017Cne dzia\u0142o, niszczy wszystko w zasi\u0119gu
-      wzroku"
+    objectName: Wing Cannon
+    description: A powerful cannon that destroys everything in its path.
     properties:
     - propertyType: 0
       propertyValue: 10
