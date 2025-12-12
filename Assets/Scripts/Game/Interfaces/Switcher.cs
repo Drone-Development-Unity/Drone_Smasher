@@ -7,13 +7,13 @@ public class Switcher : MonoBehaviour
 
 	public void ShowA()
 	{
-		StatsPanel.SetActive(true);
+        StatsPanel.SetActive(true);
 		ShopPanel.SetActive(false);
 	}
 
 	public void ShowB()
 	{
-		StatsPanel.SetActive(false);
+        StatsPanel.SetActive(false);
 		ShopPanel.SetActive(true);
 	}
 }
