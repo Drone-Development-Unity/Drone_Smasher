@@ -9,7 +9,7 @@ using UnityEngine;
 /// </summary>
 public class PopupSetCurrencies : MonoBehaviour
 {
-    [SerializeField] private Transform currenciesContent; //reference to popup Viewport/Content
+    [SerializeField] public Transform currenciesContent; //reference to popup Viewport/Content
     [SerializeField] private GameObject currencyPrefab; //reference to prefab - currency element in Viewport/Content
     private CurrencyManager currManager; //reference to ui manager
     

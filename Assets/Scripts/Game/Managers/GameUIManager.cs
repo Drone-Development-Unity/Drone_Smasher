@@ -23,6 +23,9 @@ namespace Game.Managers
         private TextMeshProUGUI descriptionText;
         private Transform propertiesContainer;
         private Transform upgradesContainer;
+        
+        [Header("Others")]
+        [SerializeField] public GameObject currencyList;
         private void Start()
         {
             StatsPanelReferences refs = StatsPanelObject.GetComponent<StatsPanelReferences>();

@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Game.Managers;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
@@ -16,6 +17,8 @@ namespace Game.StatsPanel.CannonsContent
         private List<ShopCurrencyDetails> currenciesList;
         private CurrencyManager currManager;
         
+        //list for storing indexes of insufficient currencies
+        private List<int> insufficientIndexes = new();
         private bool BuyCannon()
         {
             if (cannonPrefab == null) return false;
@@ -52,6 +55,20 @@ namespace Game.StatsPanel.CannonsContent
             {
                 //TODO make animation when user cant buy cannon
                 //Debug.Log("User dont have enough coins");
+                var uiManager = GameUIManager.Instance; //get ui manager instance
+                if (uiManager != null)
+                {
+                    GameObject currencyList = uiManager.currencyList;
+                    foreach (Transform certainCurrency in currencyList.transform)
+                    {
+                        var currId = certainCurrency.GetComponent<CurrencyUI>().currencyId;
+                        if (insufficientIndexes.Contains(currId))
+                        {
+                            var animationScript = certainCurrency.GetComponent<CurrencyListAnimations>();
+                            if (animationScript != null)animationScript.CurrencyNotSufficientAnimation();
+                        }
+                    }
+                }
             }
         }
 
@@ -64,6 +81,8 @@ namespace Game.StatsPanel.CannonsContent
         /// </returns>
         private bool CheckCurrenciesSufficiency()
         {
+            insufficientIndexes.Clear(); //clear after each check
+            
             currenciesList = GetCurrencies();
             
             currManager = CurrencyManager.Instance; //get currency manager instance
@@ -71,9 +90,12 @@ namespace Game.StatsPanel.CannonsContent
             {
                 foreach (var curr in currenciesList)
                 {
-                    if (!currManager.IsCurrencySufficient(curr.currencyId, (int)curr.price)) return false;
+                    if (!currManager.IsCurrencySufficient(curr.currencyId, (int)curr.price))
+                    {
+                        insufficientIndexes.Add(curr.currencyId);
+                    }
                 }
-                return true;
+                if (insufficientIndexes.Count == 0) return true;
             }
             return false;
         }

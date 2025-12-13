@@ -12,7 +12,7 @@ namespace Game
     {
         public Image currencyImageUI;
         public TextMeshProUGUI currencyAmount;
-        private int currencyId;
+        public int currencyId;
 
         public void SetCurrency(CurrencyData data)
         {

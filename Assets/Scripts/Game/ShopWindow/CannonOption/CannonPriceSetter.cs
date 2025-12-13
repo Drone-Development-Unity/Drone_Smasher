@@ -16,7 +16,7 @@ public class CannonPriceSetter : MonoBehaviour
     private Image currencyImage;
     
     //Popup currency prefab reference
-    [SerializeField] private GameObject popupCurrency;
+    [SerializeField] public GameObject popupCurrency;
     
     private void Start()
     {
