@@ -4107,6 +4107,9 @@ MonoBehaviour:
     firstWaveProbability: 0
     infWaveProbability: 0.4
   maxSignificantWaveNumber: 50
+  addSecondsPerEveryWave: 10
+  enemyHpMultiplier: 1.1
+  enemyDmgMultiplier: 1.1
   spawnStartTransform: {fileID: 1138383430}
   spawnEndTransform: {fileID: 1324448030}
   timeBetweenSpawnsPerPacket: 1

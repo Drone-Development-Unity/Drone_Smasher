@@ -23,6 +23,13 @@ public class WaveSpawner : MonoBehaviour
 
     private GameObject enemiesContainer;
 
+    [Header("Difficulty Scaling")]
+    [SerializeField] private int addSecondsPerEveryWave;
+    [SerializeField] private float enemyHpMultiplier;
+    private float currHpMult;
+    [SerializeField] private float enemyDmgMultiplier;
+    private float currDmgMult;
+
     [Header("Spawn Settings")]
     // spawn area transforms
     [SerializeField] private Transform spawnStartTransform;
@@ -131,12 +138,14 @@ public class WaveSpawner : MonoBehaviour
     {
         if(enemiesToSpawn > 0) return;
 
-        PrepareWave(waveNumber);
+
         StartCoroutine(SpawnWaveWithDelay(waveNumber));
     }
 
     IEnumerator SpawnWaveWithDelay(int waveNumber)
     {
+        PrepareWave(waveNumber);
+
         enemyEndPositions = new Dictionary<int, Vector2>();
 
         if(waveNumber == avaliableWaveNumber)
@@ -147,9 +156,6 @@ public class WaveSpawner : MonoBehaviour
         enemiesPerWave = BudgetCurve(waveNumber);
         enemiesToSpawn = enemiesPerWave;
 
-        // let know menagers about new wave
-        _waveTimer.StartTimer(enemiesToSpawn + 1); // each wave lasts for enemiesToSpawn seconds
-        _nextWaveManager.OnNewWave();
         //Debug.Log($"Spawning Wave {waveNumber} with {enemiesPerWave} enemies.");
 
 
@@ -194,6 +200,14 @@ public class WaveSpawner : MonoBehaviour
                 {
                     //Debug.Log($"Registering enemy {baseEnemy.GetID()} at position {spawnPos}.");
                     enemyEndPositions.Add(baseEnemy.GetID(), spawnPos);
+                    // hp multiplier
+                    baseEnemy.SetHpMutiplier(currHpMult);
+                }
+
+                BaseEnemyShoot baseEnemyShoot = enemy.GetComponentInChildren<BaseEnemyShoot>();
+                if (baseEnemyShoot != null) 
+                {
+                    baseEnemyShoot.SetDmgMultiplier(currDmgMult);
                 }
 
 
@@ -256,6 +270,15 @@ public class WaveSpawner : MonoBehaviour
             float prob = Mathf.Lerp(start, end, probDiff);
             currSetOfProbDiffClass[i] = prob;
         }
+
+        // diffulty multipliers
+        currHpMult = (float)Math.Pow(enemyHpMultiplier, waveNumber - 1);
+        currDmgMult = (float)Math.Pow(enemyDmgMultiplier, waveNumber - 1);
+
+        // let know menagers about new wave
+        int timerDuration = waveNumber * addSecondsPerEveryWave + 1;
+        _waveTimer.StartTimer(timerDuration);
+        _nextWaveManager.OnNewWave();
 
         //Debug.Log($"Prepared wave {waveNumber} with budget {currentBudget}.");
         //Debug.Log($"Difficulty class probabilities: {string.Join(", ", currSetOfProbDiffClass)}");

@@ -18,6 +18,10 @@ namespace Assets.Scripts.Game.UIElements
 
         protected virtual void Start()
         {
+        }
+
+        private void Awake()
+        {
             canvasGroup = GetComponent<CanvasGroup>();
         }
 

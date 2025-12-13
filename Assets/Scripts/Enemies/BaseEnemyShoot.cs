@@ -27,5 +27,9 @@ namespace Assets.Scripts.Enemies
             waitingToShoot = false;
         }
 
+        public void SetDmgMultiplier(float multiplier)
+        {
+            damage = (int)(damage * multiplier);
+        }
     }
 }

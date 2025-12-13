@@ -91,5 +91,13 @@ namespace Assets.Scripts.Enemies
         {
             return id;
         }
+
+        public void SetHpMutiplier(float multiplier)
+        {
+            maxHealth = (int)(maxHealth * multiplier);
+            currentHealth = maxHealth;
+
+            healthBar.SetMaxAmount(maxHealth);
+        }
     }
 }
