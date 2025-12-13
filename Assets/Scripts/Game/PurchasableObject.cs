@@ -28,7 +28,6 @@ namespace Game
                 if (uiManager != null)
                 {
                     uiManager.ShowCannonShopWindow(placeholder, gameObject);
-                    uiManager.TryHideUpgradesMenu();
                 }
             }
         }

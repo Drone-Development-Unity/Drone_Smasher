@@ -3,9 +3,9 @@ using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 public class PopupHandler : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
-    public RectTransform popupWindow;
-    public Canvas canvas;
-    public Vector2 popUpOffset;
+    public RectTransform popupWindow; //popupwindow reference
+    public Canvas canvas; //space in which position is calculated
+    public Vector2 popUpOffset; //offset
     public void OnPointerEnter(PointerEventData eventData)
     {
         popupWindow.gameObject.SetActive(true);
@@ -32,25 +32,37 @@ public class PopupHandler : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
         RectTransformUtility.ScreenPointToLocalPointInRectangle(
             canvas.transform as RectTransform,
             screenPos,
-            canvas.worldCamera,
+            null,
             out localPoint
         );
 
         Vector2 targetPos = localPoint + popUpOffset;
 
-        RectTransform container = popupWindow.parent as RectTransform;
-
-        Vector2 popupSize = popupWindow.rect.size;
+        RectTransform container = popupWindow.parent as RectTransform; //positon limit from parent
+        Rect rect = container.rect;
         Vector2 containerSize = container.rect.size;
 
-        // pivot from center point
-        float halfWidth = popupSize.x * 0.5f;
-        float halfHeight = popupSize.y * 0.5f;
+        Vector2 popupSize = popupWindow.rect.size;
+        
+        //POPUP FLIP
+        // if right side of popup is over panel
+        if (targetPos.x + popupSize.x > rect.xMax)
+        {
+            // move popup to left side of mouse
+            targetPos.x = localPoint.x - popUpOffset.x - popupSize.x;
+        }
 
-        float minX = -containerSize.x / 2f + halfWidth;
-        float maxX =  containerSize.x / 2f - halfWidth;
-        float minY = -containerSize.y / 2f + halfHeight;
-        float maxY =  containerSize.y / 2f - halfHeight;
+        // if upper side of popup is over panel
+        if (targetPos.y + popupSize.y > rect.yMax)
+        {
+            // move popup under mouse
+            targetPos.y = localPoint.y - popUpOffset.y - popupSize.y;
+        }
+        //pivot from (0,0) left down side of popup
+        float minX = rect.xMin;
+        float maxX = rect.xMax - popupSize.x;
+        float minY = rect.yMin;
+        float maxY = rect.yMax - popupSize.y;
 
         targetPos.x = Mathf.Clamp(targetPos.x, minX, maxX);
         targetPos.y = Mathf.Clamp(targetPos.y, minY, maxY);

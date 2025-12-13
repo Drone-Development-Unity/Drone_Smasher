@@ -53,7 +53,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PopupHandler
   popupWindow: {fileID: 0}
   canvas: {fileID: 0}
-  popUpOffset: {x: -340, y: 280}
+  popUpOffset: {x: 40, y: 20}
 --- !u!114 &946385735097061045
 MonoBehaviour:
   m_ObjectHideFlags: 0
