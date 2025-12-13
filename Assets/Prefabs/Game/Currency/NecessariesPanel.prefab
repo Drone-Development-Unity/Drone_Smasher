@@ -611,8 +611,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3023502369517045499}
-  - component: {fileID: 950188447003122774}
-  - component: {fileID: 821463949141058359}
+  - component: {fileID: 8184181848408270929}
+  - component: {fileID: 3368294507017277241}
   m_Layer: 5
   m_Name: StatusBars
   m_TagString: Untagged
@@ -642,7 +642,7 @@ RectTransform:
   m_AnchoredPosition: {x: -131, y: 0}
   m_SizeDelta: {x: 616.8668, y: 137.0341}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!222 &950188447003122774
+--- !u!222 &8184181848408270929
 CanvasRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -650,7 +650,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7459552332712329468}
   m_CullTransparentMesh: 1
---- !u!114 &821463949141058359
+--- !u!114 &3368294507017277241
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

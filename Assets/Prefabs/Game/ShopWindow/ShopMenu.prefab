@@ -693,8 +693,6 @@ GameObject:
   - component: {fileID: 7260980344599280723}
   - component: {fileID: 8934696139749661722}
   - component: {fileID: 6101731053450741426}
-  - component: {fileID: 1965396830737568959}
-  - component: {fileID: 1981207537819074377}
   m_Layer: 5
   m_Name: Viewport
   m_TagString: Untagged
@@ -773,34 +771,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Mask
   m_ShowMaskGraphic: 0
---- !u!114 &1965396830737568959
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8587956614910237149}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9c6d15b5adfcceb40a3568aaf2acb748, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Switcher
-  StatsPanel: {fileID: 0}
-  ShopPanel: {fileID: 1591733296181537262}
---- !u!114 &1981207537819074377
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8587956614910237149}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9c6d15b5adfcceb40a3568aaf2acb748, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Switcher
-  StatsPanel: {fileID: 0}
-  ShopPanel: {fileID: 1591733296181537262}
 --- !u!1001 &670914990558601315
 PrefabInstance:
   m_ObjectHideFlags: 0
