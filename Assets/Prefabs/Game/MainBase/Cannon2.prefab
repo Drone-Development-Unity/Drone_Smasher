@@ -331,6 +331,6 @@ MonoBehaviour:
   angleTolerance: 5
   detectionRange: 10
   cooldownBar: {fileID: 0}
-  cooldownDelay: 0.1
+  cooldownDelay: 1
   shootSound: {fileID: 0}
   enemyContainer: {fileID: 0}

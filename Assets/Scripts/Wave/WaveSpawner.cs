@@ -6,7 +6,6 @@ using NUnit.Framework;
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
 
 public class WaveSpawner : MonoBehaviour
@@ -17,10 +16,15 @@ public class WaveSpawner : MonoBehaviour
     private WaveTimer _waveTimer;
 
     [Header("Enemies Prefabs")]
-    [SerializeField] private GameObject[] enemyPrefabs;
+    [SerializeField] private DifficultyClass[] enemyDifficultyClasses;
+    private int currentBudget;
+    private float[] currSetOfProbDiffClass;
+    [SerializeField] private int maxSignificantWaveNumber;
+
     private GameObject enemiesContainer;
 
     [Header("Spawn Settings")]
+    // spawn area transforms
     [SerializeField] private Transform spawnStartTransform;
     [SerializeField] private Transform spawnEndTransform;
 
@@ -32,15 +36,20 @@ public class WaveSpawner : MonoBehaviour
 
     private float yToTravel = -4f;
 
+    // spawn timing
     [SerializeField] private float timeBetweenSpawnsPerPacket = 1f;
     [SerializeField] private float spawnAnimationDuration = 1f;
 
+    // enemies counters
     private int enemiesPerWave;
     private int enemiesToSpawn;
     public int GetEnemiesToSpawn() { return enemiesToSpawn; }
 
+    // spawn limits
     [SerializeField] private int enemiesPerPacket;
     [SerializeField] private float maxNumberOfEnemies = 10;
+
+    // wave counter
     private int avaliableWaveNumber = 1;
     public int GetAvaliableWaveNumber() { return avaliableWaveNumber; }
 
@@ -57,8 +66,21 @@ public class WaveSpawner : MonoBehaviour
 
     GameObject GetRandomEnemiesPrefab()
     {
-        int index = UnityEngine.Random.Range(0, enemyPrefabs.Length);
-        return enemyPrefabs[index];
+        int diffIndex = PickDifficultyClassIndex();
+        DifficultyClass diffClass = enemyDifficultyClasses[diffIndex];
+
+        // check for budget
+        if (diffClass.cost <= currentBudget)
+        {
+            // random prefab
+            int prefabIndex = UnityEngine.Random.Range(0, diffClass.enemyPrefabs.Length);
+            GameObject prefab = diffClass.enemyPrefabs[prefabIndex];
+
+            currentBudget -= diffClass.cost;
+            //Debug.Log($"Selected enemy of difficulty '{diffClass.name}' with cost {diffClass.cost}. Remaining budget: {currentBudget}.");
+            return prefab;
+        }
+        return null;
     }
 
     Vector2 GetSpawnPoint()
@@ -109,6 +131,7 @@ public class WaveSpawner : MonoBehaviour
     {
         if(enemiesToSpawn > 0) return;
 
+        PrepareWave(waveNumber);
         StartCoroutine(SpawnWaveWithDelay(waveNumber));
     }
 
@@ -149,8 +172,15 @@ public class WaveSpawner : MonoBehaviour
                     break;
                 }
 
-                // spawn enemy
+                // check budget
                 GameObject enemyPrefab = GetRandomEnemiesPrefab();
+                if(enemyPrefab == null) { 
+                  // no more budget
+                    enemiesToSpawn = 0;
+                    break;
+                }
+
+                // spawn enemy
                 Vector2 spawnPos = GetSpawnPoint();
 
                 GameObject enemy = Instantiate(enemyPrefab, spawnPos, Quaternion.Euler(0f, 0f, 180f));
@@ -205,5 +235,61 @@ public class WaveSpawner : MonoBehaviour
         {
             animationTween.Kill();
         }
+    }
+
+    // set up budget, probabilities for classes
+    private void PrepareWave(int waveNumber)
+    {
+        currentBudget = BudgetCurve(waveNumber);
+
+        // prepare probabilities for difficulty classes
+        int numberOfDiffClasses = enemyDifficultyClasses.Length;
+        currSetOfProbDiffClass = new float[numberOfDiffClasses];
+
+        float probDiff = (maxSignificantWaveNumber <= 1) ? 0f : (float)waveNumber / (float)(maxSignificantWaveNumber - 1);
+
+        for (int i = 0; i < numberOfDiffClasses; i++)
+        {
+            float start = enemyDifficultyClasses[i].firstWaveProbability;
+            float end = enemyDifficultyClasses[i].infWaveProbability;
+
+            float prob = Mathf.Lerp(start, end, probDiff);
+            currSetOfProbDiffClass[i] = prob;
+        }
+
+        //Debug.Log($"Prepared wave {waveNumber} with budget {currentBudget}.");
+        //Debug.Log($"Difficulty class probabilities: {string.Join(", ", currSetOfProbDiffClass)}");
+    }
+
+    // get random difficulty class 
+    private int PickDifficultyClassIndex()
+    {
+        float totalProb = 0f;
+        int numberOfDiffClasses = enemyDifficultyClasses.Length;
+
+        for (int i = 0; i < numberOfDiffClasses; i++)
+            totalProb += currSetOfProbDiffClass[i];
+
+        float randomProb = UnityEngine.Random.Range(0f, totalProb);
+        float cumulative = 0f;
+
+        for (int i = 0; i < numberOfDiffClasses; i++)
+        {
+            cumulative += currSetOfProbDiffClass[i];
+            if (randomProb <= cumulative)
+                return i;
+        }
+
+        return numberOfDiffClasses - 1;
+    }
+
+    [System.Serializable]
+    public struct DifficultyClass
+    {
+        public string name;
+        public int cost;
+        public GameObject[] enemyPrefabs;
+        [UnityEngine.Range(0f, 1f)] public float firstWaveProbability;
+        [UnityEngine.Range(0f, 1f)] public float infWaveProbability;
     }
 }

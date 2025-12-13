@@ -4087,8 +4087,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df978a7e2d57be74faa9cde8182bb850, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WaveSpawner
-  enemyPrefabs:
-  - {fileID: 2150796800528179175, guid: d6ad2e8885f775645a7a909ab84d7669, type: 3}
+  enemyDifficultyClasses:
+  - name: easy
+    cost: 1
+    enemyPrefabs:
+    - {fileID: 2150796800528179175, guid: d6ad2e8885f775645a7a909ab84d7669, type: 3}
+    firstWaveProbability: 0.7
+    infWaveProbability: 0
+  - name: medium
+    cost: 3
+    enemyPrefabs:
+    - {fileID: 8929473634460101924, guid: 2c80f6c0dd7169c4fbd9630366eca982, type: 3}
+    firstWaveProbability: 0.3
+    infWaveProbability: 0.6
+  - name: hard
+    cost: 5
+    enemyPrefabs:
+    - {fileID: 8929473634460101924, guid: 2c80f6c0dd7169c4fbd9630366eca982, type: 3}
+    firstWaveProbability: 0
+    infWaveProbability: 0.4
+  maxSignificantWaveNumber: 50
   spawnStartTransform: {fileID: 1138383430}
   spawnEndTransform: {fileID: 1324448030}
   timeBetweenSpawnsPerPacket: 1
