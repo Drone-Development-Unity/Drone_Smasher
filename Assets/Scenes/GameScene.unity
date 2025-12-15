@@ -3676,7 +3676,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -361.33, y: -0.00059831}
+  m_AnchoredPosition: {x: -427.5967, y: 0.000073082}
   m_SizeDelta: {x: 150.66, y: 115.02}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1714704258
@@ -4005,7 +4005,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.000030518, y: -2.0298}
+  m_AnchoredPosition: {x: 4.2201e-10, y: -20}
   m_SizeDelta: {x: 572, y: 51.2165}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1792342973
@@ -4173,6 +4173,81 @@ MonoBehaviour:
   previousWaveBtn: {fileID: 885806465}
   nextWaveBtn: {fileID: 402478769}
   startWaveBtn: {fileID: 273497503}
+--- !u!1 &1931747178
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1931747179}
+  - component: {fileID: 1931747181}
+  - component: {fileID: 1931747180}
+  m_Layer: 5
+  m_Name: TimeBarImage
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1931747179
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1931747178}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5322568190129707505}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0.2024, y: -0.1203}
+  m_SizeDelta: {x: 607.5298, y: 42.8932}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1931747180
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1931747178}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 2702015459465436542, guid: f752ddbf8aae52a448e6b3ab8e69d169, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1931747181
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1931747178}
+  m_CullTransparentMesh: 1
 --- !u!224 &2007260389 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4504513577876289448, guid: 6563f827096729148819fa57053019af, type: 3}
@@ -4491,7 +4566,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4631383602098494776, guid: 50d8c0d2a2de89042b1866af62fdceba, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 10.8432
+      value: 13.9895
       objectReference: {fileID: 0}
     - target: {fileID: 4631383602098494776, guid: 50d8c0d2a2de89042b1866af62fdceba, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4527,7 +4602,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4631383602098494776, guid: 50d8c0d2a2de89042b1866af62fdceba, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 29
+      value: 26.6
       objectReference: {fileID: 0}
     - target: {fileID: 4631383602098494776, guid: 50d8c0d2a2de89042b1866af62fdceba, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -4551,7 +4626,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 4631383602098494776, guid: 50d8c0d2a2de89042b1866af62fdceba, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1931747179}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 50d8c0d2a2de89042b1866af62fdceba, type: 3}
 --- !u!224 &5322568190129707505 stripped
@@ -4593,39 +4671,39 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 584860436085122799, guid: 3734acdecd47ed04db4ddbb8fbc187fa, type: 3}
       propertyPath: gradient.key0.b
-      value: 0.21226418
+      value: 0.28346387
       objectReference: {fileID: 0}
     - target: {fileID: 584860436085122799, guid: 3734acdecd47ed04db4ddbb8fbc187fa, type: 3}
       propertyPath: gradient.key0.g
-      value: 0.21226418
+      value: 0.28346387
       objectReference: {fileID: 0}
     - target: {fileID: 584860436085122799, guid: 3734acdecd47ed04db4ddbb8fbc187fa, type: 3}
       propertyPath: gradient.key0.r
-      value: 1
+      value: 0.9245283
       objectReference: {fileID: 0}
     - target: {fileID: 584860436085122799, guid: 3734acdecd47ed04db4ddbb8fbc187fa, type: 3}
       propertyPath: gradient.key1.b
-      value: 0.33236915
+      value: 0.3890174
       objectReference: {fileID: 0}
     - target: {fileID: 584860436085122799, guid: 3734acdecd47ed04db4ddbb8fbc187fa, type: 3}
       propertyPath: gradient.key1.g
-      value: 0.88955975
+      value: 0.8666124
       objectReference: {fileID: 0}
     - target: {fileID: 584860436085122799, guid: 3734acdecd47ed04db4ddbb8fbc187fa, type: 3}
       propertyPath: gradient.key1.r
-      value: 0.9150943
+      value: 0.8867924
       objectReference: {fileID: 0}
     - target: {fileID: 584860436085122799, guid: 3734acdecd47ed04db4ddbb8fbc187fa, type: 3}
       propertyPath: gradient.key2.b
-      value: 0.3037113
+      value: 0.44495374
       objectReference: {fileID: 0}
     - target: {fileID: 584860436085122799, guid: 3734acdecd47ed04db4ddbb8fbc187fa, type: 3}
       propertyPath: gradient.key2.g
-      value: 0.990566
+      value: 0.9339623
       objectReference: {fileID: 0}
     - target: {fileID: 584860436085122799, guid: 3734acdecd47ed04db4ddbb8fbc187fa, type: 3}
       propertyPath: gradient.key2.r
-      value: 0.3037113
+      value: 0.44495374
       objectReference: {fileID: 0}
     - target: {fileID: 584860436085122799, guid: 3734acdecd47ed04db4ddbb8fbc187fa, type: 3}
       propertyPath: gradient.m_NumColorKeys
