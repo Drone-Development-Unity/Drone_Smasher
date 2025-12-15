@@ -18,11 +18,14 @@ namespace Game.Managers
         
         [Header("ShopWindow prefabs")]
         [SerializeField] private GameObject CannonShopObject; //used to trigger cannonshop window when place for cannon clicked
-        [SerializeField] private GameObject upgradesWindow; //used to hide upgradesWindow if shop is being triggered
+        [SerializeField] private GameObject CannonShopContent; //used to connect references from clicked place for cannon and shop options
         private TextMeshProUGUI objectName;
         private TextMeshProUGUI descriptionText;
         private Transform propertiesContainer;
         private Transform upgradesContainer;
+        
+        [Header("Others")]
+        [SerializeField] public GameObject currencyList;
         private void Start()
         {
             StatsPanelReferences refs = StatsPanelObject.GetComponent<StatsPanelReferences>();
@@ -67,7 +70,7 @@ namespace Game.Managers
         {
             CannonShopObject.SetActive(true);
             //Iterate for every cannon from shop and add transform of clicked object to them
-            foreach (Transform child in CannonShopObject.transform)
+            foreach (Transform child in CannonShopContent.transform)
             {
                 //check if script 'CannonPurchaser' exists in child
                 var cannonScript = child.GetComponent<CannonPurchaser>();
@@ -82,10 +85,6 @@ namespace Game.Managers
         public void TryHideShopMenu()
         {
             if(CannonShopObject.activeSelf)CannonShopObject.SetActive(false);
-        }
-        public void TryHideUpgradesMenu()
-        {
-            if(upgradesWindow.activeSelf)upgradesWindow.SetActive(false);
         }
     }
 }

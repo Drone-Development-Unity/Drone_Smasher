@@ -87,5 +87,17 @@ public class CurrencyManager : MonoBehaviour
         }
         return null;
     }
+
+    //Used by CannonOption CannonPurchaser.cs to check if user have enough coins
+    public bool IsCurrencySufficient(int _currencyId, int amount)
+    {
+        var curr = currencies.Find(c => c.currencyId == _currencyId);
+        if (curr != null)
+        {
+            //sufficient amount
+            if(curr.amount >= amount) return true;
+        }
+        return false;
+    }
     
 }

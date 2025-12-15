@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3426527346881235719}
   - component: {fileID: 7955322093717957770}
   - component: {fileID: 946385735097061045}
+  - component: {fileID: 7754734497896385739}
   m_Layer: 5
   m_Name: CannonOption
   m_TagString: Untagged
@@ -53,7 +54,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PopupHandler
   popupWindow: {fileID: 0}
   canvas: {fileID: 0}
-  popUpOffset: {x: -340, y: 280}
+  popUpOffset: {x: 40, y: 20}
 --- !u!114 &946385735097061045
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -73,6 +74,18 @@ MonoBehaviour:
   spawnedCannon: {fileID: 0}
   cannonPrefab: {fileID: 0}
   cannonPlaceholder: {fileID: 0}
+--- !u!114 &7754734497896385739
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 451454428899751120}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 342b7da89bf10f34aa61368923508163, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CannonPriceSetter
 --- !u!1 &3838594401374581001
 GameObject:
   m_ObjectHideFlags: 0

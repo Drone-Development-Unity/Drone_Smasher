@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8378468911998319377}
   - component: {fileID: 5908497456893064471}
+  - component: {fileID: 7277115700476026447}
   m_Layer: 5
   m_Name: CurrencyListElement
   m_TagString: Untagged
@@ -53,6 +54,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Game.CurrencyUI
   currencyImageUI: {fileID: 5196612285012799768}
   currencyAmount: {fileID: 4240386965517327576}
+  currencyId: 0
+--- !u!114 &7277115700476026447
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2282454985119212886}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d934cb0a26fadb4ea609a96c45c5343, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CurrencyListAnimations
+  panelImage: {fileID: 5782082991959477684}
+  amountText: {fileID: 4240386965517327576}
+  notSufficientBGColor: {r: 1, g: 0, b: 0, a: 1}
+  notSufficientTextColor: {r: 0.46226418, g: 0, b: 0, a: 1}
+  colorChangesLoops: 4
+  colorChangeDuration: 0.3
+  shakeDuration: 0.4
+  shakeForce: 1.5
 --- !u!1 &3173012388092923782
 GameObject:
   m_ObjectHideFlags: 0
