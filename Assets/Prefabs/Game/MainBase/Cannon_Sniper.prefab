@@ -168,7 +168,7 @@ GameObject:
   - component: {fileID: 6538988560400738407}
   - component: {fileID: 2761200392084714556}
   m_Layer: 8
-  m_Name: Cannon2
+  m_Name: Cannon_Sniper
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -254,7 +254,7 @@ MonoBehaviour:
       wzroku"
     properties:
     - propertyType: 0
-      propertyValue: 5
+      propertyValue: 15
     - propertyType: 2
       propertyValue: 0.1
     - propertyType: 3
@@ -327,11 +327,11 @@ MonoBehaviour:
   barrelTransform: {fileID: 221362877537215668}
   projectilePrefab: {fileID: 1912224143844839675, guid: 77aaa6272bf792e41b87595e520eaedb, type: 3}
   firePoint: {fileID: 4509067900836195330}
-  bulletSpeed: 10
+  bulletSpeed: 15
   rotationSpeed: 200
   angleTolerance: 5
-  detectionRange: 10
+  detectionRange: 15
   cooldownBar: {fileID: 0}
-  cooldownDelay: 0.3
+  cooldownDelay: 0.9
   shootSound: {fileID: 0}
   enemyContainer: {fileID: 0}
