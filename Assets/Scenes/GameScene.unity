@@ -2018,6 +2018,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MainBase
       objectReference: {fileID: 0}
+    - target: {fileID: 2348350890376803375, guid: cc741eff649938a459de1b66ef1f9432, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2673599353279410717, guid: cc741eff649938a459de1b66ef1f9432, type: 3}
       propertyPath: m_LocalRotation.w
       value: 1
@@ -2887,7 +2891,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2761200392084714556, guid: abb370ba466ebd74cba9301061c15d50, type: 3}
       propertyPath: cooldownDelay
-      value: 0.3
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 2761200392084714556, guid: abb370ba466ebd74cba9301061c15d50, type: 3}
       propertyPath: enemyContainer
