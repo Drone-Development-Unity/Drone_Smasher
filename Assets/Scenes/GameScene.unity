@@ -2046,6 +2046,10 @@ PrefabInstance:
       propertyPath: enemyContainer
       value: 
       objectReference: {fileID: 707869755}
+    - target: {fileID: 5232359525736889811, guid: cc741eff649938a459de1b66ef1f9432, type: 3}
+      propertyPath: projectileCount
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5274909639380460734, guid: cc741eff649938a459de1b66ef1f9432, type: 3}
       propertyPath: m_LocalPosition.x
       value: -4.1
@@ -2097,10 +2101,14 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 9065605046880589740, guid: cc741eff649938a459de1b66ef1f9432, type: 3}
+    - {fileID: 7064616250013724422, guid: cc741eff649938a459de1b66ef1f9432, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 714211689656141107, guid: cc741eff649938a459de1b66ef1f9432, type: 3}
       insertIndex: -1
       addedObject: {fileID: 163043466}
+    - targetCorrespondingSourceObject: {fileID: 2348350890376803375, guid: cc741eff649938a459de1b66ef1f9432, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1929359446}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cc741eff649938a459de1b66ef1f9432, type: 3}
 --- !u!1 &910341032
@@ -2869,6 +2877,71 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1232681681}
   m_CullTransparentMesh: 1
+--- !u!1001 &1276363996
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1735102261}
+    m_Modifications:
+    - target: {fileID: 2761200392084714556, guid: abb370ba466ebd74cba9301061c15d50, type: 3}
+      propertyPath: cooldownDelay
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2761200392084714556, guid: abb370ba466ebd74cba9301061c15d50, type: 3}
+      propertyPath: enemyContainer
+      value: 
+      objectReference: {fileID: 707869755}
+    - target: {fileID: 3896043221655073463, guid: abb370ba466ebd74cba9301061c15d50, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3896043221655073463, guid: abb370ba466ebd74cba9301061c15d50, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3896043221655073463, guid: abb370ba466ebd74cba9301061c15d50, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3896043221655073463, guid: abb370ba466ebd74cba9301061c15d50, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3896043221655073463, guid: abb370ba466ebd74cba9301061c15d50, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3896043221655073463, guid: abb370ba466ebd74cba9301061c15d50, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3896043221655073463, guid: abb370ba466ebd74cba9301061c15d50, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3896043221655073463, guid: abb370ba466ebd74cba9301061c15d50, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3896043221655073463, guid: abb370ba466ebd74cba9301061c15d50, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3896043221655073463, guid: abb370ba466ebd74cba9301061c15d50, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8915158961393283344, guid: abb370ba466ebd74cba9301061c15d50, type: 3}
+      propertyPath: m_Name
+      value: CannonMultishot
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: abb370ba466ebd74cba9301061c15d50, type: 3}
 --- !u!1001 &1280267449
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3539,7 +3612,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8915158961393283344, guid: d5fb35f820d61ce4bb569986c18052f6, type: 3}
       propertyPath: m_Name
-      value: Cannon_Sniper
+      value: CannonObject_1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3661,6 +3734,11 @@ CanvasRenderer:
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4504513577876289448, guid: d35fc2690a641da4e8d7b53c19b56a1e, type: 3}
   m_PrefabInstance: {fileID: 1481010202}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1735102261 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2348350890376803375, guid: cc741eff649938a459de1b66ef1f9432, type: 3}
+  m_PrefabInstance: {fileID: 903962101}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1743948652
 GameObject:
@@ -4092,6 +4170,11 @@ MonoBehaviour:
   previousWaveBtn: {fileID: 885806465}
   nextWaveBtn: {fileID: 402478769}
   startWaveBtn: {fileID: 273497503}
+--- !u!4 &1929359446 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3896043221655073463, guid: abb370ba466ebd74cba9301061c15d50, type: 3}
+  m_PrefabInstance: {fileID: 1276363996}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &2007260389 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4504513577876289448, guid: 6563f827096729148819fa57053019af, type: 3}
