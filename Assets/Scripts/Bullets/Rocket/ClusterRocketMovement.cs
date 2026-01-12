@@ -1,0 +1,79 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using UnityEngine;
+
+namespace Assets.Scripts.Bullets.Rocket
+{
+    internal class ClusterRocketMovement : RocketMovement
+    {
+        public GameObject rocketPrefab;
+        public ParticleSystem divisionParticle;
+        protected GameObject bulletsContainer;
+
+        protected float divisionTimer;
+        public float divisionTime = 2f;
+
+        public float[] newRocketsSpawnAngles;
+
+        protected override void Start()
+        {
+            base.Start();
+            bulletsContainer = GameObject.Find("BulletsContainer");
+
+            if (target != null)
+            {
+                divisionTimer = divisionTime;
+            }
+        }
+
+        protected override void FixedUpdate()
+        {
+            base.FixedUpdate();
+
+            if (divisionTimer <= 0f)
+            {
+                DivisionIntoRockets();
+            }
+
+            divisionTimer -= Time.deltaTime;
+        }
+
+        public void DivisionIntoRockets()
+        {
+            DivisionParticles();
+
+            foreach (float spawnAngle in newRocketsSpawnAngles)
+            {
+                float diretionZ = transform.eulerAngles.z + spawnAngle;
+                SpawnRocket(diretionZ);
+            }
+
+            Destroy(gameObject);
+        }
+
+        void SpawnRocket(float directionZ)
+        {
+            Quaternion direction = Quaternion.Euler(0f, 0f, directionZ);
+
+            GameObject Bullet = Instantiate(rocketPrefab, rb.transform.position, direction);
+            Bullet.transform.parent = bulletsContainer.transform; //make bullet child of 'BulletContainer'
+                                                                  // set owner of bullet
+            Bullet.GetComponent<BulletCollisionDetection>().Initialize(
+                gameObject, damage, Vector2.zero
+                );
+
+            var rocket = Bullet.GetComponent<RocketMovement>();
+            rocket.target = target; //give enemy position to bullet when spawned
+        }
+
+        private void DivisionParticles()
+        {
+            ParticleSystem dp = Instantiate(divisionParticle, transform.position, Quaternion.identity);
+            dp.Play();
+            Destroy(dp.gameObject, dp.main.duration + dp.main.startLifetime.constantMax);
+        }
+    }
+}

@@ -22,6 +22,7 @@ namespace Assets.Scripts.Allies.Cannons.SpecificCannons
         public float rotationDuration = 0.5f;
         public float rotationAngleOfReloading = 45f;
         public float rotationAngleOfReadyToShot = 0f;
+        public bool rotateToEnemy = false;
 
         protected override void FixedUpdate()
         {
@@ -43,6 +44,13 @@ namespace Assets.Scripts.Allies.Cannons.SpecificCannons
         IEnumerator SpawnRocketsCoroutine()
         {
             // rotate cannon to ReadyToShot angle
+            if (rotateToEnemy) {
+                Vector2 direction = targetEnemy.position - transform.position;
+                float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+                rotationAngleOfReadyToShot = angle - 90f;
+                rotationAngleOfReloading = rotationAngleOfReadyToShot;
+            }
+
             yield return StartCoroutine(RotateToAngle(rotationAngleOfReadyToShot, rotationDuration));
             yield return new WaitForSeconds(rotationDuration);
 
@@ -62,16 +70,21 @@ namespace Assets.Scripts.Allies.Cannons.SpecificCannons
             float startAngle = transform.eulerAngles.z;
             float time = 0f;
 
+            float delta = Mathf.DeltaAngle(startAngle, targetAngle);
+
             while (time < duration)
             {
                 time += Time.deltaTime;
                 float dt = time / duration;
-                float angle = Mathf.Lerp(startAngle, targetAngle, dt);
+
+                // obrót po najkrótszej drodze
+                float angle = startAngle + delta * dt;
                 transform.rotation = Quaternion.Euler(0, 0, angle);
+
                 yield return null;
             }
 
-            firePoint.rotation = Quaternion.Euler(0, 0, targetAngle);
+            transform.rotation = Quaternion.Euler(0, 0, targetAngle);
         }
 
         void SpawnRocket()
