@@ -222,8 +222,10 @@ public class WaveSpawner : MonoBehaviour
     {
         float targetY = startPos.y + yToTravel;
 
-        animationTween = enemyInstance.transform.DOMoveY(targetY, spawnAnimationDuration)
+        animationTween = enemyInstance.transform
+            .DOMoveY(targetY, spawnAnimationDuration)
             .SetEase(Ease.OutQuad)
+            .SetLink(enemyInstance)
             .OnComplete(() =>
             {
                 // Notify that the enemy has arrived at its destination

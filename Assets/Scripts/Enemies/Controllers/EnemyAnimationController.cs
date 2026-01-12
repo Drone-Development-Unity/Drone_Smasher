@@ -39,6 +39,7 @@ namespace Assets.Scripts.Enemies
                     float halfTime = flashDuration / 2f;
                     DOVirtual.DelayedCall(halfTime, () =>
                     {
+                        if (sprite == null) return;
                         sprite.material = flashMaterial;
                         // disable additional effects during hit flash
                     });
@@ -52,6 +53,7 @@ namespace Assets.Scripts.Enemies
                         {
                             if (isEnemyAlive)
                             {
+                                if (sprite == null) return;
                                 sprite.material = mainMaterial;
                                 // re-enable additional effects after hit flash
                             }
