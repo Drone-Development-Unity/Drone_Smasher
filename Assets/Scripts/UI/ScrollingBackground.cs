@@ -4,6 +4,7 @@ public class ScrollingBackground : MonoBehaviour
 {
     public float speed = 2f;        // prêdkoœæ scrolla
     public float spriteHeight;      // wysokoœæ sprite'a w units
+    public float resetOffset = 5f;
 
     private Transform[] backgrounds;
 
@@ -22,7 +23,7 @@ public class ScrollingBackground : MonoBehaviour
         {
             bg.Translate(Vector3.down * speed * Time.deltaTime);
 
-            if (bg.position.y <= -spriteHeight)
+            if (bg.position.y <= -spriteHeight - resetOffset)
             {
                 bg.position += Vector3.up * spriteHeight * 2f;
             }
