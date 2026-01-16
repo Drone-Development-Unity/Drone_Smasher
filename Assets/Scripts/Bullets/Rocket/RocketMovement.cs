@@ -12,6 +12,8 @@ namespace Assets.Scripts.Bullets.Rocket
     internal class RocketMovement : MonoBehaviour
     {
         [HideInInspector] public Transform target;
+        protected List<Transform> targetEnemies = new List<Transform>();
+
         [Header("Movement")]
         public float speed = 5f;
         public float rotateSpeed = 200f;
@@ -43,10 +45,7 @@ namespace Assets.Scripts.Bullets.Rocket
             {
                 Vector2 enemyPos = target.position;
 
-                float randomNoisePos = UnityEngine.Random.Range(-maxRandomNoiseEnemyPosition, maxRandomNoiseEnemyPosition);
-                Vector2 noisyTarget = new Vector2(enemyPos.x + randomNoisePos, enemyPos.y + randomNoisePos);
-
-                targetPosition = noisyTarget;  //saving position
+                targetPosition = GetNoisyTarget(enemyPos);  //saving position
                 rotationTimer = rotationTime;
             }
 
@@ -59,7 +58,31 @@ namespace Assets.Scripts.Bullets.Rocket
 
         protected virtual void FixedUpdate()
         {
+            // in case target destroyed, find new target
+            if (target == null)
+            {
+                target = GetClosestEnemyTarget();
 
+                if (target != null)
+                {
+                    targetPosition = GetNoisyTarget(target.position);
+                }
+                else // no target available, fly straight
+                {
+                    Vector2 currentDir;
+
+                    if (rb.linearVelocity.sqrMagnitude > 0.01f)
+                    {
+                        currentDir = rb.linearVelocity.normalized;
+                    }
+                    else
+                    {
+                        currentDir = transform.up;
+                    }
+
+                    targetPosition = rb.position + currentDir * 100f;
+                }
+            }
 
             //check if enemy in radius of explosion
             Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, explodeRadius);
@@ -126,6 +149,53 @@ namespace Assets.Scripts.Bullets.Rocket
 
             Gizmos.color = Color.yellow;
             Gizmos.DrawSphere(targetPosition, 0.1f);
+        }
+
+        // find new enemy target
+        private void FetchEnemies()
+        {
+            targetEnemies.Clear();
+
+            GameObject[] enemiesObj = GameObject.FindGameObjectsWithTag("Enemy");
+            if (enemiesObj.Length > 0)
+            {
+                foreach (GameObject enemyObj in enemiesObj)
+                {
+                    if (enemyObj != null)
+                        targetEnemies.Add(enemyObj.transform);
+                }
+            }
+        }
+        private Transform GetClosestEnemyTarget()
+        {
+            FetchEnemies();
+
+            float closestDistance = Mathf.Infinity;
+            Vector3 currentPosition = transform.position;
+
+            foreach (Transform enemy in targetEnemies)
+            {
+                if (enemy == null)
+                    continue;
+
+                float distance = Vector3.Distance(currentPosition, enemy.position);
+
+                if (distance < closestDistance)
+                {
+                    closestDistance = distance;
+                    return enemy;
+                }
+            }
+
+            return null;
+        }
+
+        private Vector2 GetNoisyTarget(Vector2 enemyPos)
+        {
+            float randomNoisePos = UnityEngine.Random.Range(-maxRandomNoiseEnemyPosition, maxRandomNoiseEnemyPosition);
+            Vector2 noisyTarget = new Vector2(enemyPos.x + randomNoisePos, enemyPos.y + randomNoisePos);
+
+            return noisyTarget;
         }
     }
 }
