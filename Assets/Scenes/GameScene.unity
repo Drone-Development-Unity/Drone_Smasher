@@ -4125,6 +4125,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5570876219696113499, guid: 154e4bd75e424a24082e9690c35e5ee2, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 26423dc100cb75042908872000931a4c, type: 2}
+    - target: {fileID: 5570876219696113499, guid: 154e4bd75e424a24082e9690c35e5ee2, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6078024452635353333, guid: 154e4bd75e424a24082e9690c35e5ee2, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
@@ -4607,6 +4615,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5570876219696113499, guid: 6563f827096729148819fa57053019af, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 26423dc100cb75042908872000931a4c, type: 2}
+    - target: {fileID: 5570876219696113499, guid: 6563f827096729148819fa57053019af, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6179105267520924202, guid: 6563f827096729148819fa57053019af, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: -2.800003
@@ -4727,6 +4743,14 @@ PrefabInstance:
     - target: {fileID: 4504513577876289448, guid: d35fc2690a641da4e8d7b53c19b56a1e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5570876219696113499, guid: d35fc2690a641da4e8d7b53c19b56a1e, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 26423dc100cb75042908872000931a4c, type: 2}
+    - target: {fileID: 5570876219696113499, guid: d35fc2690a641da4e8d7b53c19b56a1e, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6179105267520924202, guid: d35fc2690a641da4e8d7b53c19b56a1e, type: 3}
       propertyPath: m_AnchoredPosition.x
