@@ -2018,6 +2018,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MainBase
       objectReference: {fileID: 0}
+    - target: {fileID: 1793644459414174198, guid: cc741eff649938a459de1b66ef1f9432, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 2348350890376803375, guid: cc741eff649938a459de1b66ef1f9432, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -2044,7 +2048,7 @@ PrefabInstance:
       objectReference: {fileID: 707869755}
     - target: {fileID: 4008668109395844195, guid: cc741eff649938a459de1b66ef1f9432, type: 3}
       propertyPath: m_Layer
-      value: 0
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 5232359525736889811, guid: cc741eff649938a459de1b66ef1f9432, type: 3}
       propertyPath: enemyContainer
