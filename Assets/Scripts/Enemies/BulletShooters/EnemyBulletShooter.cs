@@ -27,7 +27,7 @@ namespace Assets.Scripts.Enemies.BulletShooters
         protected int numberOfBulletsInBurst;
         [SerializeField] private int minNumberOfBulletsInBurst;
         [SerializeField] private int maxNumberOfBulletsInBurst;
-        [SerializeField] private float burstDelayBetweenBullets;
+        [SerializeField] protected float burstDelayBetweenBullets;
 
         [Header("Bullet properties")]
         [SerializeField] protected GameObject bulletPrefab;
@@ -75,7 +75,7 @@ namespace Assets.Scripts.Enemies.BulletShooters
             rb.linearVelocity = bulletDirection * bulletSpeed;
         }
 
-        IEnumerator SpawnBulletsInBurtsCoroutine()
+        protected virtual IEnumerator SpawnBulletsInBurtsCoroutine()
         {
             waitingToShoot = true;
             
