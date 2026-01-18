@@ -3400,6 +3400,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: StatsPanel
       objectReference: {fileID: 0}
+    - target: {fileID: 2149415576017053085, guid: a9587983e54cc434398e18b834a986e6, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2149415576017053085, guid: a9587983e54cc434398e18b834a986e6, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2149415576017053085, guid: a9587983e54cc434398e18b834a986e6, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2351983609360023726, guid: a9587983e54cc434398e18b834a986e6, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -3486,6 +3498,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4469783119627201689, guid: a9587983e54cc434398e18b834a986e6, type: 3}
       propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4775878663617795740, guid: a9587983e54cc434398e18b834a986e6, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4775878663617795740, guid: a9587983e54cc434398e18b834a986e6, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4775878663617795740, guid: a9587983e54cc434398e18b834a986e6, type: 3}
+      propertyPath: m_SizeDelta.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8635558319892173957, guid: a9587983e54cc434398e18b834a986e6, type: 3}
@@ -5250,6 +5274,7 @@ GameObject:
   - component: {fileID: 1861894775}
   - component: {fileID: 1861894777}
   - component: {fileID: 1861894776}
+  - component: {fileID: 1861894778}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -5370,6 +5395,18 @@ MonoBehaviour:
   previousWaveBtn: {fileID: 885806465}
   nextWaveBtn: {fileID: 402478769}
   startWaveBtn: {fileID: 273497503}
+--- !u!114 &1861894778
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1861894771}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb873ae7bcc212d4fa7ba36f6f90227b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Assets.Scripts.SaveSystem.SaveLoader
 --- !u!1 &1931747178
 GameObject:
   m_ObjectHideFlags: 0
