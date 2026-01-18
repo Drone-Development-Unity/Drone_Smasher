@@ -14,8 +14,13 @@ public class CurrencyManager : MonoBehaviour
     [SerializeField] private GameObject currencyListElement; //NecessariesPanel/CurrenciesPanelScrollView object
     [SerializeField] private Transform currenciesContainer;
     [SerializeField] private GameObject necessariesPanelObject;
-    public List<CurrencyData> currencies;
-
+    
+    [Header("Actual currencies elements")]
+    public List<CurrencyData> currencies;//store currencies data
+    
+    [Header("Currencies data")]
+    public List<CurrenciesLoadData> currenciesData; //used to load currencies data
+    
     private TextMeshProUGUI currencyName;
     private Sprite currencySprite;
     private void Awake()
@@ -26,6 +31,15 @@ public class CurrencyManager : MonoBehaviour
 
     void Start()
     {
+        ConnectLoadedCurrencies();
+        
+        //Save currencies
+        //var dto = ConvertToDTO();
+        
+        //Load currencies
+        //LoadCurrencyFromDTO(dto);
+        //ConnectLoadedCurrencies();
+        
         ShowCurrencies();
     }
     public void ShowCurrencies()
@@ -98,6 +112,61 @@ public class CurrencyManager : MonoBehaviour
             if(curr.amount >= amount) return true;
         }
         return false;
+    }
+
+    //Used to connect currencyData from currenciesData to currencies list
+    private void ConnectLoadedCurrencies()
+    {
+        foreach (var currency in currencies)
+            {
+                foreach (var currData in currenciesData)
+                {
+                    if (currency.currencyId == currData.currencyId)
+                    {
+                        currency.icon=currData.currencyIcon;
+                        currency.currencyName=currData.currencyName;
+                    } 
+                }
+            }
+    }
+    
+    //used to convert currency data to DTO format to save/load data
+    private CurrenciesDTO ConvertToDTO()
+    {
+        var dto = new CurrenciesDTO();
+        dto.currencies = new List<CurrencyDataDTO>();
+
+        foreach (var c in currencies)
+        {
+            dto.currencies.Add(new CurrencyDataDTO
+            {
+                currencyId = c.currencyId,
+                amount = c.amount
+            });
+        }
+        
+        return dto;
+    }
+
+    //used to load currency data from DTO format
+    private void LoadCurrencyFromDTO(CurrenciesDTO dto)
+    {
+        if (dto == null || dto.currencies == null) return;
+
+        //clear local data
+        currencies.Clear();
+
+        //rewrite dto to currencies
+        foreach (var d in dto.currencies)
+        {
+            var newCurrency = new CurrencyData
+            {
+                currencyId = d.currencyId,
+                amount = d.amount
+            };
+
+            currencies.Add(newCurrency);
+        }
     }
     
 }
