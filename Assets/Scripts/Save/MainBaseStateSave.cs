@@ -16,7 +16,7 @@ public class MainBaseStateSave : MonoBehaviour
     }
     
     [ContextMenu("Zapisz do DTO")]
-    public void SaveToDTO()
+    public List<MainBaseDataDTO> SaveToDTO()
     {
         var filteredChildren = GetComponentsInChildren<Transform>()
             .Where(t => t.gameObject.layer == LayerMask.NameToLayer("Interactable"))
@@ -37,17 +37,18 @@ public class MainBaseStateSave : MonoBehaviour
             }
         }
         Debug.Log("Saved");
+        return saveData;
     }
     [ContextMenu("Wczytaj z DTO")]
-    public void LoadFromDTO()
+    public void LoadFromDTO(List<MainBaseDataDTO> cannonsData)
     {
-        if (saveData == null || saveData.Count == 0) return;
+        if (cannonsData == null || cannonsData.Count == 0) return;
         
         var currentChildren = GetComponentsInChildren<Transform>()
             .Where(t => t.gameObject.layer == LayerMask.NameToLayer("Interactable"))
             .ToList();
         
-        foreach (var dto in saveData)
+        foreach (var dto in cannonsData)
         {
             Transform targetTransform = currentChildren.FirstOrDefault(t => t.name == dto.cannonName);
 

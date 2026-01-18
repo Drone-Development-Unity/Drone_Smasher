@@ -9,6 +9,7 @@ namespace Assets.Scripts.SaveSystem.DTOs
     [Serializable]
     public class GameDataDTO
     {
-        public string Name;
+        public List<MainBaseDataDTO> mainBaseDataDTO;
+        public CurrenciesDTO currenciesDTO;
     }
 }

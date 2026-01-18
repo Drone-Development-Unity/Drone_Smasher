@@ -10,6 +10,7 @@ using UnityEngine;
 
 namespace Assets.Scripts.SaveSystem
 {
+    //save location: C:\Users\{user}\AppData\LocalLow\DefaultCompany\drone-smasher-2d\saves
     // SAVE MANAGER at
     // MAIN MENU SCENE
     public class SaveManager : MonoBehaviour

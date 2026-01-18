@@ -83,15 +83,45 @@ namespace Assets.Scripts.SaveSystem
 
         // trigger this if you want 
         // SAVE GAME STATE
+        [ContextMenu("Zapisz grę")]
         public void SaveGameState()
         {
             // tutaj pobierz sb wszystkie DTO z managerów i wywołaj
+            GameDataDTO newSave = new();
+            
+            //DTO
+            List<MainBaseDataDTO> mainBaseDTO = new();
+            var currencyDTO = new CurrenciesDTO();
+            
+            //cannons
+            var mainbase =  GameObject.Find("MainBase");
+            var MainBaseSave = mainbase.GetComponent<MainBaseStateSave>();
+            if (MainBaseSave) mainBaseDTO = MainBaseSave.SaveToDTO();
+            
+            //currencies
+            currencyDTO = CurrencyManager.Instance.ConvertToDTO();
+            
+            //Save DTO to GameDataDTO
+            newSave.mainBaseDataDTO = mainBaseDTO;
+            newSave.currenciesDTO = currencyDTO;
 
-            //SaveManager.Instance.SaveGame(CurrentSlot, newSave);
+
+
+            SaveManager.Instance.SaveGame(CurrentSlot, newSave);
+            Debug.Log($"Saved Save Slot: {CurrentSlot}");
         }
         private void SetGameState(GameDataDTO gameSave)
         {
             // tutaj ustaw sb DTO dla menagerow
+            //currencies
+            CurrencyManager.Instance.LoadCurrencyFromDTO(gameSave.currenciesDTO);
+            
+            //cannons
+            var mainbase =  GameObject.Find("MainBase");
+            var MainBaseSave = mainbase.GetComponent<MainBaseStateSave>();
+            if (MainBaseSave) MainBaseSave.LoadFromDTO(gameSave.mainBaseDataDTO);
+            
+            Debug.Log($"Game Loaded Save Slot: {CurrentSlot}");
         }
     }
 }

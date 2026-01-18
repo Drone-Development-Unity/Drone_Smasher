@@ -31,7 +31,7 @@ public class CurrencyManager : MonoBehaviour
 
     void Start()
     {
-        ConnectLoadedCurrencies();
+        //ConnectLoadedCurrencies();
         
         //Save currencies
         //var dto = ConvertToDTO();
@@ -40,7 +40,7 @@ public class CurrencyManager : MonoBehaviour
         //LoadCurrencyFromDTO(dto);
         //ConnectLoadedCurrencies();
         
-        ShowCurrencies();
+        
     }
     public void ShowCurrencies()
     {
@@ -131,7 +131,7 @@ public class CurrencyManager : MonoBehaviour
     }
     
     //used to convert currency data to DTO format to save/load data
-    private CurrenciesDTO ConvertToDTO()
+    public CurrenciesDTO ConvertToDTO()
     {
         var dto = new CurrenciesDTO();
         dto.currencies = new List<CurrencyDataDTO>();
@@ -149,7 +149,7 @@ public class CurrencyManager : MonoBehaviour
     }
 
     //used to load currency data from DTO format
-    private void LoadCurrencyFromDTO(CurrenciesDTO dto)
+    public void LoadCurrencyFromDTO(CurrenciesDTO dto)
     {
         if (dto == null || dto.currencies == null) return;
 
@@ -167,6 +167,9 @@ public class CurrencyManager : MonoBehaviour
 
             currencies.Add(newCurrency);
         }
+
+        ConnectLoadedCurrencies();
+        ShowCurrencies();
     }
     
 }
