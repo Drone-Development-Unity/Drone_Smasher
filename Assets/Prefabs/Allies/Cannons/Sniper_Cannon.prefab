@@ -45,6 +45,7 @@ GameObject:
   - component: {fileID: 4361918626643528547}
   - component: {fileID: 8371041545003105468}
   - component: {fileID: 3630624372845887840}
+  - component: {fileID: 1734663148358820529}
   m_Layer: 0
   m_Name: Sniper_Cannon
   m_TagString: PlayerBase
@@ -194,10 +195,52 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Game.Unit
   _stats:
-    objectName: 
-    description: 
-    properties: []
-    upgrades: []
+    objectName: Wing Cannon
+    description: A powerful cannon that destroys everything in its path.
+    properties:
+    - propertyType: 0
+      propertyValue: 10
+    - propertyType: 2
+      propertyValue: 0.1
+    - propertyType: 3
+      propertyValue: 110
+    upgrades:
+    - upgradeImage: {fileID: 0}
+      upgradeName: DamageIncrease
+      upgradeCost: 100
+      upgradeCurrencyImage: {fileID: 0}
+      upgradeAmount: 10
+      targetPropertyName: Damage
+      currencyId: 0
+      baseObject: {fileID: 0}
+      upgradeComboValue: 0
+    - upgradeImage: {fileID: 0}
+      upgradeName: CritRateIncrease
+      upgradeCost: 2
+      upgradeCurrencyImage: {fileID: 0}
+      upgradeAmount: 0.1
+      targetPropertyName: CritChancePct
+      currencyId: 1
+      baseObject: {fileID: 0}
+      upgradeComboValue: 0
+    - upgradeImage: {fileID: 0}
+      upgradeName: CriticalDamageIncrease
+      upgradeCost: 500
+      upgradeCurrencyImage: {fileID: 0}
+      upgradeAmount: 1
+      targetPropertyName: CritDmgPct
+      currencyId: 0
+      baseObject: {fileID: 0}
+      upgradeComboValue: 0
+    - upgradeImage: {fileID: 0}
+      upgradeName: 
+      upgradeCost: 0
+      upgradeCurrencyImage: {fileID: 0}
+      upgradeAmount: 0
+      targetPropertyName: Damage
+      currencyId: 0
+      baseObject: {fileID: 0}
+      upgradeComboValue: 0
 --- !u!114 &3630624372845887840
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -214,6 +257,52 @@ MonoBehaviour:
   clickScaleMultiplier: 0.9
   animationDuration: 0.2
   clickedColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+--- !u!61 &1734663148358820529
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2205900903439432746}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.9580078, y: 0.9404297}
+    newSize: {x: 0.9580078, y: 0.9404297}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 0.9580078, y: 0.9404297}
+  m_EdgeRadius: 0
 --- !u!1 &4892076400614187459
 GameObject:
   m_ObjectHideFlags: 0
