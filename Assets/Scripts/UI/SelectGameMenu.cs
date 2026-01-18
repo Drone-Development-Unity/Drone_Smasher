@@ -1,17 +1,34 @@
+using Assets.Scripts.SaveSystem.DTOs;
+using Assets.Scripts.UI.Saves;
 using UnityEngine;
 
 public class SelectGameMenu : MonoBehaviour
 {
+    public static SelectGameMenu Instance { get; private set; }
+
     [Header("Popup Objects")]
     public GameObject backgroundDim;
     public GameObject infoPopup;
     public GameObject confirmPopup;
     public GameObject warningPopup;
 
+    public SavePopUpUI infoPopUpUI;
+
     [Header("Canvas Groups")]
     public CanvasGroup infoGroup; // przypisz InfoPopup tutaj
 
-    public void ShowInfo()
+    private void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        Instance = this;
+    }
+
+    public void ShowInfo(MetaDataDTO meta)
     {
         backgroundDim.SetActive(true);
         infoPopup.SetActive(true);
@@ -20,6 +37,10 @@ public class SelectGameMenu : MonoBehaviour
 
         infoGroup.interactable = true;
         infoGroup.blocksRaycasts = true;
+
+        // update data
+        if (infoPopUpUI != null)
+            infoPopUpUI.UpdateMeta(meta);
     }
 
     public void ShowConfirm()
