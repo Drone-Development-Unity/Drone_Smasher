@@ -24,7 +24,7 @@ public class DroneShopLogic : MonoBehaviour
     private int standardDroneAmount = 0;
     private CurrencyManager currencyManager;
     private CurrencyData currencyData;
-    private void Start()
+    private void Awake()
     {
         currencyManager = CurrencyManager.Instance;
         currencyData = currencyManager.GetCurrencyInstance(currencyId);
@@ -77,6 +77,12 @@ public class DroneShopLogic : MonoBehaviour
 
     private void SpawnDrone(GameObject dronePrefab)
     {
-        Instantiate(dronePrefab, droneSpawnLocation.position, Quaternion.identity);
+        Instantiate(dronePrefab, droneSpawnLocation.position, Quaternion.identity, gatherersContainer);
+    }
+
+
+    public int CountDrones()
+    {
+        return gatherersContainer.childCount;
     }
 }

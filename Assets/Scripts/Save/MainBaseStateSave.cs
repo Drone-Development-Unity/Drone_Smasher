@@ -8,7 +8,7 @@ using Unit = Game.Unit;
 public class MainBaseStateSave : MonoBehaviour
 {
     public List<MainBaseDataDTO> saveData = new();
-
+    public GameObject mainBase;
     void Start()
     {
         //SaveToDTO();
@@ -18,7 +18,7 @@ public class MainBaseStateSave : MonoBehaviour
     [ContextMenu("Zapisz do DTO")]
     public List<MainBaseDataDTO> SaveToDTO()
     {
-        var filteredChildren = GetComponentsInChildren<Transform>()
+        var filteredChildren = mainBase.GetComponentsInChildren<Transform>()
             .Where(t => t.gameObject.layer == LayerMask.NameToLayer("Interactable"))
             .ToList();
 
@@ -44,7 +44,7 @@ public class MainBaseStateSave : MonoBehaviour
     {
         if (cannonsData == null || cannonsData.Count == 0) return;
         
-        var currentChildren = GetComponentsInChildren<Transform>()
+        var currentChildren = mainBase.GetComponentsInChildren<Transform>()
             .Where(t => t.gameObject.layer == LayerMask.NameToLayer("Interactable"))
             .ToList();
         

@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Enemy
   - PlayerBase
+  - SelectGameMenuMenager
+  - SaveDataManager
   layers:
   - Default
   - TransparentFX

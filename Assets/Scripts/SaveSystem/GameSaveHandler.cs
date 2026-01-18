@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Save.DTO;
 using UnityEngine;
 
 namespace Assets.Scripts.SaveSystem
@@ -92,18 +93,23 @@ namespace Assets.Scripts.SaveSystem
             //DTO
             List<MainBaseDataDTO> mainBaseDTO = new();
             var currencyDTO = new CurrenciesDTO();
-            
+            GatherersDataDTO gatherersDTO = new();
             //cannons
-            var mainbase =  GameObject.Find("MainBase");
-            var MainBaseSave = mainbase.GetComponent<MainBaseStateSave>();
+            var saveManager =  GameObject.FindGameObjectWithTag("SaveDataManager");
+            var MainBaseSave = saveManager.GetComponent<MainBaseStateSave>();
             if (MainBaseSave) mainBaseDTO = MainBaseSave.SaveToDTO();
             
             //currencies
             currencyDTO = CurrencyManager.Instance.ConvertToDTO();
             
+            //gatherers
+            var gatherersSave = saveManager.GetComponent<DroneSaveSystem>();
+            if (gatherersSave) gatherersDTO = gatherersSave.SaveGatherers();
+            Debug.Log($"Saved gatherers {gatherersDTO.amount}");
             //Save DTO to GameDataDTO
             newSave.mainBaseDataDTO = mainBaseDTO;
             newSave.currenciesDTO = currencyDTO;
+            newSave.gatherersDTO = gatherersDTO;
 
 
 
@@ -117,9 +123,13 @@ namespace Assets.Scripts.SaveSystem
             CurrencyManager.Instance.LoadCurrencyFromDTO(gameSave.currenciesDTO);
             
             //cannons
-            var mainbase =  GameObject.Find("MainBase");
-            var MainBaseSave = mainbase.GetComponent<MainBaseStateSave>();
+            var saveManager =  GameObject.FindGameObjectWithTag("SaveDataManager");
+            var MainBaseSave = saveManager.GetComponent<MainBaseStateSave>();
             if (MainBaseSave) MainBaseSave.LoadFromDTO(gameSave.mainBaseDataDTO);
+            
+            //gatherers
+            var gatherersSave = saveManager.GetComponent<DroneSaveSystem>();
+            if(gatherersSave)gatherersSave.LoadGatherers(gameSave.gatherersDTO);
             
             Debug.Log($"Game Loaded Save Slot: {CurrentSlot}");
         }
