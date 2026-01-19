@@ -2,13 +2,22 @@ using System.Collections.Generic;
 using Save.DTO;
 using UnityEngine;
 using System.Linq;
+using Game;
 using Unity.VisualScripting;
 using Unit = Game.Unit;
+[System.Serializable]
+public class CannonsData
+{
+    public string CannonObjectName; //only to preview
+    public GameObject cannonContainer;
+    public GameObject Placeholder;
+}
 
 public class MainBaseStateSave : MonoBehaviour
 {
     public List<MainBaseDataDTO> saveData = new();
     public GameObject mainBase;
+    public List<CannonsData> baseCanonData;
     void Start()
     {
         //SaveToDTO();
@@ -66,5 +75,28 @@ public class MainBaseStateSave : MonoBehaviour
             }
         }
         Debug.Log("Loaded");
+    }
+    
+    [ContextMenu("ResetCannons")]
+    private void ResetCannons()
+    {
+        foreach (var cannonData in baseCanonData)
+        {
+            if (cannonData != null && cannonData.cannonContainer != null)
+            {
+                //delete cannon
+                var unit = cannonData.cannonContainer.GetComponentInChildren<Unit>(true);
+                if (unit) unit.Destroy();
+                
+                //set placeholder
+                if (cannonData.Placeholder)
+                {
+                    cannonData.Placeholder.SetActive(true);
+                    Debug.Log($"placeholder activated {cannonData.Placeholder.name}");
+                    var purchaser =cannonData.Placeholder.GetComponent<PurchasableObject>();
+                    if (purchaser) purchaser.CannonDisposed();
+                }
+            }
+        }
     }
 }

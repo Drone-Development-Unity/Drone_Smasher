@@ -29,6 +29,13 @@ namespace Game.StatsPanel.CannonsContent
                 spawnedCannon);
             return true;
         }
+        private bool SellCannon(GameObject cannon, GameObject cannonHolder)
+        {
+            if (cannon == null) return false;
+            var baseCannon = cannonHolder.GetComponent<PurchasableObject>();
+            if (baseCannon != null) baseCannon.CannonDisposed();
+            return true;
+        }
 
         public override void OnPointerClick(PointerEventData eventData)
         {

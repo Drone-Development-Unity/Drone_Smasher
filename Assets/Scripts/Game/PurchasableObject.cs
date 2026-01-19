@@ -41,6 +41,21 @@ namespace Game
             enabled = false;
             uiManager.TryHideShopMenu(); //hide shop menu after purchase
         }
+        public void CannonDisposed()
+        {
+            //gameObject.SetActive(true);
+            //Debug.Log("Hide Placeholder UI");
+            isPurchased = false;
+            //deactivate script when disposed cannon
+            enabled = true;
+            uiManager.TryHideShopMenu(); //hide shop menu after dispose
+            
+            //active childs
+            foreach (Transform child in gameObject.transform)
+            {
+                child.gameObject.SetActive(true);
+            }
+        }
         
     }
 }

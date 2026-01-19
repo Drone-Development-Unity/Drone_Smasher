@@ -33,7 +33,11 @@ namespace Game
         {
             return _stats;
         }
-        
+
+        public void Destroy()
+        {
+            Destroy(gameObject);
+        }
         
         //save
         public StatsDataDTO SaveToDTO()
