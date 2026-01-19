@@ -21,9 +21,14 @@ namespace Game.StatsPanel.CannonsContent
         private List<int> insufficientIndexes = new();
         private bool BuyCannon()
         {
-            if (cannonPrefab == null) return false;
+            var saveCannons = GameObject.FindWithTag("SaveDataManager");
+            var cannonSaver = saveCannons.GetComponent<MainBaseStateSave>();
+            
+            var cannonPrefabUnit = cannonPrefab.GetComponent<Unit>();
+            
+            if (cannonPrefab == null || cannonSaver == null || cannonPrefabUnit == null) return false;
             GameObject newCannon = Instantiate(
-                cannonPrefab,
+                cannonSaver.GetCannonByIndex(cannonPrefabUnit.cannonType),
                 spawnedCannon.position,
                 spawnedCannon.rotation,
                 spawnedCannon);

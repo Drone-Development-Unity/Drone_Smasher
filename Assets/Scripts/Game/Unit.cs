@@ -12,7 +12,7 @@ namespace Game
     public class Unit: MonoBehaviour,IStatsDisplay
     {
         [SerializeField] private StatsData _stats;
-
+        public int cannonType;//used to know which cannon load
         private void Awake()
         {
             foreach(var upgrade in _stats.upgrades)
@@ -22,6 +22,9 @@ namespace Game
             
         }
 
+        public int GetCannonType() {
+            return cannonType;
+        }
         private void Start()
         {
             var dto = SaveToDTO();

@@ -46,7 +46,7 @@ GameObject:
   - component: {fileID: 3630624372845887840}
   - component: {fileID: 8194397729928812279}
   - component: {fileID: 5318997496022362723}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Rocket_Launcher
   m_TagString: PlayerBase
   m_Icon: {fileID: 0}
@@ -213,6 +213,7 @@ MonoBehaviour:
       currencyId: 0
       baseObject: {fileID: 0}
       upgradeComboValue: 0
+  cannonType: 1
 --- !u!114 &3630624372845887840
 MonoBehaviour:
   m_ObjectHideFlags: 0

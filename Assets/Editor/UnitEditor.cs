@@ -84,7 +84,7 @@ namespace Editor
                 EditorGUILayout.HelpBox("Brak danych StatsData.", MessageType.Warning);
                 return;
             }
-            
+            unit.cannonType = EditorGUILayout.IntField("Cannon Type", unit.cannonType);
             stats.objectName = EditorGUILayout.TextField("Object Name", stats.objectName);
             stats.description = EditorGUILayout.TextField("Description", stats.description);
 

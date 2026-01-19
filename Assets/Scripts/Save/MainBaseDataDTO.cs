@@ -4,5 +4,6 @@ using UnityEngine;
 public class MainBaseDataDTO
 {
     public string cannonName;
+    public int cannonType;
     public StatsDataDTO cannonStatsData;
 }
