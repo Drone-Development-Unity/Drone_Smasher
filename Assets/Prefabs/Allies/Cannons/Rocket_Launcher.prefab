@@ -213,7 +213,7 @@ MonoBehaviour:
       currencyId: 0
       baseObject: {fileID: 0}
       upgradeComboValue: 0
-  cannonType: 1
+  cannonType: 3
 --- !u!114 &3630624372845887840
 MonoBehaviour:
   m_ObjectHideFlags: 0

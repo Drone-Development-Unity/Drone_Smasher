@@ -296,6 +296,7 @@ MonoBehaviour:
       currencyId: 0
       baseObject: {fileID: 0}
       upgradeComboValue: 0
+  cannonType: 1
 --- !u!114 &6538988560400738407
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -331,6 +332,8 @@ MonoBehaviour:
   rotationSpeed: 200
   angleTolerance: 5
   detectionRange: 15
+  projectileCount: 1
+  projectileSpacing: 0.5
   cooldownBar: {fileID: 0}
   cooldownDelay: 0.9
   shootSound: {fileID: 0}

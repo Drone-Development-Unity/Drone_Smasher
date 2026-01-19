@@ -39,6 +39,7 @@ namespace Game.MainCannon
 
         private void Start()
         {
+            enemyContainer = GameObject.Find("EnemiesContainer");
             // Inicjalizacja paska cooldownu (jeśli jest przypięty)
             if (cooldownBar != null)
             {
