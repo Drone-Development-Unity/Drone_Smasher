@@ -2164,7 +2164,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9139f527ea41764e9929f000e45c05a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ScrollingBackground
-  speed: 2
+  speed: 0.8
   spriteHeight: 21.605
   resetOffset: 5
 --- !u!1 &685483000
