@@ -12,13 +12,73 @@ PrefabInstance:
       propertyPath: m_text
       value: Cannon that shoots enemy tracking bullets
       objectReference: {fileID: 0}
+    - target: {fileID: 189627272154988626, guid: 216e1e07dcb301f48a7e4d0bfb9f8f23, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 26423dc100cb75042908872000931a4c, type: 2}
+    - target: {fileID: 189627272154988626, guid: 216e1e07dcb301f48a7e4d0bfb9f8f23, type: 3}
+      propertyPath: m_fontColor.b
+      value: 0.28235295
+      objectReference: {fileID: 0}
+    - target: {fileID: 189627272154988626, guid: 216e1e07dcb301f48a7e4d0bfb9f8f23, type: 3}
+      propertyPath: m_fontColor.g
+      value: 0.7294118
+      objectReference: {fileID: 0}
+    - target: {fileID: 189627272154988626, guid: 216e1e07dcb301f48a7e4d0bfb9f8f23, type: 3}
+      propertyPath: m_fontColor.r
+      value: 0.98039216
+      objectReference: {fileID: 0}
+    - target: {fileID: 189627272154988626, guid: 216e1e07dcb301f48a7e4d0bfb9f8f23, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 8668998130813669200, guid: 26423dc100cb75042908872000931a4c, type: 2}
+    - target: {fileID: 189627272154988626, guid: 216e1e07dcb301f48a7e4d0bfb9f8f23, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4282956538
+      objectReference: {fileID: 0}
+    - target: {fileID: 189627272154988626, guid: 216e1e07dcb301f48a7e4d0bfb9f8f23, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1224829261466244989, guid: 216e1e07dcb301f48a7e4d0bfb9f8f23, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1224829261466244989, guid: 216e1e07dcb301f48a7e4d0bfb9f8f23, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1470548030655405218, guid: 216e1e07dcb301f48a7e4d0bfb9f8f23, type: 3}
       propertyPath: m_Name
-      value: Cannon2Popup
+      value: CannonPopup_2
       objectReference: {fileID: 0}
     - target: {fileID: 1470548030655405218, guid: 216e1e07dcb301f48a7e4d0bfb9f8f23, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1886618022508645667, guid: 216e1e07dcb301f48a7e4d0bfb9f8f23, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -2.186493
+      objectReference: {fileID: 0}
+    - target: {fileID: 2749926901288336930, guid: 216e1e07dcb301f48a7e4d0bfb9f8f23, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2749926901288336930, guid: 216e1e07dcb301f48a7e4d0bfb9f8f23, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3485166924560310565, guid: 216e1e07dcb301f48a7e4d0bfb9f8f23, type: 3}
+      propertyPath: m_Color.b
+      value: 0.7647059
+      objectReference: {fileID: 0}
+    - target: {fileID: 3485166924560310565, guid: 216e1e07dcb301f48a7e4d0bfb9f8f23, type: 3}
+      propertyPath: m_Color.g
+      value: 0.34117648
+      objectReference: {fileID: 0}
+    - target: {fileID: 3485166924560310565, guid: 216e1e07dcb301f48a7e4d0bfb9f8f23, type: 3}
+      propertyPath: m_Color.r
+      value: 0.17254902
       objectReference: {fileID: 0}
     - target: {fileID: 7074101940711244280, guid: 216e1e07dcb301f48a7e4d0bfb9f8f23, type: 3}
       propertyPath: m_AnchorMax.y
@@ -34,6 +94,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7074101940711244280, guid: 216e1e07dcb301f48a7e4d0bfb9f8f23, type: 3}
       propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7987248929408621784, guid: 216e1e07dcb301f48a7e4d0bfb9f8f23, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7987248929408621784, guid: 216e1e07dcb301f48a7e4d0bfb9f8f23, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7987248929408621784, guid: 216e1e07dcb301f48a7e4d0bfb9f8f23, type: 3}
+      propertyPath: m_SizeDelta.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8173247875243004065, guid: 216e1e07dcb301f48a7e4d0bfb9f8f23, type: 3}
