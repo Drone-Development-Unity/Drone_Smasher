@@ -20,6 +20,10 @@ namespace Game.MainCannon
         [SerializeField] private float angleTolerance = 5f; // Jak dokładnie musi być wycelowane, żeby strzelić
         [SerializeField] private float detectionRange = 10f; // Zasięg wykrywania wrogów
 
+        [Header("Multishot Settings")]
+        [SerializeField] private int projectileCount = 1; 
+        [SerializeField] private float projectileSpacing = 0.5f;
+
         [Header("Cooldown")]
         [SerializeField] private UIBar cooldownBar; // Opcjonalne, jeśli chcesz widzieć pasek ładowania nad wieżyczką
         [SerializeField] private float cooldownDelay = 0.5f;
@@ -79,11 +83,6 @@ namespace Game.MainCannon
             Vector3 direction = currentTarget.position - barrelTransform.position;
             direction.z = 0; // Upewniamy się, że działamy w 2D
 
-            // Rysuje linię od lufy do wroga (Czerwona)
-            Debug.DrawLine(barrelTransform.position, currentTarget.position, Color.red);
-// Rysuje linię tam, gdzie lufa aktualnie celuje (Zielona)
-            Debug.DrawRay(barrelTransform.position, barrelTransform.up * 5f, Color.green);
-
             // Oblicz kąt (zakładamy, że sprite lufy jest skierowany w górę lub w prawo - tutaj dostosowane do Twojego Atan2 - 90)
             float targetAngle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90f;
             Quaternion targetRotation = Quaternion.Euler(0, 0, targetAngle);
@@ -109,21 +108,31 @@ namespace Game.MainCannon
             cooldownTimer = 0f;
             if (cooldownBar != null) cooldownBar.SetAmount(0f);
 
-            if (shootSound != null)
-            {
-                shootSound.Play();
-            }
+            if (shootSound != null) shootSound.Play();
 
-            // Instancjonowanie pocisku
-            GameObject projectile = Instantiate(projectilePrefab, firePoint.position, Quaternion.Euler(0, 0, angle));
+            // Obliczamy wektor "w prawo" względem kierunku strzału, żeby rozsunąć pociski na boki
+            Vector3 rightVector = new Vector3(direction.y, -direction.x, 0).normalized;
             
-            // Logika pocisku z Twojego oryginalnego kodu
-            projectile.GetComponent<BulletCollisionDetection>().Initialize(gameObject, GetDamageProperty(), direction);
-            
-            Rigidbody2D rb = projectile.GetComponent<Rigidbody2D>();
-            if (rb != null)
+            // Obliczamy pozycję startową (najbardziej na lewo), żeby całość była wycentrowana względem lufy
+            float totalWidth = (projectileCount - 1) * projectileSpacing;
+            Vector3 startOffset = -rightVector * (totalWidth / 2f);
+
+            // PĘTLA TWORZĄCA POCISKI
+            for (int i = 0; i < projectileCount; i++)
             {
-                rb.linearVelocity = direction * bulletSpeed; // Uwaga: w starszym Unity użyj rb.velocity
+                // Oblicz pozycję konkretnego pocisku
+                Vector3 spawnOffset = startOffset + (rightVector * (i * projectileSpacing));
+                Vector3 spawnPosition = firePoint.position + spawnOffset;
+
+                GameObject projectile = Instantiate(projectilePrefab, spawnPosition, Quaternion.Euler(0, 0, angle));
+                
+                projectile.GetComponent<BulletCollisionDetection>().Initialize(gameObject, GetDamageProperty(), direction);
+                
+                Rigidbody2D rb = projectile.GetComponent<Rigidbody2D>();
+                if (rb != null)
+                {
+                    rb.linearVelocity = direction * bulletSpeed;
+                }
             }
         }
 

@@ -168,7 +168,7 @@ GameObject:
   - component: {fileID: 6538988560400738407}
   - component: {fileID: 2761200392084714556}
   m_Layer: 8
-  m_Name: Cannon2
+  m_Name: CannonMultishot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -254,7 +254,7 @@ MonoBehaviour:
       wzroku"
     properties:
     - propertyType: 0
-      propertyValue: 5
+      propertyValue: 15
     - propertyType: 2
       propertyValue: 0.1
     - propertyType: 3
@@ -330,8 +330,10 @@ MonoBehaviour:
   bulletSpeed: 10
   rotationSpeed: 200
   angleTolerance: 5
-  detectionRange: 10
+  detectionRange: 15
+  projectileCount: 2
+  projectileSpacing: 0.3
   cooldownBar: {fileID: 0}
-  cooldownDelay: 0.3
+  cooldownDelay: 0.5
   shootSound: {fileID: 0}
   enemyContainer: {fileID: 0}
