@@ -37,7 +37,7 @@ public class CurrencyManager : MonoBehaviour
         //var dto = ConvertToDTO();
         
         //Load currencies
-        //LoadCurrencyFromDTO(dto);
+        //ShowCurrencies();
         //ConnectLoadedCurrencies();
         
         
@@ -163,6 +163,28 @@ public class CurrencyManager : MonoBehaviour
             {
                 currencyId = d.currencyId,
                 amount = d.amount
+            };
+
+            currencies.Add(newCurrency);
+        }
+
+        ConnectLoadedCurrencies();
+        ShowCurrencies();
+    }
+    [ContextMenu("CreateNewCurrencies")]
+    public void CreateAndLoadCurrencies()
+    {
+        
+        //clear local data
+        currencies.Clear();
+
+        //rewrite dto to currencies
+        for(int i = 0; i<currenciesData.Count;i++)
+        {
+            var newCurrency = new CurrencyData
+            {
+                currencyId = i,
+                amount = 0
             };
 
             currencies.Add(newCurrency);
