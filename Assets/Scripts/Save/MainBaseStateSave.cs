@@ -18,7 +18,9 @@ public class MainBaseStateSave : MonoBehaviour
     public List<MainBaseDataDTO> saveData = new();
     public List<GameObject> cannonTypes;
     public GameObject mainBase;
+    public GameObject baseCannon;
     public List<CannonsData> baseCanonData;
+    public List<Transform> cannonsPositions;
     void Start()
     {
         //SaveToDTO();
@@ -35,12 +37,17 @@ public class MainBaseStateSave : MonoBehaviour
         foreach (var cannon in filteredChildren)
         {
             Unit unitComponent = cannon.GetComponent<Unit>();
+            var identity = cannon.parent.GetComponent<CannonPlaceIdentity>();
 
             if (unitComponent != null)
             {
+                int id = 0;
+                if(identity) id = identity.GetPlaceId();
+                else id = 100;
                 MainBaseDataDTO cannonDto = new MainBaseDataDTO
                 {
                     cannonName = cannon.name,
+                    placeId = id,
                     cannonType = unitComponent.GetCannonType(),
                     cannonStatsData = unitComponent.SaveToDTO()
                 };
@@ -64,22 +71,31 @@ public class MainBaseStateSave : MonoBehaviour
         for (int i = 0; i < cannonsData.Count; i++)
         {
             var dto = cannonsData[i];
-            var purchaser = baseCanonData[i].Placeholder.GetComponent<PurchasableObject>();
-            if (purchaser && dto.cannonType<cannonTypes.Count)
+            if (dto.placeId < cannonsPositions.Count)
             {
-                GameObject spawnedCannon = Instantiate(
-                    GetCannonByIndex(dto.cannonType),
-                    baseCanonData[i].cannonContainer.transform.position,
-                    baseCanonData[i].cannonContainer.transform.rotation,
-                    baseCanonData[i].cannonContainer.transform);
-                purchaser.CannonPurchased();
-                var spawnedUnit = spawnedCannon.GetComponent<Unit>();
-                if(spawnedUnit)spawnedUnit.LoadFromDTO(dto.cannonStatsData);//load saved Unit data
-                Debug.Log($"Instantiated cannon {i} on {dto.cannonName}");
+                var purchaser = baseCanonData[dto.placeId].Placeholder.GetComponent<PurchasableObject>();
+                if (purchaser && dto.cannonType < cannonTypes.Count)
+                {
+                    GameObject spawnedCannon = Instantiate(
+                        GetCannonByIndex(dto.cannonType),
+                        cannonsPositions[dto.placeId].position,
+                        cannonsPositions[dto.placeId].rotation,
+                        cannonsPositions[dto.placeId]);
+                    purchaser.CannonPurchased();
+                    var spawnedUnit = spawnedCannon.GetComponent<Unit>();
+                    if (spawnedUnit) spawnedUnit.LoadFromDTO(dto.cannonStatsData); //load saved Unit data
+                    Debug.Log($"Instantiated cannon {i} on {dto.cannonName}");
+                }
+                else
+                {
+                    Debug.LogWarning($"Nie znaleziono purchaser");
+                }
             }
             else
             {
-                Debug.LogWarning($"Nie znaleziono purchaser");
+                var baseCannonUnit = baseCannon.GetComponent<Unit>();
+                if(baseCannonUnit)baseCannonUnit.LoadFromDTO(dto.cannonStatsData);
+                Debug.Log("Wczytano stan main cannon");
             }
         }
         Debug.Log("Loaded");

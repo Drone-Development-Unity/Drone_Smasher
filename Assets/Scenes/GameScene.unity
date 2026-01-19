@@ -967,6 +967,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 273497501}
   m_CullTransparentMesh: 1
+--- !u!1 &310893387 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3333256254552128869, guid: cc741eff649938a459de1b66ef1f9432, type: 3}
+  m_PrefabInstance: {fileID: 903962101}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &357894041
 GameObject:
   m_ObjectHideFlags: 0
@@ -2627,10 +2632,6 @@ PrefabInstance:
       propertyPath: healthBar
       value: 
       objectReference: {fileID: 1634183299742326335}
-    - target: {fileID: 8601495196737382638, guid: cc741eff649938a459de1b66ef1f9432, type: 3}
-      propertyPath: cannonType
-      value: 100
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2639,6 +2640,46 @@ PrefabInstance:
 --- !u!1 &903962102 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1793644459414174198, guid: cc741eff649938a459de1b66ef1f9432, type: 3}
+  m_PrefabInstance: {fileID: 903962101}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &903962103 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3629534113995942642, guid: cc741eff649938a459de1b66ef1f9432, type: 3}
+  m_PrefabInstance: {fileID: 903962101}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &903962104 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5900465801885425247, guid: cc741eff649938a459de1b66ef1f9432, type: 3}
+  m_PrefabInstance: {fileID: 903962101}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &903962105 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2760036736699598043, guid: cc741eff649938a459de1b66ef1f9432, type: 3}
+  m_PrefabInstance: {fileID: 903962101}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &903962106 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2348350890376803375, guid: cc741eff649938a459de1b66ef1f9432, type: 3}
+  m_PrefabInstance: {fileID: 903962101}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &903962107 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2973712533158303745, guid: cc741eff649938a459de1b66ef1f9432, type: 3}
+  m_PrefabInstance: {fileID: 903962101}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &903962108 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6258287535825282694, guid: cc741eff649938a459de1b66ef1f9432, type: 3}
+  m_PrefabInstance: {fileID: 903962101}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &903962109 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1833409710748787382, guid: cc741eff649938a459de1b66ef1f9432, type: 3}
+  m_PrefabInstance: {fileID: 903962101}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &903962110 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 714211689656141107, guid: cc741eff649938a459de1b66ef1f9432, type: 3}
   m_PrefabInstance: {fileID: 903962101}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &910341032
@@ -4243,6 +4284,7 @@ MonoBehaviour:
   - {fileID: 2205900903439432746, guid: 22774c0f4680cf1409b7ebd45f1046dc, type: 3}
   - {fileID: 2205900903439432746, guid: 5f629ec0466e61e49bf61a0561bd0505, type: 3}
   mainBase: {fileID: 903962102}
+  baseCannon: {fileID: 310893387}
   baseCanonData:
   - CannonObjectName: base_cannon_placeholder_L1
     cannonContainer: {fileID: 583695830}
@@ -4268,6 +4310,15 @@ MonoBehaviour:
   - CannonObjectName: base_cannon_placeholder_R4
     cannonContainer: {fileID: 1523434618}
     Placeholder: {fileID: 686676844}
+  cannonsPositions:
+  - {fileID: 903962110}
+  - {fileID: 903962109}
+  - {fileID: 903962108}
+  - {fileID: 903962107}
+  - {fileID: 903962106}
+  - {fileID: 903962105}
+  - {fileID: 903962104}
+  - {fileID: 903962103}
 --- !u!4 &1700743734
 Transform:
   m_ObjectHideFlags: 0

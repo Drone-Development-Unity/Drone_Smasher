@@ -1756,13 +1756,34 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1626987306882930046, guid: 49c550958b0fe2a46aa61cf4b3abd3aa, type: 3}
       insertIndex: -1
       addedObject: {fileID: 6403367496432024408}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1480958106531240843, guid: 49c550958b0fe2a46aa61cf4b3abd3aa, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5261463492256964474}
   m_SourcePrefab: {fileID: 100100000, guid: 49c550958b0fe2a46aa61cf4b3abd3aa, type: 3}
 --- !u!4 &1833409710748787382 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1626987306882930046, guid: 49c550958b0fe2a46aa61cf4b3abd3aa, type: 3}
   m_PrefabInstance: {fileID: 1145511066419951560}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1975048011490454595 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1480958106531240843, guid: 49c550958b0fe2a46aa61cf4b3abd3aa, type: 3}
+  m_PrefabInstance: {fileID: 1145511066419951560}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &5261463492256964474
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1975048011490454595}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c8c51ae73a2d1549a91250723046f0d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CannonPlaceIdentity
+  placeId: 1
 --- !u!4 &3855784582651762072 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4208565029867332176, guid: 49c550958b0fe2a46aa61cf4b3abd3aa, type: 3}
@@ -1937,13 +1958,34 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1626987306882930046, guid: 49c550958b0fe2a46aa61cf4b3abd3aa, type: 3}
       insertIndex: -1
       addedObject: {fileID: 3488029933176050699}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1480958106531240843, guid: 49c550958b0fe2a46aa61cf4b3abd3aa, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7971135355222225012}
   m_SourcePrefab: {fileID: 100100000, guid: 49c550958b0fe2a46aa61cf4b3abd3aa, type: 3}
 --- !u!4 &714211689656141107 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1626987306882930046, guid: 49c550958b0fe2a46aa61cf4b3abd3aa, type: 3}
   m_PrefabInstance: {fileID: 2269070850138394701}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &860240750514195398 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1480958106531240843, guid: 49c550958b0fe2a46aa61cf4b3abd3aa, type: 3}
+  m_PrefabInstance: {fileID: 2269070850138394701}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &7971135355222225012
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 860240750514195398}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c8c51ae73a2d1549a91250723046f0d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CannonPlaceIdentity
+  placeId: 0
 --- !u!4 &2673599353279410717 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4208565029867332176, guid: 49c550958b0fe2a46aa61cf4b3abd3aa, type: 3}
@@ -2028,13 +2070,34 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1626987306882930046, guid: 49c550958b0fe2a46aa61cf4b3abd3aa, type: 3}
       insertIndex: -1
       addedObject: {fileID: 4608137129030312044}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1480958106531240843, guid: 49c550958b0fe2a46aa61cf4b3abd3aa, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5005497062099073719}
   m_SourcePrefab: {fileID: 100100000, guid: 49c550958b0fe2a46aa61cf4b3abd3aa, type: 3}
 --- !u!4 &2210521702527393244 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4208565029867332176, guid: 49c550958b0fe2a46aa61cf4b3abd3aa, type: 3}
   m_PrefabInstance: {fileID: 2651083467197022092}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &3478997534179320839 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1480958106531240843, guid: 49c550958b0fe2a46aa61cf4b3abd3aa, type: 3}
+  m_PrefabInstance: {fileID: 2651083467197022092}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &5005497062099073719
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3478997534179320839}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c8c51ae73a2d1549a91250723046f0d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CannonPlaceIdentity
+  placeId: 7
 --- !u!4 &3629534113995942642 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1626987306882930046, guid: 49c550958b0fe2a46aa61cf4b3abd3aa, type: 3}
@@ -2119,13 +2182,34 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1626987306882930046, guid: 49c550958b0fe2a46aa61cf4b3abd3aa, type: 3}
       insertIndex: -1
       addedObject: {fileID: 8836991199532773058}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1480958106531240843, guid: 49c550958b0fe2a46aa61cf4b3abd3aa, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3330424347391052533}
   m_SourcePrefab: {fileID: 100100000, guid: 49c550958b0fe2a46aa61cf4b3abd3aa, type: 3}
 --- !u!4 &774184849376162805 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4208565029867332176, guid: 49c550958b0fe2a46aa61cf4b3abd3aa, type: 3}
   m_PrefabInstance: {fileID: 3520027772893368741}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2617942756874914350 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1480958106531240843, guid: 49c550958b0fe2a46aa61cf4b3abd3aa, type: 3}
+  m_PrefabInstance: {fileID: 3520027772893368741}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &3330424347391052533
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2617942756874914350}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c8c51ae73a2d1549a91250723046f0d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CannonPlaceIdentity
+  placeId: 5
 --- !u!4 &2760036736699598043 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1626987306882930046, guid: 49c550958b0fe2a46aa61cf4b3abd3aa, type: 3}
@@ -2214,7 +2298,10 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1626987306882930046, guid: 49c550958b0fe2a46aa61cf4b3abd3aa, type: 3}
       insertIndex: -1
       addedObject: {fileID: 3432315147050822817}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1480958106531240843, guid: 49c550958b0fe2a46aa61cf4b3abd3aa, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8916250088331387249}
   m_SourcePrefab: {fileID: 100100000, guid: 49c550958b0fe2a46aa61cf4b3abd3aa, type: 3}
 --- !u!4 &893101943984849665 stripped
 Transform:
@@ -2226,6 +2313,24 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1626987306882930046, guid: 49c550958b0fe2a46aa61cf4b3abd3aa, type: 3}
   m_PrefabInstance: {fileID: 3892021455951634769}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2490023755136744154 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1480958106531240843, guid: 49c550958b0fe2a46aa61cf4b3abd3aa, type: 3}
+  m_PrefabInstance: {fileID: 3892021455951634769}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &8916250088331387249
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2490023755136744154}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c8c51ae73a2d1549a91250723046f0d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CannonPlaceIdentity
+  placeId: 4
 --- !u!4 &5053297740009175815 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8080538971630066262, guid: 49c550958b0fe2a46aa61cf4b3abd3aa, type: 3}
@@ -2322,13 +2427,34 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8080538971630066262, guid: 49c550958b0fe2a46aa61cf4b3abd3aa, type: 3}
       insertIndex: -1
       addedObject: {fileID: 8429908957965482842}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1480958106531240843, guid: 49c550958b0fe2a46aa61cf4b3abd3aa, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8947289012658447683}
   m_SourcePrefab: {fileID: 100100000, guid: 49c550958b0fe2a46aa61cf4b3abd3aa, type: 3}
 --- !u!4 &411890275683348271 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4208565029867332176, guid: 49c550958b0fe2a46aa61cf4b3abd3aa, type: 3}
   m_PrefabInstance: {fileID: 4598324335505345919}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &3124913286719674100 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1480958106531240843, guid: 49c550958b0fe2a46aa61cf4b3abd3aa, type: 3}
+  m_PrefabInstance: {fileID: 4598324335505345919}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &8947289012658447683
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3124913286719674100}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c8c51ae73a2d1549a91250723046f0d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CannonPlaceIdentity
+  placeId: 3
 --- !u!4 &5761037404859356969 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8080538971630066262, guid: 49c550958b0fe2a46aa61cf4b3abd3aa, type: 3}
@@ -2408,13 +2534,34 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1626987306882930046, guid: 49c550958b0fe2a46aa61cf4b3abd3aa, type: 3}
       insertIndex: -1
       addedObject: {fileID: 4079609814469123061}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1480958106531240843, guid: 49c550958b0fe2a46aa61cf4b3abd3aa, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7055897210542410040}
   m_SourcePrefab: {fileID: 100100000, guid: 49c550958b0fe2a46aa61cf4b3abd3aa, type: 3}
 --- !u!4 &3489736034470111662 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8080538971630066262, guid: 49c550958b0fe2a46aa61cf4b3abd3aa, type: 3}
   m_PrefabInstance: {fileID: 4633604846141666296}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &6107079573353719923 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1480958106531240843, guid: 49c550958b0fe2a46aa61cf4b3abd3aa, type: 3}
+  m_PrefabInstance: {fileID: 4633604846141666296}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &7055897210542410040
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6107079573353719923}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c8c51ae73a2d1549a91250723046f0d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CannonPlaceIdentity
+  placeId: 2
 --- !u!4 &6258287535825282694 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1626987306882930046, guid: 49c550958b0fe2a46aa61cf4b3abd3aa, type: 3}
@@ -2516,13 +2663,34 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8080538971630066262, guid: 49c550958b0fe2a46aa61cf4b3abd3aa, type: 3}
       insertIndex: -1
       addedObject: {fileID: 270782363901824530}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1480958106531240843, guid: 49c550958b0fe2a46aa61cf4b3abd3aa, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7908237011993691462}
   m_SourcePrefab: {fileID: 100100000, guid: 49c550958b0fe2a46aa61cf4b3abd3aa, type: 3}
 --- !u!4 &3987169283860779383 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8080538971630066262, guid: 49c550958b0fe2a46aa61cf4b3abd3aa, type: 3}
   m_PrefabInstance: {fileID: 5149463990516779809}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &6051705102793478314 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1480958106531240843, guid: 49c550958b0fe2a46aa61cf4b3abd3aa, type: 3}
+  m_PrefabInstance: {fileID: 5149463990516779809}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &7908237011993691462
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6051705102793478314}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c8c51ae73a2d1549a91250723046f0d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CannonPlaceIdentity
+  placeId: 6
 --- !u!4 &9012056551924738417 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4208565029867332176, guid: 49c550958b0fe2a46aa61cf4b3abd3aa, type: 3}
@@ -2665,6 +2833,10 @@ PrefabInstance:
     - target: {fileID: 915676541332536888, guid: 18cfdfbfb1847fe48b9cea3fd0cb8f21, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3193078734039573203, guid: 18cfdfbfb1847fe48b9cea3fd0cb8f21, type: 3}
+      propertyPath: cannonType
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 3193078734039573203, guid: 18cfdfbfb1847fe48b9cea3fd0cb8f21, type: 3}
       propertyPath: _stats.objectName
