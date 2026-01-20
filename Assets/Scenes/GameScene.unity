@@ -5122,20 +5122,21 @@ MonoBehaviour:
     cost: 1
     enemyPrefabs:
     - {fileID: 2150796800528179175, guid: d6ad2e8885f775645a7a909ab84d7669, type: 3}
-    firstWaveProbability: 0.7
+    - {fileID: 8929473634460101924, guid: 2c80f6c0dd7169c4fbd9630366eca982, type: 3}
+    firstWaveProbability: 0.5
     infWaveProbability: 0
   - name: medium
     cost: 3
     enemyPrefabs:
-    - {fileID: 8929473634460101924, guid: 2c80f6c0dd7169c4fbd9630366eca982, type: 3}
+    - {fileID: 2150796800528179175, guid: a51c5cf4baf4f05488947e4130167931, type: 3}
     firstWaveProbability: 0.3
     infWaveProbability: 0.6
   - name: hard
     cost: 5
     enemyPrefabs:
-    - {fileID: 8929473634460101924, guid: 2c80f6c0dd7169c4fbd9630366eca982, type: 3}
-    firstWaveProbability: 0
-    infWaveProbability: 0.4
+    - {fileID: 2150796800528179175, guid: fb62ac9404f14e544b9ae4f6fd43beb6, type: 3}
+    firstWaveProbability: 0.2
+    infWaveProbability: 0.5
   maxSignificantWaveNumber: 50
   addSecondsPerEveryWave: 10
   enemyHpMultiplier: 1.1
