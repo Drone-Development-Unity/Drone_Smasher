@@ -168,8 +168,8 @@ GameObject:
   - component: {fileID: 6538988560400738407}
   - component: {fileID: 2761200392084714556}
   m_Layer: 8
-  m_Name: CannonSniper
-  m_TagString: Untagged
+  m_Name: Regular_Cannon
+  m_TagString: PlayerBase
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

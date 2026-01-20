@@ -149,7 +149,18 @@ namespace Assets.Scripts.Allies.Cannons.SpecificCannons
                 float rotateAmount = Vector3.Cross(direction, transform.up).z;
                 rb.rotation -= rotateAmount * rotationSpeed * Time.deltaTime;
 
+                //Vector2 toTarget = targetPosition - rb.position;
+                //float targetAngle = Vector2.SignedAngle(Vector2.up, toTarget);
+                //float newAngle = Mathf.MoveTowardsAngle(
+                //    rb.rotation,
+                //    targetAngle,
+                //    rotationSpeed * Time.deltaTime
+                //);
+
+                //rb.MoveRotation(newAngle);
+
                 Vector2 hitPoint = firePoint.position + firePoint.up * 100f;
+
                 hitsInfoAim = Physics2D.RaycastAll(firePoint.position, firePoint.up, 100f);
 
                 bool enemySeen = false;
@@ -159,6 +170,12 @@ namespace Assets.Scripts.Allies.Cannons.SpecificCannons
 
                 foreach (RaycastHit2D hit in hitsInfoAim)
                 {
+                    if (hit.transform == transform)
+                        continue;
+
+                    if (hit.transform.CompareTag("PlayerBase"))
+                        continue;
+
                     if (hit.transform.CompareTag("Enemy"))
                     {
                         enemySeen = true;
@@ -196,6 +213,12 @@ namespace Assets.Scripts.Allies.Cannons.SpecificCannons
 
             foreach (RaycastHit2D hit in hitsInfoShoot)
             {
+                if (hit.transform == transform)
+                    continue;
+
+                if (hit.transform.CompareTag("PlayerBase"))
+                    continue;
+
                 if (hit.transform.CompareTag("Enemy"))
                 {
                     var enemy = hit.transform.GetComponent<BaseEnemy>();

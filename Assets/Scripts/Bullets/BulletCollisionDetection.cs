@@ -59,7 +59,7 @@ namespace Assets.Scripts.Bullets
         private void OnTriggerEnter2D(Collider2D collision)
         {
             // ignore collision with shooter or allies
-            if (collision.gameObject.tag == shooterTag || collision.gameObject.CompareTag("PlayerBase")) return;
+            if (collision.gameObject.tag == shooterTag) return;
 
             // damage enemy / player base
             if (collision.CompareTag("PlayerBase") || collision.CompareTag("Enemy"))
