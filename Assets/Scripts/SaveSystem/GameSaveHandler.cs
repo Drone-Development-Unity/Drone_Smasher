@@ -116,12 +116,20 @@ namespace Assets.Scripts.SaveSystem
             SaveManager.Instance.SaveGame(CurrentSlot, newSave);
             Debug.Log($"Saved Save Slot: {CurrentSlot}");
         }
+
+        // Passes gameSaveDto to managers
         private void SetGameState(GameDataDTO gameSave)
         {
-            // tutaj ustaw sb DTO dla menagerow
             //currencies
-            CurrencyManager.Instance.LoadCurrencyFromDTO(gameSave.currenciesDTO);
-            
+            if (gameSave.currenciesDTO == null || gameSave.currenciesDTO?.currencies.Count == 0)
+            {
+                CurrencyManager.Instance.CreateAndLoadCurrencies();
+            }
+            else
+            {
+                CurrencyManager.Instance.LoadCurrencyFromDTO(gameSave.currenciesDTO);
+            }
+
             //cannons
             var saveManager =  GameObject.FindGameObjectWithTag("SaveDataManager");
             var MainBaseSave = saveManager.GetComponent<MainBaseStateSave>();
