@@ -1,5 +1,6 @@
 using Assets.Scripts.Enemies;
 using Assets.Scripts.Interfaces;
+using Assets.Scripts.Save.DTO.wave;
 using Assets.Scripts.Wave;
 using DG.Tweening;
 using NUnit.Framework;
@@ -57,7 +58,7 @@ public class WaveSpawner : MonoBehaviour
     [SerializeField] private float maxNumberOfEnemies = 10;
 
     // wave counter
-    private int avaliableWaveNumber = 1;
+    private int avaliableWaveNumber;
     public int GetAvaliableWaveNumber() { return avaliableWaveNumber; }
 
     // Enemy positions
@@ -306,6 +307,15 @@ public class WaveSpawner : MonoBehaviour
         }
 
         return numberOfDiffClasses - 1;
+    }
+    // MEMENTO
+    public WaveSpawnerDTO SaveDTO()
+    {
+        return new WaveSpawnerDTO { avaliableWaveNumber =  avaliableWaveNumber };
+    }
+    public void LoadDTO(WaveSpawnerDTO dto)
+    {
+        this.avaliableWaveNumber = dto.avaliableWaveNumber;
     }
 
     [System.Serializable]

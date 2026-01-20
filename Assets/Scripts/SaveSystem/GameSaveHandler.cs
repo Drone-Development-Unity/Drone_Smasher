@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Save.DTO;
 using UnityEngine;
+using Assets.Scripts.Save.DTO;
 
 namespace Assets.Scripts.SaveSystem
 {
@@ -106,10 +107,13 @@ namespace Assets.Scripts.SaveSystem
             var gatherersSave = saveManager.GetComponent<DroneSaveSystem>();
             if (gatherersSave) gatherersDTO = gatherersSave.SaveGatherers();
             Debug.Log($"Saved gatherers {gatherersDTO.amount}");
+            // wave
+            var waveSave = WaveSaveSystem.Instance.SaveDTO();
             //Save DTO to GameDataDTO
             newSave.mainBaseDataDTO = mainBaseDTO;
             newSave.currenciesDTO = currencyDTO;
             newSave.gatherersDTO = gatherersDTO;
+            newSave.waveDTO = waveSave;
 
 
 
@@ -138,6 +142,9 @@ namespace Assets.Scripts.SaveSystem
             //gatherers
             var gatherersSave = saveManager.GetComponent<DroneSaveSystem>();
             if(gatherersSave)gatherersSave.LoadGatherers(gameSave.gatherersDTO);
+
+            // wave
+            WaveSaveSystem.Instance.LoadDTO(gameSave.waveDTO);
             
             Debug.Log($"Game Loaded Save Slot: {CurrentSlot}");
         }

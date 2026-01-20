@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Assets.Scripts.Save.DTO.wave;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,7 +12,7 @@ namespace Assets.Scripts.Wave
 {
     public class SelectWaveManager : MonoBehaviour
     {
-        private int selectedWaveNumber = 1;
+        private int selectedWaveNumber;
         private WaveSpawner _waveSpawner;
 
         // Singleton
@@ -86,5 +87,16 @@ namespace Assets.Scripts.Wave
 
         public void ShowUI() => SetUIVisible(true);
         public void HideUI() => SetUIVisible(false);
+
+        // MEMENTO
+        public SelectWaveDTO SaveDTO()
+        {
+            return new SelectWaveDTO { selectedWaveNumber = selectedWaveNumber };
+        }
+        public void LoadDTO(SelectWaveDTO dto)
+        {
+            this.selectedWaveNumber = dto.selectedWaveNumber;
+            UpdateUI();
+        }
     }
 }
