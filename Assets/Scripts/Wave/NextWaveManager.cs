@@ -1,4 +1,6 @@
 ﻿using Assets.Scripts.Enemies;
+using Assets.Scripts.SaveSystem;
+using PlayerBase;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -43,10 +45,14 @@ namespace Assets.Scripts.Wave
             aliveEnemies--;
             killedEnemies++;
 
+            // END WAVE MOMENT
             if (aliveEnemies <= 0 &&
                 killedEnemies >= _waveSpawner.GetEnemiesToSpawn()
                 )
             {
+                PlayerBaseHealth.Instance.ResetHP();
+                GameSaveHandler.Instance.SaveGameState();
+
                 _waveTimer.ResetTimer();
                 _selectWaveManager.ShowUI();
             }

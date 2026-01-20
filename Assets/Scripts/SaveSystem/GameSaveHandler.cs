@@ -73,10 +73,10 @@ namespace Assets.Scripts.SaveSystem
             Debug.Log($"Loaded Save Slot: {CurrentSlot}");
 
             string metaJson = JsonUtility.ToJson(CurrentMetaSave, true);
-            Debug.Log(metaJson);
+            //Debug.Log(metaJson);
 
             string gameJson = JsonUtility.ToJson(CurrentGameSave, true);
-            Debug.Log(gameJson);
+            //Debug.Log(gameJson);
 
             //  --------------
 
@@ -106,7 +106,7 @@ namespace Assets.Scripts.SaveSystem
             //gatherers
             var gatherersSave = saveManager.GetComponent<DroneSaveSystem>();
             if (gatherersSave) gatherersDTO = gatherersSave.SaveGatherers();
-            Debug.Log($"Saved gatherers {gatherersDTO.amount}");
+            //Debug.Log($"Saved gatherers {gatherersDTO.amount}");
             // wave
             var waveSave = WaveSaveSystem.Instance.SaveDTO();
             //Save DTO to GameDataDTO
@@ -118,7 +118,7 @@ namespace Assets.Scripts.SaveSystem
 
 
             SaveManager.Instance.SaveGame(CurrentSlot, newSave);
-            Debug.Log($"Saved Save Slot: {CurrentSlot}");
+            //Debug.Log($"Saved Save Slot: {CurrentSlot}");
         }
 
         // Passes gameSaveDto to managers
@@ -127,7 +127,9 @@ namespace Assets.Scripts.SaveSystem
             //currencies
             if (gameSave.currenciesDTO == null || gameSave.currenciesDTO?.currencies.Count == 0)
             {
+                // FIRST LOAD
                 CurrencyManager.Instance.CreateAndLoadCurrencies();
+                SaveManager.Instance.OnFirstSave(CurrentSlot);
             }
             else
             {

@@ -30,6 +30,8 @@ public class MainBaseStateSave : MonoBehaviour
     [ContextMenu("Zapisz do DTO")]
     public List<MainBaseDataDTO> SaveToDTO()
     {
+        saveData.Clear();
+
         var filteredChildren = mainBase.GetComponentsInChildren<Transform>()
             .Where(t => t.gameObject.layer == LayerMask.NameToLayer("Interactable"))
             .ToList();

@@ -30,7 +30,7 @@ namespace Assets.Scripts.SaveSystem
 
         private void Awake()
         {
-            Debug.Log("SaveManager start");
+            //Debug.Log("SaveManager start");
 
             if (Instance != null && Instance != this)
             {
@@ -70,13 +70,20 @@ namespace Assets.Scripts.SaveSystem
                     Exists = false,
                     Level = 0,
                     PlayedHours = 0f,
-                    CreatedAt = System.DateTime.Now.ToString("yyyy-MM-dd HH:mm"),
+                    CreatedAt = "-",
                     LastPlayed = "-"
                 },
                 Game = new GameDataDTO()
             };
 
             WriteSaveFile(slot, emptySave);
+        }
+
+        public void OnFirstSave(int slot)
+        {
+            SaveFileDTO save = ReadSaveFile(slot);
+            save.Meta.CreatedAt = System.DateTime.Now.ToString("yyyy-MM-dd HH:mm");
+            WriteSaveFile(slot, save);
         }
 
         // ================= PATH =================
@@ -89,7 +96,7 @@ namespace Assets.Scripts.SaveSystem
             string json = JsonUtility.ToJson(save, true);
 
             Debug.Log("Save nr:" + slot);
-            Debug.Log(json);
+            //Debug.Log(json);
             File.WriteAllText(GetSlotPath(slot), json);
         }
 
@@ -140,8 +147,7 @@ namespace Assets.Scripts.SaveSystem
             save.Game = gameDto;
             save.Meta.Exists = true;
 
-            //save.Meta.Level = gameDto.currentWave;
-            save.Meta.Level = 0;
+            save.Meta.Level = gameDto.waveDTO.waveSpawner.avaliableWaveNumber;
 
             save.Meta.LastPlayed = System.DateTime.Now.ToString("yyyy-MM-dd HH:mm");
 

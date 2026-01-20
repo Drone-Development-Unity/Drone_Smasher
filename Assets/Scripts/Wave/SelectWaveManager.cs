@@ -1,4 +1,5 @@
 ﻿using Assets.Scripts.Save.DTO.wave;
+using Assets.Scripts.SaveSystem;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -62,7 +63,10 @@ namespace Assets.Scripts.Wave
         public void StartSelectedWave()
         {
             //Debug.Log($"Starting Wave: {selectedWaveNumber}");
-            
+
+            // SAVE GAME
+            GameSaveHandler.Instance.SaveGameState();
+
             _waveSpawner.SpawnWave(selectedWaveNumber);
 
             HideUI();
