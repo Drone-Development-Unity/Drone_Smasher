@@ -9,6 +9,10 @@ namespace Assets.Scripts.Save.DTO.wave
     [System.Serializable]
     public class WaveSpawnerDTO
     {
-        public int avaliableWaveNumber = 1;
+        public int avaliableWaveNumber;
+        public WaveSpawnerDTO()
+        {
+            avaliableWaveNumber = 1;
+        }
     }
 }

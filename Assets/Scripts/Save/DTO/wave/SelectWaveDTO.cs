@@ -9,6 +9,10 @@ namespace Assets.Scripts.Save.DTO.wave
     [System.Serializable]
     public class SelectWaveDTO
     {
-        public int selectedWaveNumber = 1;
+        public int selectedWaveNumber;
+        public SelectWaveDTO()
+        {
+            selectedWaveNumber = 1;
+        }
     }
 }

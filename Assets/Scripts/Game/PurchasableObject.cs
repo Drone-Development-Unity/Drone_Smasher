@@ -16,8 +16,11 @@ namespace Game
         private new void Start()
         {
             base.Start();
-            uiManager = GameUIManager.Instance;
             if(isPurchased)CannonPurchased(); //deactivate script if cannon is purchased
+        }
+        private void Awake()
+        {
+            uiManager = GameUIManager.Instance;
         }
         public override void OnPointerClick(PointerEventData eventData)
         {
@@ -45,10 +48,16 @@ namespace Game
         {
             //gameObject.SetActive(true);
             //Debug.Log("Hide Placeholder UI");
+
+            if (uiManager == null)
+                uiManager = GameUIManager.Instance;
+
             isPurchased = false;
             //deactivate script when disposed cannon
             enabled = true;
-            uiManager.TryHideShopMenu(); //hide shop menu after dispose
+
+            if (uiManager != null)
+                uiManager.TryHideShopMenu(); //hide shop menu after dispose
             
             //active childs
             foreach (Transform child in gameObject.transform)
