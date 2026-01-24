@@ -56,6 +56,11 @@ namespace Assets.Scripts.Bullets.Rocket
             }
         }
 
+        public void setDamage(int dmg)
+        {
+            damage = dmg;
+            //Debug.Log($"{gameObject.name} damage set to {damage}");
+        }
         protected virtual void FixedUpdate()
         {
             // in case target destroyed, find new target
@@ -126,6 +131,7 @@ namespace Assets.Scripts.Bullets.Rocket
                     var enemy = hit.GetComponent<BaseEnemy>();
                     if (enemy != null)
                         enemy.TakeDamage(damage);
+                    //Debug.Log($"Enemy damaged: {damage}");
                 }
             }
 

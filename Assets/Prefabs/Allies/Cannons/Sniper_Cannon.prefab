@@ -201,44 +201,35 @@ MonoBehaviour:
     - propertyType: 0
       propertyValue: 10
     - propertyType: 2
-      propertyValue: 0.1
+      propertyValue: 5
     - propertyType: 3
-      propertyValue: 110
+      propertyValue: 20
     upgrades:
     - upgradeImage: {fileID: 0}
-      upgradeName: DamageIncrease
+      upgradeName: Increase Damage
       upgradeCost: 100
       upgradeCurrencyImage: {fileID: 0}
-      upgradeAmount: 10
+      upgradeAmount: 5
       targetPropertyName: Damage
       currencyId: 0
       baseObject: {fileID: 0}
       upgradeComboValue: 0
     - upgradeImage: {fileID: 0}
-      upgradeName: CritRateIncrease
-      upgradeCost: 2
+      upgradeName: Critical Chance Increase
+      upgradeCost: 300
       upgradeCurrencyImage: {fileID: 0}
-      upgradeAmount: 0.1
+      upgradeAmount: 5
       targetPropertyName: CritChancePct
       currencyId: 1
       baseObject: {fileID: 0}
       upgradeComboValue: 0
     - upgradeImage: {fileID: 0}
-      upgradeName: CriticalDamageIncrease
-      upgradeCost: 500
+      upgradeName: Critical Damage Increase
+      upgradeCost: 100
       upgradeCurrencyImage: {fileID: 0}
-      upgradeAmount: 1
+      upgradeAmount: 10
       targetPropertyName: CritDmgPct
-      currencyId: 0
-      baseObject: {fileID: 0}
-      upgradeComboValue: 0
-    - upgradeImage: {fileID: 0}
-      upgradeName: 
-      upgradeCost: 0
-      upgradeCurrencyImage: {fileID: 0}
-      upgradeAmount: 0
-      targetPropertyName: Damage
-      currencyId: 0
+      currencyId: 1
       baseObject: {fileID: 0}
       upgradeComboValue: 0
   cannonType: 2

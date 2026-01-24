@@ -32,6 +32,10 @@ namespace Assets.Scripts.Bullets
             this.direction = direction;
         }
 
+        public void setDamage(int dmg)
+        {
+            damage = dmg;
+        }
         void Start()
         {
 
@@ -68,6 +72,7 @@ namespace Assets.Scripts.Bullets
                 if (vulnerableTarget != null)
                 {
                     vulnerableTarget.TakeDamage(damage);
+                    //Debug.Log($"{collision.gameObject.tag} damaged: {damage}");
                     animController.PlaySparksEffect(transform.position, direction);
                     Destroy(gameObject);
                 }

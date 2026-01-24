@@ -36,10 +36,11 @@ namespace Game.MainCannon
         [SerializeField] private GameObject enemyContainer;
 
         private Transform currentTarget;
-
+        protected StatsData stats; 
         private void Start()
         {
             enemyContainer = GameObject.Find("EnemiesContainer");
+            stats = GetComponent<Unit>().GetStats();
             // Inicjalizacja paska cooldownu (jeśli jest przypięty)
             if (cooldownBar != null)
             {
@@ -51,6 +52,35 @@ namespace Game.MainCannon
             cooldownTimer = cooldownDelay;
         }
 
+        
+        //-------------UNIT-------------
+        protected int GetDamageProperty()
+        {
+            int damage = (int)(stats.properties
+                .FirstOrDefault(p => p.propertyType == StatType.Damage)?.propertyValue ?? 0);
+            //return damage;
+            if (isCritical()) damage = Mathf.RoundToInt(calculateCrtiDmg(damage));
+            return damage;
+        }
+
+        private bool isCritical()
+        {
+            int critChance = (int)(stats.properties
+                .FirstOrDefault(p => p.propertyType == StatType.CritChancePct)?.propertyValue ?? 0);
+            bool success = Random.Range(0, 100) < critChance;
+            //if(success)Debug.Log($"Critical hit {gameObject.name}");
+            return success;
+        }
+
+        private float calculateCrtiDmg(int baseDmg)
+        {
+            int critDmg = (int)(stats.properties
+                .FirstOrDefault(p => p.propertyType == StatType.CritDmgPct)?.propertyValue ?? 0);
+            float criticalDamage = baseDmg * (critDmg / 100f + 1);
+            //Debug.Log($"Critical damage: {criticalDamage} (base: {baseDmg}) {gameObject.name}");
+            return criticalDamage;
+        }
+        //-------------UNIT-------------
         private void Update()
         {
             HandleCooldown();
@@ -159,19 +189,6 @@ namespace Game.MainCannon
             return closestEnemy;
         }
 
-        // Pobieranie obrażeń ze statystyk jednostki (tak jak w oryginale)
-        private int GetDamageProperty()
-        {
-            var unit = GetComponent<Unit>();
-            if (unit == null) return 10; // Wartość domyślna jeśli nie ma komponentu Unit
-
-            var stats = unit.GetStats();
-            if (stats == null || stats.properties == null) return 10;
-
-            int damage = (int)(stats.properties
-                .FirstOrDefault(p => p.propertyType == StatType.Damage)?.propertyValue ?? 0);
-            return damage;
-        }
         
         // Wizualizacja zasięgu w edytorze (Gizmos)
         private void OnDrawGizmosSelected()

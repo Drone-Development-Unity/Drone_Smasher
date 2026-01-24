@@ -223,7 +223,7 @@ namespace Assets.Scripts.Allies.Cannons.SpecificCannons
                 {
                     var enemy = hit.transform.GetComponent<BaseEnemy>();
                     if (enemy != null)
-                        enemy.TakeDamage(damage);
+                        enemy.TakeDamage(GetDamageProperty());
 
                     //shootHitPoint = hit.point;
                     //break;

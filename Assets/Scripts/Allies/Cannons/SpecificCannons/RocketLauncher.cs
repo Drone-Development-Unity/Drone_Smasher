@@ -5,7 +5,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Assets.Scripts.Bullets;
+using Game;
+using Game.StatsPanel;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace Assets.Scripts.Allies.Cannons.SpecificCannons
 {
@@ -23,7 +27,8 @@ namespace Assets.Scripts.Allies.Cannons.SpecificCannons
         public float rotationAngleOfReloading = 45f;
         public float rotationAngleOfReadyToShot = 0f;
         public bool rotateToEnemy = false;
-
+        
+        
         protected override void FixedUpdate()
         {
             base.FixedUpdate();
@@ -40,7 +45,7 @@ namespace Assets.Scripts.Allies.Cannons.SpecificCannons
                 }
             }
         }
-
+        
         IEnumerator SpawnRocketsCoroutine()
         {
             // rotate cannon to ReadyToShot angle
@@ -94,12 +99,16 @@ namespace Assets.Scripts.Allies.Cannons.SpecificCannons
 
             GameObject Bullet = Instantiate(enemyBullet, firePoint.position, firePoint.rotation);
             Bullet.transform.parent = bulletsContainer.transform; // make bullet child of bulletsContainer
-
+            
+            
+            var cluster = Bullet.GetComponent<ClusterRocketMovement>();
+            if(cluster) cluster.setDamage(GetDamageProperty());
             // give target to rocket
             var rocket = Bullet.GetComponent<RocketMovement>();
             if (rocket != null)
             {
                 rocket.target = targetEnemy;
+                rocket.setDamage(GetDamageProperty());
             }
         }
     }

@@ -158,7 +158,7 @@ namespace Game.MainCannon
             int critChance = (int)(stats.properties
                 .FirstOrDefault(p => p.propertyType == StatType.CritChancePct)?.propertyValue ?? 0);
             bool success = Random.Range(0, 100) < critChance;
-            if(success)Debug.Log("Critical hit");
+            //if(success)Debug.Log("Critical hit");
             return success;
         }
 
@@ -167,7 +167,7 @@ namespace Game.MainCannon
             int critDmg = (int)(stats.properties
                 .FirstOrDefault(p => p.propertyType == StatType.CritDmgPct)?.propertyValue ?? 0);
             float criticalDamage = baseDmg * (critDmg / 100f + 1);
-            Debug.Log($"Critical damage: {criticalDamage} (base: {baseDmg})");
+            //Debug.Log($"Critical damage: {criticalDamage} (base: {baseDmg})");
             return criticalDamage;
         }
         //Check click area

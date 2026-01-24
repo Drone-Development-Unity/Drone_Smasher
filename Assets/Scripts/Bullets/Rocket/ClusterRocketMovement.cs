@@ -64,8 +64,9 @@ namespace Assets.Scripts.Bullets.Rocket
             Bullet.GetComponent<BulletCollisionDetection>().Initialize(
                 gameObject, damage, Vector2.zero
                 );
-
+            
             var rocket = Bullet.GetComponent<RocketMovement>();
+            rocket.setDamage(damage);
             rocket.target = target; //give enemy position to bullet when spawned
         }
 
