@@ -43,7 +43,8 @@ namespace Game.MainCannon
         private Camera mainCamera;
         private Vector3 mouseWorldPos;
         private Transform currentTarget;
-        
+
+        private StatsData stats; 
         private void OnEnable()
         {
             fireActionRef.action.performed += MousePositionFire;
@@ -59,7 +60,7 @@ namespace Game.MainCannon
         private void Start()
         {
             mainCamera = Camera.main;
-
+            stats = GetComponent<Unit>().GetStats();
             cooldownBar.SetMaxAmount(cooldownDelay);
             cooldownBar.SetAmount(cooldownDelay);
         }
@@ -145,10 +146,29 @@ namespace Game.MainCannon
 
         private int GetDamageProperty()
         {
-            var stats = GetComponent<Unit>().GetStats();
             int damage = (int)(stats.properties
                 .FirstOrDefault(p => p.propertyType == StatType.Damage)?.propertyValue ?? 0);
+            //return damage;
+            if (isCritical()) damage = Mathf.RoundToInt(calculateCrtiDmg(damage));
             return damage;
+        }
+
+        private bool isCritical()
+        {
+            int critChance = (int)(stats.properties
+                .FirstOrDefault(p => p.propertyType == StatType.CritChancePct)?.propertyValue ?? 0);
+            bool success = Random.Range(0, 100) < critChance;
+            if(success)Debug.Log("Critical hit");
+            return success;
+        }
+
+        private float calculateCrtiDmg(int baseDmg)
+        {
+            int critDmg = (int)(stats.properties
+                .FirstOrDefault(p => p.propertyType == StatType.CritDmgPct)?.propertyValue ?? 0);
+            float criticalDamage = baseDmg * (critDmg / 100f + 1);
+            Debug.Log($"Critical damage: {criticalDamage} (base: {baseDmg})");
+            return criticalDamage;
         }
         //Check click area
         private bool IsClickWithinArea()

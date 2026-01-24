@@ -310,17 +310,41 @@ MonoBehaviour:
     objectName: "G\u0142\xF3wne dzia\u0142o"
     description: 
     properties:
-    - propertyName: Damage
+    - propertyType: 0
       propertyValue: 10
+    - propertyType: 2
+      propertyValue: 10
+    - propertyType: 3
+      propertyValue: 50
     upgrades:
     - upgradeImage: {fileID: 0}
-      upgradeName: DamageIncrease
+      upgradeName: Increase Cannon Damage
       upgradeCost: 100
       upgradeCurrencyImage: {fileID: 0}
       upgradeAmount: 2
       targetPropertyName: Damage
+      currencyId: 0
       baseObject: {fileID: 0}
       upgradeComboValue: 0
+    - upgradeImage: {fileID: 0}
+      upgradeName: Increase Critical Chance
+      upgradeCost: 10
+      upgradeCurrencyImage: {fileID: 0}
+      upgradeAmount: 5
+      targetPropertyName: CritChancePct
+      currencyId: 0
+      baseObject: {fileID: 0}
+      upgradeComboValue: 0
+    - upgradeImage: {fileID: 0}
+      upgradeName: Increase Critical Damage
+      upgradeCost: 10
+      upgradeCurrencyImage: {fileID: 0}
+      upgradeAmount: 10
+      targetPropertyName: CritDmgPct
+      currencyId: 0
+      baseObject: {fileID: 0}
+      upgradeComboValue: 0
+  cannonType: 0
 --- !u!114 &6863729421712627718
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -356,8 +380,12 @@ MonoBehaviour:
   bulletSpeed: 10
   rotateAnimationDuration: 0.2
   angleTolerance: 10
+  cooldownBar: {fileID: 0}
+  cooldownDelay: 0.2
   clickAreaCollider: {fileID: 0}
-  useWorldArea: 1
+  shootSound: {fileID: 0}
+  clickArea: {fileID: 0}
+  enemyContainer: {fileID: 0}
 --- !u!1 &8752593938428485285
 GameObject:
   m_ObjectHideFlags: 0
