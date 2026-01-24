@@ -10,7 +10,7 @@ namespace Game
     /// </summary>
     public class PurchasableObject : HighlightObject
     {
-        private GameUIManager uiManager;
+        
         public Transform placeholder; //purchased object will be child of this placeholder
         public bool isPurchased = false;
         private new void Start()
@@ -18,9 +18,15 @@ namespace Game
             base.Start();
             if(isPurchased)CannonPurchased(); //deactivate script if cannon is purchased
         }
-        private void Awake()
+        private GameUIManager uiManager;
+        private GameUIManager UIManager
         {
-            uiManager = GameUIManager.Instance;
+            get
+            {
+                if (uiManager == null)
+                    uiManager = GameUIManager.Instance;
+                return uiManager;
+            }
         }
         public override void OnPointerClick(PointerEventData eventData)
         {
@@ -28,10 +34,7 @@ namespace Game
             if (!isPurchased)
             {
                 base.OnPointerClick(eventData);
-                if (uiManager != null)
-                {
-                    uiManager.ShowCannonShopWindow(placeholder, gameObject);
-                }
+                UIManager.ShowCannonShopWindow(placeholder, gameObject);
             }
         }
 
@@ -42,22 +45,17 @@ namespace Game
             isPurchased = true;
             //deactivate script when purchased cannon
             enabled = false;
-            uiManager.TryHideShopMenu(); //hide shop menu after purchase
+            UIManager.TryHideShopMenu(); //hide shop menu after purchase
         }
         public void CannonDisposed()
         {
             //gameObject.SetActive(true);
             //Debug.Log("Hide Placeholder UI");
-
-            if (uiManager == null)
-                uiManager = GameUIManager.Instance;
-
             isPurchased = false;
             //deactivate script when disposed cannon
             enabled = true;
-
-            if (uiManager != null)
-                uiManager.TryHideShopMenu(); //hide shop menu after dispose
+            
+            UIManager.TryHideShopMenu(); //hide shop menu after dispose
             
             //active childs
             foreach (Transform child in gameObject.transform)

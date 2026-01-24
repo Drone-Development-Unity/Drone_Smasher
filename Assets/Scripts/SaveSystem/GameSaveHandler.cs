@@ -125,7 +125,7 @@ namespace Assets.Scripts.SaveSystem
         private void SetGameState(GameDataDTO gameSave)
         {
             //currencies
-            if (gameSave.currenciesDTO == null || gameSave.currenciesDTO?.currencies.Count == 0)
+            if (gameSave.currenciesDTO.currencies == null || gameSave.currenciesDTO.currencies.Count == 0)
             {
                 // FIRST LOAD
                 CurrencyManager.Instance.CreateAndLoadCurrencies();
