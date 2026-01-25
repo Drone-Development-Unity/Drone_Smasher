@@ -199,6 +199,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 7932370337672125503, guid: 0f816ce9e5e7a964591b9fabab1cbdd1, type: 3}
   m_PrefabInstance: {fileID: 7655008909803127773}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &26965729 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7994107994797476514, guid: 3a6bc509d6bc8b64cb5572da0c9b875d, type: 3}
+  m_PrefabInstance: {fileID: 223209397}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Button
 --- !u!224 &54717079 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7530636872238707812, guid: 186155847618fa14bb62f812f455fd13, type: 3}
@@ -1289,22 +1300,22 @@ PrefabInstance:
     - target: {fileID: 7994107994797476514, guid: 3a6bc509d6bc8b64cb5572da0c9b875d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1579132262}
+      objectReference: {fileID: 11500000, guid: fcb8e9c0ae1948a429be0fdeaeca7bb0, type: 3}
     - target: {fileID: 7994107994797476514, guid: 3a6bc509d6bc8b64cb5572da0c9b875d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7994107994797476514, guid: 3a6bc509d6bc8b64cb5572da0c9b875d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: BackToInfo
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 7994107994797476514, guid: 3a6bc509d6bc8b64cb5572da0c9b875d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: SelectGameMenu, Assembly-CSharp
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 7994107994797476514, guid: 3a6bc509d6bc8b64cb5572da0c9b875d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 8906021898896107827, guid: 3a6bc509d6bc8b64cb5572da0c9b875d, type: 3}
       propertyPath: m_Type
@@ -2356,6 +2367,7 @@ GameObject:
   - component: {fileID: 673704104}
   - component: {fileID: 673704106}
   - component: {fileID: 673704105}
+  - component: {fileID: 673704107}
   m_Layer: 0
   m_Name: BackgroundDim
   m_TagString: Untagged
@@ -2423,6 +2435,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 673704103}
   m_CullTransparentMesh: 1
+--- !u!114 &673704107
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 673704103}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcb8e9c0ae1948a429be0fdeaeca7bb0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Assets.Scripts.UI.Saves.SavePopUpUI
+  titleLabel: {fileID: 467801728}
+  levelLabel: {fileID: 262946370}
+  playedHLabel: {fileID: 779528987}
+  lastPlayedLabel: {fileID: 1764280961}
+  createdAtLabel: {fileID: 1875590116}
+  saveCointainer: {fileID: 1452950338}
+  saveInfoPopUp: {fileID: 1668993483}
+  confirmationPopUp: {fileID: 1634750299}
+  clearSaveBtn: {fileID: 26965729}
 --- !u!1 &691007510
 GameObject:
   m_ObjectHideFlags: 0
@@ -3854,7 +3887,7 @@ PrefabInstance:
     - target: {fileID: 6723242197276909204, guid: 3907ad60c6c778f489facad5ca613411, type: 3}
       propertyPath: popupUI
       value: 
-      objectReference: {fileID: 1668993487}
+      objectReference: {fileID: 0}
     - target: {fileID: 6753852095224961775, guid: 3907ad60c6c778f489facad5ca613411, type: 3}
       propertyPath: m_Name
       value: Save_2
@@ -3996,6 +4029,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 673704104}
     m_Modifications:
+    - target: {fileID: 277969303687875107, guid: da1ef0cd5e31fdb47aa1d7090456721b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 438546679989423900, guid: da1ef0cd5e31fdb47aa1d7090456721b, type: 3}
       propertyPath: m_Transition
       value: 2
@@ -4276,6 +4313,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 1758714450616342027, guid: 6b30fe4a07d92e74eabe3b817e4dc759, type: 3}
+    - target: {fileID: 2882451692699059808, guid: da1ef0cd5e31fdb47aa1d7090456721b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3093762022192571802, guid: da1ef0cd5e31fdb47aa1d7090456721b, type: 3}
       propertyPath: m_Type
       value: 0
@@ -4496,6 +4537,14 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 6334089348699575535, guid: da1ef0cd5e31fdb47aa1d7090456721b, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.00033367
+      objectReference: {fileID: 0}
+    - target: {fileID: 6334089348699575535, guid: da1ef0cd5e31fdb47aa1d7090456721b, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 98
+      objectReference: {fileID: 0}
     - target: {fileID: 6632572502424753678, guid: da1ef0cd5e31fdb47aa1d7090456721b, type: 3}
       propertyPath: m_fontAsset
       value: 
@@ -4518,6 +4567,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6632572502424753678, guid: da1ef0cd5e31fdb47aa1d7090456721b, type: 3}
       propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6830292963552243361, guid: da1ef0cd5e31fdb47aa1d7090456721b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7628062410048557268, guid: da1ef0cd5e31fdb47aa1d7090456721b, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7718699487073447065, guid: da1ef0cd5e31fdb47aa1d7090456721b, type: 3}
@@ -4563,10 +4620,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 957647056153684967, guid: da1ef0cd5e31fdb47aa1d7090456721b, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1668993487}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: da1ef0cd5e31fdb47aa1d7090456721b, type: 3}
 --- !u!225 &1262631018 stripped
 CanvasGroup:
@@ -4936,23 +4990,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 609386433704110506, guid: da1ef0cd5e31fdb47aa1d7090456721b, type: 3}
   m_PrefabInstance: {fileID: 1262631017}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1668993487
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1668993483}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fcb8e9c0ae1948a429be0fdeaeca7bb0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Assets.Scripts.UI.Saves.SavePopUpUI
-  titleLabel: {fileID: 467801728}
-  levelLabel: {fileID: 262946370}
-  playedHLabel: {fileID: 779528987}
-  lastPlayedLabel: {fileID: 1764280961}
-  createdAtLabel: {fileID: 1875590116}
 --- !u!1 &1714290323
 GameObject:
   m_ObjectHideFlags: 0
@@ -6442,7 +6479,7 @@ PrefabInstance:
     - target: {fileID: 6723242197276909204, guid: 3907ad60c6c778f489facad5ca613411, type: 3}
       propertyPath: popupUI
       value: 
-      objectReference: {fileID: 1668993487}
+      objectReference: {fileID: 0}
     - target: {fileID: 6753852095224961775, guid: 3907ad60c6c778f489facad5ca613411, type: 3}
       propertyPath: m_Name
       value: Save_1
@@ -7040,6 +7077,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1452950339}
     m_Modifications:
+    - target: {fileID: 1136578691221309284, guid: 3907ad60c6c778f489facad5ca613411, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1392711880031257006, guid: 3907ad60c6c778f489facad5ca613411, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -60
@@ -7243,7 +7284,7 @@ PrefabInstance:
     - target: {fileID: 6723242197276909204, guid: 3907ad60c6c778f489facad5ca613411, type: 3}
       propertyPath: popupUI
       value: 
-      objectReference: {fileID: 1668993487}
+      objectReference: {fileID: 0}
     - target: {fileID: 6753852095224961775, guid: 3907ad60c6c778f489facad5ca613411, type: 3}
       propertyPath: m_Name
       value: Save_0
@@ -7701,7 +7742,7 @@ PrefabInstance:
     - target: {fileID: 664630594195518699, guid: 020b6e21c11559048a10d056e77b0639, type: 3}
       propertyPath: infoPopUpUI
       value: 
-      objectReference: {fileID: 1668993487}
+      objectReference: {fileID: 673704107}
     - target: {fileID: 664630594195518699, guid: 020b6e21c11559048a10d056e77b0639, type: 3}
       propertyPath: confirmPopup
       value: 

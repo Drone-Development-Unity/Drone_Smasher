@@ -1,4 +1,5 @@
 using Game.StatsPanel.CannonsContent;
+using System.Collections;
 using TMPro;
 using UnityEngine;
 
@@ -23,6 +24,10 @@ namespace Game.Managers
         private TextMeshProUGUI descriptionText;
         private Transform propertiesContainer;
         private Transform upgradesContainer;
+
+        [Header("Death screen")]
+        [SerializeField] private GameObject deathScreen;
+        [SerializeField] private TextMeshProUGUI loadingText;
         
         [Header("Others")]
         [SerializeField] public GameObject currencyList;
@@ -85,6 +90,31 @@ namespace Game.Managers
         public void TryHideShopMenu()
         {
             if(CannonShopObject.activeSelf)CannonShopObject.SetActive(false);
+        }
+
+        // death screen
+        public void ShowDeathScreen()
+        {
+            if (deathScreen == null || loadingText == null) return;
+
+            deathScreen.SetActive(true);
+            StartCoroutine(AnimateLoadingText());
+        }
+
+        private IEnumerator AnimateLoadingText()
+        {
+            string baseText = "LOADING LAST SAVE";
+            int dotCount = 0;
+            int maxDots = 3;
+
+            while (true)
+            {
+                dotCount = (dotCount + 1) % (maxDots + 1);
+                string dots = new string('.', dotCount);
+                loadingText.SetText(baseText + " " + dots);
+
+                yield return new WaitForSecondsRealtime(0.5f);
+            }
         }
     }
 }

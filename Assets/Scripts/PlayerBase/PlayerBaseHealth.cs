@@ -1,7 +1,11 @@
 using Assets.Scripts.Game.UIElements;
 using Assets.Scripts.Save.DTO;
+using Assets.Scripts.SaveSystem;
+using Game.Managers;
 using System;
+using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace PlayerBase
 {
@@ -70,8 +74,22 @@ namespace PlayerBase
         public virtual void Die()
         {
             IsAlive = false;
-            // TODO
-            //Show some UI to reset lvl or something
+
+            StartCoroutine(DeathSequence());
         }
+
+        private IEnumerator DeathSequence()
+        {
+            Time.timeScale = 0f;
+
+            GameUIManager.Instance.ShowDeathScreen();
+
+            yield return new WaitForSecondsRealtime(3f);
+
+            Time.timeScale = 1f;
+
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
+
     }
 }

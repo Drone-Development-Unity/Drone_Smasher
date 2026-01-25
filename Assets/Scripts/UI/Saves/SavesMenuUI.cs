@@ -16,6 +16,11 @@ namespace Assets.Scripts.UI
 
         private void Start()
         {
+            InitTiles();
+        }
+
+        public void InitTiles()
+        {
             MetaDataDTO[] metas = SaveManager.Instance.GetAllMetaData();
 
             for (int i = 0; i < saveTiles.Length; i++)
