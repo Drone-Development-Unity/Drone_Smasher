@@ -1475,18 +1475,18 @@ MonoBehaviour:
   currencies:
   - currencyId: 0
     currencyName: Scraps
-    icon: {fileID: -4504062532795706017, guid: 902df494a76908c4b91c7caa8e0b8e29, type: 3}
+    icon: {fileID: 21300000, guid: 902df494a76908c4b91c7caa8e0b8e29, type: 3}
     amount: 1000
   - currencyId: 1
     currencyName: Diamonds
-    icon: {fileID: 4334829770583383744, guid: 52c3353fe92186a419ae1f55fb0eb8df, type: 3}
+    icon: {fileID: 21300000, guid: 52c3353fe92186a419ae1f55fb0eb8df, type: 3}
     amount: 10
   currenciesData:
   - currencyId: 0
-    currencyIcon: {fileID: -4504062532795706017, guid: 902df494a76908c4b91c7caa8e0b8e29, type: 3}
+    currencyIcon: {fileID: 21300000, guid: 902df494a76908c4b91c7caa8e0b8e29, type: 3}
     currencyName: Scraps
   - currencyId: 1
-    currencyIcon: {fileID: 4334829770583383744, guid: 52c3353fe92186a419ae1f55fb0eb8df, type: 3}
+    currencyIcon: {fileID: 21300000, guid: 52c3353fe92186a419ae1f55fb0eb8df, type: 3}
     currencyName: EngineParts
 --- !u!4 &685483002
 Transform:

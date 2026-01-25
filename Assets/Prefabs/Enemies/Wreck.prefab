@@ -177,3 +177,4 @@ MonoBehaviour:
     dropRate: 0.01
     minAmount: 1
     maxAmount: 10
+  dropParticles: {fileID: 486005342936299750, guid: 47ed7a2f2ef17e745a84662cbc0df546, type: 3}

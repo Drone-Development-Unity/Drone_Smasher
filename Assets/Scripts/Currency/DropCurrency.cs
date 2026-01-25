@@ -8,7 +8,7 @@ public class DropCurrency : MonoBehaviour
     private List<CurrencyData> currencyData;
     private CurrencyManager  currencyManager;
     private System.Random rnd = new System.Random();
-    
+    [SerializeField] private ParticleSystem dropParticles;
     void Start()
     {
         currencyManager = CurrencyManager.Instance;
@@ -24,11 +24,17 @@ public class DropCurrency : MonoBehaviour
                 currencyManager.AddCurrency(currency.currencyId, GetDropAmount(currency.currencyId));
             }
         }
+        PlayAnimation();
     }
     public double GetDropAmount(int currId)
     {
         CurrencyDropData currency = dropCurrencies.Find(c => c.currencyId == currId);
         return Random.Range((float)currency.minAmount, (float)currency.maxAmount);
     }
-    
+    public void PlayAnimation()
+    {
+        var ps = Instantiate(dropParticles, transform.position, dropParticles.transform.rotation);
+        ps.transform.localScale = Vector3.one;
+        ps.Play();
+    }
 }
