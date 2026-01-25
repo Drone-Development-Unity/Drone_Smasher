@@ -317,7 +317,7 @@ MonoBehaviour:
     - propertyType: 3
       propertyValue: 50
     upgrades:
-    - upgradeImage: {fileID: 0}
+    - upgradeImage: {fileID: 21300000, guid: 1190ab3126f8ac241a4105d00f57fb8e, type: 3}
       upgradeName: Increase Cannon Damage
       upgradeCost: 100
       upgradeCurrencyImage: {fileID: 0}
@@ -326,7 +326,7 @@ MonoBehaviour:
       currencyId: 0
       baseObject: {fileID: 0}
       upgradeComboValue: 0
-    - upgradeImage: {fileID: 0}
+    - upgradeImage: {fileID: 21300000, guid: c99456370f3429141870aad9c35c65ec, type: 3}
       upgradeName: Increase Critical Chance
       upgradeCost: 10
       upgradeCurrencyImage: {fileID: 0}
@@ -335,7 +335,7 @@ MonoBehaviour:
       currencyId: 0
       baseObject: {fileID: 0}
       upgradeComboValue: 0
-    - upgradeImage: {fileID: 0}
+    - upgradeImage: {fileID: 21300000, guid: c99456370f3429141870aad9c35c65ec, type: 3}
       upgradeName: Increase Critical Damage
       upgradeCost: 10
       upgradeCurrencyImage: {fileID: 0}

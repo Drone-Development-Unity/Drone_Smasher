@@ -27,8 +27,8 @@ namespace Game
         }
         private void Start()
         {
-            //var dto = SaveToDTO();
-            //LoadFromDTO(dto);
+            var dto = SaveToDTO();
+            LoadFromDTO(dto);
             LoadCurrenciesSpriteData();
         }
 
