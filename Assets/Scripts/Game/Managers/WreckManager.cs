@@ -12,6 +12,7 @@ public class WreckManager : MonoBehaviour
 
     // gatherer activation threshold
     [SerializeField] private Transform GatherersActivationThresholdPosition;
+    public List<GameObject> WreckPrefabs = new List<GameObject>();
 
     private void Awake()
     {

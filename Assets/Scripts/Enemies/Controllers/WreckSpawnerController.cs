@@ -9,13 +9,17 @@ namespace Assets.Scripts.Enemies.Controllers
 {
     public class WreckSpawnerController : MonoBehaviour
     {
-        [SerializeField] private GameObject wreckPrefab;
-
         public void SpawnWreck(Vector3 position, Quaternion rotation, SpriteRenderer enemySprite)
         {
-            if(wreckPrefab == null) return;
+            var wreckPrefabs = WreckManager.Instance.WreckPrefabs;
 
-            GameObject wreckObj = Instantiate(wreckPrefab, position, rotation);
+            if (wreckPrefabs == null || wreckPrefabs.Count == 0) return;
+
+            GameObject randomPrefab = wreckPrefabs[UnityEngine.Random.Range(0, wreckPrefabs.Count)];
+
+            if (randomPrefab == null) return;
+
+            GameObject wreckObj = Instantiate(randomPrefab, position, rotation);
             // set parent and register in WreckManager
             wreckObj.transform.SetParent(WreckManager.Instance.wrecksContainer.transform, false);
             WreckManager.Instance.RegisterWreck(wreckObj.GetComponent<Wreck>());
@@ -25,7 +29,7 @@ namespace Assets.Scripts.Enemies.Controllers
 
             if (enemySprite != null && wreckRenderer != null)
             {
-                wreckRenderer.sprite = enemySprite.sprite;
+                //wreckRenderer.sprite = enemySprite.sprite;
                 //wreckRenderer.color = Color.gray; // np. default wreck color
             }
         }

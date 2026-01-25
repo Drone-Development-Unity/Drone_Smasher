@@ -1349,7 +1349,7 @@ Transform:
   m_GameObject: {fileID: 523814854}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -4.46233, y: -5.54, z: 0}
+  m_LocalPosition: {x: -4.46233, y: -7.41, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2666,6 +2666,14 @@ PrefabInstance:
       propertyPath: enemyContainer
       value: 
       objectReference: {fileID: 707869755}
+    - target: {fileID: 3939105694986554288, guid: cc741eff649938a459de1b66ef1f9432, type: 3}
+      propertyPath: m_Size.y
+      value: 1.7474462
+      objectReference: {fileID: 0}
+    - target: {fileID: 3939105694986554288, guid: cc741eff649938a459de1b66ef1f9432, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 3788267341346866712, guid: a9fb0fee9c984654baa948cad9302a64, type: 3}
     - target: {fileID: 5274909639380460734, guid: cc741eff649938a459de1b66ef1f9432, type: 3}
       propertyPath: m_LocalPosition.x
       value: -4.1
@@ -2706,10 +2714,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5659086983468697835, guid: cc741eff649938a459de1b66ef1f9432, type: 3}
+      propertyPath: m_Size.y
+      value: 1.76
+      objectReference: {fileID: 0}
+    - target: {fileID: 5659086983468697835, guid: cc741eff649938a459de1b66ef1f9432, type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.y
+      value: 1.7474462
+      objectReference: {fileID: 0}
+    - target: {fileID: 5659086983468697835, guid: cc741eff649938a459de1b66ef1f9432, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 11.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5659086983468697835, guid: cc741eff649938a459de1b66ef1f9432, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 6.2
+      objectReference: {fileID: 0}
     - target: {fileID: 7660604576299692420, guid: cc741eff649938a459de1b66ef1f9432, type: 3}
       propertyPath: healthBar
       value: 
       objectReference: {fileID: 1634183299742326335}
+    - target: {fileID: 8239291179380958924, guid: cc741eff649938a459de1b66ef1f9432, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.9678
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3041,6 +3069,10 @@ PrefabInstance:
       propertyPath: m_SizeDelta.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2250039729417277261, guid: a9587983e54cc434398e18b834a986e6, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 1721842320393272724, guid: 1290d435d156b9346bcb3d845b08d235, type: 3}
     - target: {fileID: 2351983609360023726, guid: a9587983e54cc434398e18b834a986e6, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -5091,18 +5123,22 @@ MonoBehaviour:
     enemyPrefabs:
     - {fileID: 2150796800528179175, guid: d6ad2e8885f775645a7a909ab84d7669, type: 3}
     - {fileID: 8929473634460101924, guid: 2c80f6c0dd7169c4fbd9630366eca982, type: 3}
+    - {fileID: 639803112940649849, guid: e63601bef90e34c46acb860511d1ee66, type: 3}
+    - {fileID: 8929473634460101924, guid: 7683f16f39809204fa820ee66a6561f0, type: 3}
     firstWaveProbability: 0.5
     infWaveProbability: 0
   - name: medium
     cost: 3
     enemyPrefabs:
     - {fileID: 2150796800528179175, guid: a51c5cf4baf4f05488947e4130167931, type: 3}
+    - {fileID: 5643687680106727857, guid: d8c2c94e0b0bc5542a4363b03413d5dc, type: 3}
     firstWaveProbability: 0.3
     infWaveProbability: 0.6
   - name: hard
     cost: 5
     enemyPrefabs:
     - {fileID: 2150796800528179175, guid: fb62ac9404f14e544b9ae4f6fd43beb6, type: 3}
+    - {fileID: 6174315415191550907, guid: ba7c4f16e63b4504e9684353616f72be, type: 3}
     firstWaveProbability: 0.2
     infWaveProbability: 0.5
   maxSignificantWaveNumber: 50
@@ -5156,6 +5192,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::WreckManager
   wrecksContainer: {fileID: 1054552769}
   GatherersActivationThresholdPosition: {fileID: 910341033}
+  WreckPrefabs:
+  - {fileID: 2776446182460810034, guid: 69edb087b7ec3874bbfe60d1f36b35ba, type: 3}
+  - {fileID: 2776446182460810034, guid: 6f87b8d2c2ec94b42858f00480513e74, type: 3}
+  - {fileID: 2776446182460810034, guid: 9d8417188cfd0cf448c5598f54e94fbb, type: 3}
+  - {fileID: 2776446182460810034, guid: 06b7b9fac5fd8a04597a6aaba539b646, type: 3}
 --- !u!114 &1861894777
 MonoBehaviour:
   m_ObjectHideFlags: 0

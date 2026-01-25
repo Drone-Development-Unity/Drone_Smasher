@@ -49,7 +49,7 @@ public class Wreck : MonoBehaviour, IPointerEnterHandler, ITraceableWreck
     {
         _collected = true;
         //Debug.Log("Wrak zebrany!");
-        _renderer.color = Color.black;
+        _renderer.color = Color.gray;
         // tutaj możesz dodać logikę: punkty, zasoby itd.
         DropCurrency dropCurrency = gameObject.GetComponent<DropCurrency>();
         if (dropCurrency != null)

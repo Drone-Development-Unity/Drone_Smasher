@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 40bd49ed96687d247aaea23a7c568cd3
+guid: a9fb0fee9c984654baa948cad9302a64
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -1073611763876277154
-    second: Gemini_Generated_Image_pi770vpi770vpi77 (1)_0
+      213: 3788267341346866712
+    second: motherboard_2_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Gemini_Generated_Image_pi770vpi770vpi77 (1)_0
+      name: motherboard_2_0
       rect:
         serializedVersion: 2
-        x: 2
-        y: 6
-        width: 622
-        height: 649
+        x: 65
+        y: 79
+        width: 1150
+        height: 620
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e54597bf9c3c911f0800000000000000
-      internalID: -1073611763876277154
+      spriteID: 816813b6311a29430800000000000000
+      internalID: 3788267341346866712
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Gemini_Generated_Image_pi770vpi770vpi77 (1)_0: -1073611763876277154
+      motherboard_2_0: 3788267341346866712
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

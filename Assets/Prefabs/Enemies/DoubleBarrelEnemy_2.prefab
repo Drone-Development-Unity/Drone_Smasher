@@ -53,7 +53,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2150796800528179175, guid: d6ad2e8885f775645a7a909ab84d7669, type: 3}
       propertyPath: m_Name
-      value: DoubleBarrelEnemy
+      value: DoubleBarrelEnemy_2
       objectReference: {fileID: 0}
     - target: {fileID: 3305433261214968550, guid: d6ad2e8885f775645a7a909ab84d7669, type: 3}
       propertyPath: m_LocalPosition.x
@@ -97,24 +97,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3426591562162671769, guid: d6ad2e8885f775645a7a909ab84d7669, type: 3}
       propertyPath: m_Size.x
-      value: 6.9
+      value: 6.89
       objectReference: {fileID: 0}
     - target: {fileID: 3426591562162671769, guid: d6ad2e8885f775645a7a909ab84d7669, type: 3}
       propertyPath: m_Size.y
-      value: 6.46
+      value: 6.49
       objectReference: {fileID: 0}
     - target: {fileID: 3426591562162671769, guid: d6ad2e8885f775645a7a909ab84d7669, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
-      value: 6.86
+      value: 6.85
       objectReference: {fileID: 0}
     - target: {fileID: 3426591562162671769, guid: d6ad2e8885f775645a7a909ab84d7669, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.y
-      value: 6.47
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 4534734868546900649, guid: d6ad2e8885f775645a7a909ab84d7669, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -3320330629282486023, guid: ad78b504b5ea0064c958971a91323234, type: 3}
+      objectReference: {fileID: -9182794059203070139, guid: 69a347add32a0034ab53c525b7eeecd4, type: 3}
     - target: {fileID: 6203461345537962226, guid: d6ad2e8885f775645a7a909ab84d7669, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
