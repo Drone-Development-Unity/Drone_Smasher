@@ -29,7 +29,6 @@ namespace Assets.Scripts.SaveSystem
             }
 
             Instance = this;
-            DontDestroyOnLoad(gameObject);
         }
         private void Start()
         {
