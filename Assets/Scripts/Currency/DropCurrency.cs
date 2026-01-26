@@ -19,7 +19,7 @@ public class DropCurrency : MonoBehaviour
         foreach (CurrencyDropData currency in dropCurrencies)
         {
             double value = rnd.NextDouble(); // range 0.0–1.0
-            if (value > currency.dropRate)
+            if (value < currency.dropRate)
             {
                 currencyManager.AddCurrency(currency.currencyId, GetDropAmount(currency.currencyId));
             }

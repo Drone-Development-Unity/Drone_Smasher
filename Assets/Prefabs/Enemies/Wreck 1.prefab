@@ -174,7 +174,7 @@ MonoBehaviour:
     minAmount: 50
     maxAmount: 200
   - currencyId: 1
-    dropRate: 0.01
-    minAmount: 1
-    maxAmount: 10
+    dropRate: 0.1
+    minAmount: 10
+    maxAmount: 50
   dropParticles: {fileID: 486005342936299750, guid: 47ed7a2f2ef17e745a84662cbc0df546, type: 3}
