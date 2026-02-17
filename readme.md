@@ -1,7 +1,7 @@
 
 <h1 align="center">
   <br>
-  <img src="./ReadmeFiles/Logo.png" width="300">
+  <img src="./ReadmeFiles/Logo.png" width="500">
   <br>
 </h1>
 
